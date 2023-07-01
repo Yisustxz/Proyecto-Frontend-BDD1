@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       backgroundImage:{
         'fondo': "url('../public/fondo.jpg')",
+      },
+      colors:{
+        'white': "#fff"
       }
     },
   },
