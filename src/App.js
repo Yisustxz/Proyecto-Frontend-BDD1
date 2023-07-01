@@ -4,23 +4,69 @@ import React, { useState } from "react";
 import Estados from './TablePages/Estados';
 import Concesionarios from './TablePages/Concesionarios';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SideBar3 from './Components/SideBar3';
+import Ciudades from './TablePages/Cuidades';
+import ModelosPosee from './TablePages/ModelosPosee';
+import Personal from './TablePages/Personal';
+import Trabajador from './TablePages/Trabajador';
+import Encargado from './TablePages/Encagado';
+import Especializaciones from './TablePages/Especializaciones';
+import Servicios from './TablePages/Servicios';
+import Actividades from './TablePages/Actividades';
+import Descuentos from './TablePages/Descuentos';
+import OrdenesServicio from './TablePages/OrdenesServicio';
+import DetallesServicio from './TablePages/DetallesServicio';
+import ProductosUtilizados from './TablePages/ProductosUtilizados';
+import EspecificacionesActividades from './TablePages/EspecificacionesActividades';
+import Modelos from './TablePages/Modelos';
+import MantenimientosRecomendados from './TablePages/MantenimientosRecomendados';
+import Vehiculos from './TablePages/Vehiculos';
+import Mantenimientos from './TablePages/Mantenimientos';
+import Clientes from './TablePages/Clientes';
+import Reservas from './TablePages/Reservas';
+import Productos from './TablePages/Productos';
+import FamiliaProductos from './TablePages/FamiliaProductos';
+import Facturas from './TablePages/Facturas';
+import Pagos from './TablePages/Pagos';
 
 
 function App() {
 
   return (
+    <BrowserRouter>
     <div className="flex h-screen">
-      <SideBar3/>
+      <SideBar2/>
       <div className="flex-grow flex items-center justify-center">  
-        <BrowserRouter>
+        
         <Routes>
           <Route path='/Concesionarios' element={<Concesionarios/>}/>
+          <Route path='/Estados' element={<Estados/>}/>
+          <Route path='/Ciudades' element={<Ciudades/>}/>
+          <Route path='/ModelosPosee' element={<ModelosPosee/>}/>
+          <Route path='/Personal' element={<Personal/>}/>
+          <Route path='/Trabajador' element={<Trabajador/>}/>
+          <Route path='/Encargado' element={<Encargado/>}/>
+          <Route path='/Especializaciones' element={<Especializaciones/>}/>
+          <Route path='/Servicios' element={<Servicios/>}/>
+          <Route path='/Actividades' element={<Actividades/>}/>
+          <Route path='/Descuentos' element={<Descuentos/>}/>
+          <Route path='/OrdenesServicio' element={<OrdenesServicio/>}/>
+          <Route path='/DetallesServicio' element={<DetallesServicio/>}/>
+          <Route path='/ProductosUtilizados' element={<ProductosUtilizados/>}/>
+          <Route path='/EspecificacionesActividades' element={<EspecificacionesActividades/>}/>
+          <Route path='/Modelos' element={<Modelos/>}/>
+          <Route path='/MantenimientosRecomendados' element={<MantenimientosRecomendados/>}/>
+          <Route path='/Vehiculos' element={<Vehiculos/>}/>
+          <Route path='/Mantenimientos' element={<Mantenimientos/>}/>
+          <Route path='/Clientes' element={<Clientes/>}/>
+          <Route path='/Reservas' element={<Reservas/>}/>
+          <Route path='/Productos' element={<Productos/>}/>
+          <Route path='/FamiliaProductos' element={<FamiliaProductos/>}/>
+          <Route path='/Facturas' element={<Facturas/>}/>
+          <Route path='/Pagos' element={<Pagos/>}/>
         </Routes>
-        </BrowserRouter>
       </div>
     </div>
-
+    </BrowserRouter>
   )
 }
 
