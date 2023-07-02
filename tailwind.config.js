@@ -7,7 +7,7 @@ module.exports = {
         'fondo': "url('../public/fondo.jpg')",
       },
       colors:{
-        'white': "#fff"
+        'background': "#E9E9E9"
       }
     },
   },

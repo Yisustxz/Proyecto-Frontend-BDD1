@@ -33,10 +33,12 @@ function App() {
 
   return (
     <BrowserRouter>
+    <div style={{backgroundColor: '#E9E9E9', height: '100%', width: '100%'}}>
     <div className="flex h-screen">
+      <div style={{boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.5)"}}>
       <SideBar2/>
+      </div>
       <div className="flex-grow flex items-center justify-center">  
-        
         <Routes>
           <Route path='/Concesionarios' element={<Concesionarios/>}/>
           <Route path='/Estados' element={<Estados/>}/>
@@ -65,6 +67,7 @@ function App() {
           <Route path='/Pagos' element={<Pagos/>}/>
         </Routes>
       </div>
+    </div>
     </div>
     </BrowserRouter>
   )
