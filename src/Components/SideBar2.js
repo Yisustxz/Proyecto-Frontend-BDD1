@@ -74,7 +74,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/Estados">
                 <div
-                  className={selectedOption === "Estados" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer"}
+                  className={selectedOption === "Estados" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Estados")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Estados</h1>
@@ -84,7 +84,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/Ciudades">
                 <div
-                  className={selectedOption === "Ciudades" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer "}
+                  className={selectedOption === "Ciudades" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2 "}
                   onClick={() => handleOptionClick("Ciudades")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Ciudades</h1>
@@ -94,7 +94,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/ModelosPosee">
                 <div
-                  className={selectedOption === "Modelos que posee" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer "}
+                  className={selectedOption === "Modelos que posee" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Modelos que posee")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Modelos que posee</h1>
@@ -119,7 +119,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/Trabajador">
                 <div
-                  className={selectedOption === "Trabajador" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer"}
+                  className={selectedOption === "Trabajador" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Trabajador")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Trabajador</h1>
@@ -129,7 +129,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/Encargado">
                 <div
-                  className={selectedOption === "Encargado" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer "}
+                  className={selectedOption === "Encargado" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2 "}
                   onClick={() => handleOptionClick("Encargado")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Encargado</h1>
@@ -139,7 +139,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/Especializaciones">
                 <div
-                  className={selectedOption === "Especializaciones" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer"}
+                  className={selectedOption === "Especializaciones" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Especializaciones")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Especializaciones</h1>
@@ -164,7 +164,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/Actividades">
                 <div
-                  className={selectedOption === "Actividades" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer"}
+                  className={selectedOption === "Actividades" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Actividades")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Actividades</h1>
@@ -174,7 +174,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/Descuentos">
                 <div
-                  className={selectedOption === "Descuentos" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer "}
+                  className={selectedOption === "Descuentos" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Descuentos")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Descuentos</h1>
@@ -199,7 +199,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/DetallesServicio">
                 <div
-                  className={selectedOption === "Detalles de Servicio" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer"}
+                  className={selectedOption === "Detalles de Servicio" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Detalles de Servicio")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Detalles de Servicio</h1>
@@ -209,7 +209,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/ProductosUtilizados">
                 <div
-                  className={selectedOption === "Productos Utilizados" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer"}
+                  className={selectedOption === "Productos Utilizados" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Productos Utilizados")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Productos Utilizados</h1>
@@ -219,7 +219,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/EspecificacionesActividades">
                 <div
-                  className={selectedOption === "Especificaciones Actividades" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer"}
+                  className={selectedOption === "Especificaciones Actividades" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Especificaciones Actividades")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Especificaciones Actividades </h1>
@@ -244,7 +244,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/MantenimientosRecomendados">
                 <div
-                  className={selectedOption === "Mantenimientos Recomendados" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer"}
+                  className={selectedOption === "Mantenimientos Recomendados" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Mantenimientos Recomendados")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Mantenimientos Recomendados</h1>
@@ -269,7 +269,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/Mantenimientos">
                 <div
-                  className={selectedOption === "Mantenimientos" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer"}
+                  className={selectedOption === "Mantenimientos" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Mantenimientos")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Mantenimientos</h1>
@@ -304,7 +304,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/FamiliaProductos">
                 <div
-                  className={selectedOption === "Familia de productos" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer"}
+                  className={selectedOption === "Familia de productos" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Familia de productos")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Familia de productos</h1>
@@ -329,7 +329,7 @@ export default function SideBar2() {
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/Pagos">
                 <div
-                  className={selectedOption === "Pagos" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "cursor-pointer"}
+                  className={selectedOption === "Pagos" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
                   onClick={() => handleOptionClick("Pagos")}
                 >
                   <h1 style={{ color: '#fff', marginLeft: '10px' }}>Pagos</h1>
