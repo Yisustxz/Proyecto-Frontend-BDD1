@@ -6,7 +6,6 @@ import Concesionarios from './TablePages/Concesionarios';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Ciudades from './TablePages/Cuidades';
 import ModelosPosee from './TablePages/ModelosPosee';
-import Personal from './TablePages/Personal';
 import Trabajador from './TablePages/Trabajador';
 import Encargado from './TablePages/Encagado';
 import Especializaciones from './TablePages/Especializaciones';
@@ -44,7 +43,6 @@ function App() {
           <Route path='/Estados' element={<Estados/>}/>
           <Route path='/Ciudades' element={<Ciudades/>}/>
           <Route path='/ModelosPosee' element={<ModelosPosee/>}/>
-          <Route path='/Personal' element={<Personal/>}/>
           <Route path='/Trabajador' element={<Trabajador/>}/>
           <Route path='/Encargado' element={<Encargado/>}/>
           <Route path='/Especializaciones' element={<Especializaciones/>}/>
