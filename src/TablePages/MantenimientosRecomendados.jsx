@@ -24,7 +24,7 @@ export default function MantenimientosRecomendado() {
         <div style={{ width: '64vw', height: '6vh', marginTop: '2vh', borderBottomColor: '#737070', borderWidth: '2px', borderTop: 'none', borderLeft: 'none', borderRight: 'none', display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
           <div style={{ width: '57vw',textAlign:"center", height: '6vh', display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'space-around', fontSize: '18px', fontWeight: 'bold', borderRightColor: '#C1BFBF', borderLeft: 'none', borderTop: 'none', borderBottom: 'none', borderWidth: '2px', }}>
             <div style={{ width: '11vw', height: '6vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>Codigo Modelo</div> 
-            <div style={{ width: '11vw', height: '6vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>codigo </div>   
+            <div style={{ width: '11vw', height: '6vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>Codigo </div>   
             <div style={{ width: '11vw', height: '6vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>Kilometraje</div>   
             <div style={{ width: '11vw', height: '6vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>Tiempo de Uso</div>  
           </div>
