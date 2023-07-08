@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FondoArbol from "./fondoarbol.jpg";
+import FondoArbol from "../../Image/fondoarbol.jpg";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function EditCon() {
