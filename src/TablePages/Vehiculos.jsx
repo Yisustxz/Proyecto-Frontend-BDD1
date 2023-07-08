@@ -1,5 +1,4 @@
 import { GiCarWheel } from "react-icons/gi";
-import ConcesionariosRows from "./TableRows/ConcesionariosRows";
 import { SlGraph } from "react-icons/sl";
 import VehiculoRows from "./TableRows/VehiculosRows";
 
@@ -15,9 +14,9 @@ export default function vehiculos() {
         <div style={{ position: "absolute", backgroundColor: '#478F4D', width: '90px', height: '90px', marginTop: '-6vh', borderRadius: '7px', marginLeft: '-70vw', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)", display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
           <GiCarWheel color={"#fff"} size={60} style={{ alignSelf: 'center' }} />
         </div>
-        <h1 style={{ marginLeft: '-56vw', marginTop: '1vh', fontSize: '24px', fontWeight: 'bold' }}>vehiculos</h1>
+        <h1 style={{ marginLeft: '-56vw', marginTop: '1vh', fontSize: '24px', fontWeight: 'bold' }}>Vehiculos</h1>
         <div style={{ width: '78vw', height: '7vh', marginTop: '2vh', borderBottomColor: '#737070', borderWidth: '2px', borderTop: 'none', borderLeft: 'none', borderRight: 'none', display: 'flex', alignItems: 'center', flexDirection: 'row', textAlign: "center" }}>
-          <div style={{ width: '72vw', height: '4vh', display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'space-around', fontSize: '18px', fontWeight: 'bold', borderRightColor: '#C1BFBF', borderLeft: 'none', borderTop: 'none', borderBottom: 'none', borderWidth: '2px', }}>
+          <div style={{ width: '72vw', height: '4vh', display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'space-around', fontSize: '16px', fontWeight: 'bold', borderRightColor: '#C1BFBF', borderLeft: 'none', borderTop: 'none', borderBottom: 'none', borderWidth: '2px', }}>
             <div style={{ width: '11vw', height: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>Placa</div>  
             <div style={{ width: '11vw', height: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>Año del Vehiculo</div>
             <div style={{ width: '11vw', height: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>Num Serial</div>

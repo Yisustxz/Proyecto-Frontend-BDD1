@@ -1,5 +1,4 @@
 import { GiCarWheel } from "react-icons/gi";
-import ConcesionariosRows from "./TableRows/ConcesionariosRows";
 import { SlGraph } from "react-icons/sl";
 import ClientesRows from "./TableRows/ClientesRows";
 
