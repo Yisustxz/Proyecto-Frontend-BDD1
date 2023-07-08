@@ -1,4 +1,4 @@
-import { GiCarWheel } from "react-icons/gi";
+import { AiOutlineCar } from "react-icons/ai";
 import { SlGraph } from "react-icons/sl";
 import ModelosRows from "./TableRows/ModelosRows";
 
@@ -12,7 +12,7 @@ export default function Modelos() {
         </div>
         <h1 style={{position: "absolute", marginTop: '-9vh', marginLeft: '51vw', fontSize: '18px'}}>Statistics</h1>
         <div style={{ position: "absolute", backgroundColor: '#478F4D', width: '90px', height: '90px', marginTop: '-6vh', borderRadius: '7px', marginLeft: '-70vw', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)", display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
-          <GiCarWheel color={"#fff"} size={60} style={{ alignSelf: 'center' }} />
+          <AiOutlineCar color={"#fff"} size={60} style={{ alignSelf: 'center' }} />
         </div>
         <h1 style={{ marginLeft: '-56vw', marginTop: '1vh', fontSize: '24px', fontWeight: 'bold' }}>Modelos</h1>
         <div style={{ width: '78vw', height: '4vh', marginTop: '2vh', borderBottomColor: '#737070', borderWidth: '2px', borderTop: 'none', borderLeft: 'none', borderRight: 'none', display: 'flex', alignItems: 'center', flexDirection: 'row' }}>

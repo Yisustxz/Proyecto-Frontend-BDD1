@@ -1,4 +1,4 @@
-import { GiCarWheel } from "react-icons/gi";
+import { AiOutlineFileDone } from "react-icons/ai";
 import { SlGraph } from "react-icons/sl";
 import EspecificacionesActividadesRows from "./TableRows/EspecificacionesActividadesRows";
 
@@ -12,7 +12,7 @@ export default function EspecificacionesActividades() {
         </div>
         <h1 style={{position: "absolute", marginTop: '-9vh', marginLeft: '51vw', fontSize: '18px'}}>Statistics</h1>
         <div style={{ position: "absolute", backgroundColor: '#478F4D', width: '90px', height: '90px', marginTop: '-6vh', borderRadius: '7px', marginLeft: '-55vw', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)", display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
-          <GiCarWheel color={"#fff"} size={60} style={{ alignSelf: 'center' }} />
+          <AiOutlineFileDone color={"#fff"} size={60} style={{ alignSelf: 'center' }} />
         </div>
         <h1 style={{ marginLeft: '-27vw', marginTop: '1vh', fontSize: '24px', fontWeight: 'bold' }}>Especificaciones Actividades</h1>
         <div style={{ width: '66vw', height: '4vh', marginTop: '2vh', borderBottomColor: '#737070', borderWidth: '2px', borderTop: 'none', borderLeft: 'none', borderRight: 'none', display: 'flex', alignItems: 'center', flexDirection: 'row' }}>

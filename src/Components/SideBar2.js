@@ -6,7 +6,7 @@ import { MdCarRepair } from "react-icons/md";
 import { AiOutlineFileDone } from "react-icons/ai";
 import { AiOutlineCar } from "react-icons/ai";
 import { AiFillCar } from "react-icons/ai";
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt, FaUserEdit } from "react-icons/fa";
 import { BiEdit } from "react-icons/bi";
 import { BsArchiveFill } from "react-icons/bs";
 import { AiOutlineFile } from "react-icons/ai";
@@ -105,37 +105,17 @@ export default function SideBar2() {
         ) : null}
         <div class="  h-11 w-full flex flex-row items-center mt-2 px-3">
           <FaUserFriends color={"#fff"} size={30} style={{ marginRight: '7px' }} />
-          <div className={selectedOption === "Personal" ? "bg-[#478F4D] rounded cursor-pointer h-10 w-4/5 flex flex-row items-center pl-2 " : "cursor-pointer"}
-            onClick={() => handleOptionClick("Personal")}>
-            <Link to="/Personal">
+          <div className={selectedOption === "Trabajador" ? "bg-[#478F4D] rounded cursor-pointer h-10 w-4/5 flex flex-row items-center pl-2 " : "cursor-pointer"}
+            onClick={() => handleOptionClick("Trabajador")}>
+            <Link to="/Trabajador">
               <div onClick={togglePersonal} class="cursor-pointer">
-                <h1 style={{ color: '#fff' }}>Personal</h1>
+                <h1 style={{ color: '#fff' }}>Trabajador</h1>
               </div>
             </Link>
           </div>
         </div>
         {showPersonal ? (
           <ul>
-            <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
-              <Link to="/Trabajador">
-                <div
-                  className={selectedOption === "Trabajador" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2"}
-                  onClick={() => handleOptionClick("Trabajador")}
-                >
-                  <h1 style={{ color: '#fff', marginLeft: '10px' }}>Trabajador</h1>
-                </div>
-              </Link>
-            </div>
-            <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
-              <Link to="/Encargado">
-                <div
-                  className={selectedOption === "Encargado" ? "bg-[#478F4D] rounded h-10 w-full flex flex-row items-center pr-2" : "bg-slate-300/[.2] rounded h-10 w-full cursor-pointer flex flex-row items-center pr-2 "}
-                  onClick={() => handleOptionClick("Encargado")}
-                >
-                  <h1 style={{ color: '#fff', marginLeft: '10px' }}>Encargado</h1>
-                </div>
-              </Link>
-            </div>
             <div class="  h-11 w-full flex flex-row items-center mt-1 px-3">
               <Link to="/Especializaciones">
                 <div
@@ -148,6 +128,11 @@ export default function SideBar2() {
             </div>
           </ul>
         ) : null}
+        <div class="  h-11 w-full flex flex-row items-center mt-2 px-3">
+          <FaUserEdit color={"#fff"} size={30} style={{ marginRight: '7px' }} />
+          <div className={selectedOption === "Encargado" ? "bg-[#478F4D] rounded cursor-pointer h-10 w-4/5 flex flex-row items-center pl-2 " : "cursor-pointer"}
+            onClick={() => handleOptionClick("Encargado")}> <Link to="/Encargado"><h1 style={{ color: '#fff' }}>Encargado</h1></Link></div>
+        </div>
         <div class="  h-11 w-full flex flex-row items-center mt-2 px-3">
           <MdCarRepair color={"#fff"} size={30} style={{ marginRight: '7px' }} />
           <div className={selectedOption === "Servicios" ? "bg-[#478F4D] rounded cursor-pointer h-10 w-4/5 flex flex-row items-center pl-2 " : "cursor-pointer"}
