@@ -28,6 +28,8 @@ import Facturas from './TablePages/Facturas';
 import Pagos from './TablePages/Pagos';
 import EditCon from './TablePages/Concesionario/EditCon';
 import AddCon from './TablePages/Concesionario/AddCon';
+import AddEst from './TablePages/Estados/AddEst';
+import EditEst from './TablePages/Estados/EditEst';
 
 
 function App() {
@@ -67,6 +69,8 @@ function App() {
           <Route path='/Pagos' element={<Pagos/>}/>
           <Route path='/EditCon' element={<EditCon/>}/>
           <Route path='/AddCon' element={<AddCon/>}/>
+          <Route path='/AddEst' element={<AddEst/>}/>
+          <Route path='/EditEst' element={<EditEst/>}/>
         </Routes>
       </div>
     </div>
