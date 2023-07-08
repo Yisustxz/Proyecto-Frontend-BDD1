@@ -26,6 +26,8 @@ import Productos from './TablePages/Productos';
 import FamiliaProductos from './TablePages/FamiliaProductos';
 import Facturas from './TablePages/Facturas';
 import Pagos from './TablePages/Pagos';
+import EditCon from './TablePages/Concesionario/EditCon';
+import AddCon from './TablePages/Concesionario/AddCon';
 
 
 function App() {
@@ -63,6 +65,8 @@ function App() {
           <Route path='/FamiliaProductos' element={<FamiliaProductos/>}/>
           <Route path='/Facturas' element={<Facturas/>}/>
           <Route path='/Pagos' element={<Pagos/>}/>
+          <Route path='/EditCon' element={<EditCon/>}/>
+          <Route path='/AddCon' element={<AddCon/>}/>
         </Routes>
       </div>
     </div>
