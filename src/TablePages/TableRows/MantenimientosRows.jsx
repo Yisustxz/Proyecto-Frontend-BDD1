@@ -1,4 +1,5 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function MantenimientosRows() {
 
@@ -14,8 +15,7 @@ export default function MantenimientosRows() {
                 <div style={{ width: '11vw', minHeight: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', flex: 1, alignItems: 'center'}}>25.000</div>
             </div>
             <div style={{ minHeight: '4vh', width: '7vw', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
-            <FaEdit color={"#192C45"} size={30} style={{cursor: 'pointer'}}/>
-            <FaTrash color={"#192C45"} size={30} style={{cursor: 'pointer'}}/>
+            <FaTrash color={"#192C45"} size={25} style={{cursor: 'pointer'}}/>
             </div>
           </div> 
       </div>

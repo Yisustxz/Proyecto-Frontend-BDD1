@@ -1,6 +1,5 @@
 import './App.css';
 import SideBar2 from './Components/SideBar2';
-import React, { useState } from "react";
 import Estados from './TablePages/Estados';
 import Concesionarios from './TablePages/Concesionarios';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -50,6 +49,31 @@ import AddDetalleSer from './TablePages/Detalles Servicio/AddDetalleSer';
 import EditDetalleSer from './TablePages/Detalles Servicio/EditDetalleSer';
 import AddProductoUt from './TablePages/ProductosUtilizados/AddProductoUt';
 import EditProductoUt from './TablePages/ProductosUtilizados/EditProductoUt';
+import AddRes from './TablePages/Reservas/AddRes';
+import EditRes from './TablePages/Reservas/EditRes';
+import AddCli from './TablePages/Clientes/AddCli';
+import EditCli from './TablePages/Clientes/EditCli';
+import AddVeh from './TablePages/Vehiculos/AddVeh';
+import EditVeh from './TablePages/Vehiculos/EditVeh';
+import AddMan from './TablePages/Mantenimientos/AddMan';
+import AddModelo from './TablePages/Modelo/AddModelo';
+import EditModelo from './TablePages/Modelo/EditModelo';
+import EditManRec from './TablePages/MantenimientoRecomendado/EditManReco';
+import AddManRec from './TablePages/MantenimientoRecomendado/AddManReco';
+import EditPro from './TablePages/Producto/EditPro';
+import AddPro from './TablePages/Producto/AddPro';
+import EditFamPro from './TablePages/FamiliaProductos/EditFamPro';
+import AddFamPro from './TablePages/FamiliaProductos/AddFamPro';
+import EditFactu from './TablePages/Facturas/EditFactu';
+import AddFactu  from './TablePages/Facturas/AddFactu';
+import AddPagos  from './TablePages/Pagos/AddPagos';
+import EditPagos from './TablePages/Pagos/EditPagos';
+import AddEspeActi from './TablePages/EspecificacionesActividades/AddEspeActi';
+
+
+
+
+
 
 
 function App() {
@@ -112,6 +136,26 @@ function App() {
           <Route path='/EditDetalleSer' element={<EditDetalleSer/>}/>
           <Route path='/AddProductoUt' element={<AddProductoUt/>}/>
           <Route path='/EditProductoUt' element={<EditProductoUt/>}/>
+          <Route path='/EditRes' element={<EditRes/>}/>
+          <Route path='/AddRes' element={<AddRes/>}/>
+          <Route path='/EditCli' element={<EditCli/>}/>
+          <Route path='/AddCli' element={<AddCli/>}/>
+          <Route path='/EditVeh' element={<EditVeh/>}/>
+          <Route path='/AddVeh' element={<AddVeh/>}/>
+          <Route path='/AddMan' element={<AddMan/>}/>
+          <Route path='/EditModelo' element={<EditModelo/>}/>
+          <Route path='/AddModelo' element={<AddModelo/>}/>
+          <Route path='/EditManRec' element={<EditManRec/>}/>
+          <Route path='/AddManRec' element={<AddManRec/>}/>
+          <Route path='/EditPro' element={<EditPro/>}/>
+          <Route path='/AddPro' element={<AddPro/>}/>
+          <Route path='/EditFamPro' element={<EditFamPro/>}/>
+          <Route path='/AddFamPro' element={<AddFamPro/>}/>
+          <Route path='/EditFactu' element={<EditFactu/>}/>
+          <Route path='/AddFactu' element={<AddFactu/>}/>
+          <Route path='/EditPagos' element={<EditPagos/>}/>
+          <Route path='/AddPagos' element={<AddPagos/>}/>
+          <Route path='/AddEspeActi' element={<AddEspeActi/>}/>
         </Routes>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { BsArchiveFill } from "react-icons/bs";
 import { SlGraph } from "react-icons/sl";
 import ProductosRows from "./TableRows/ProductoRows";
+import { Link } from "react-router-dom";
 
 
 export default function Productos() {
@@ -49,9 +50,11 @@ export default function Productos() {
         </div>
       </div>
       <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'end', width: '95%', height: '60px'}}>
-      <div style={{backgroundColor: '#478F4D', marginTop: '20px', borderRadius: '10px', width: '100px', height: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)"}}>
-        <h1 style={{fontSize: '50px', fontWeight: 'bold', color: '#fff'}}>+</h1>
-      </div>
+      <Link to="/AddPro">
+          <div style={{backgroundColor: '#478F4D', marginTop: '20px', borderRadius: '10px', width: '100px', height: '60px', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)"}}>
+            <h1 style={{fontSize: '50px', fontWeight: 'bold', color: '#fff'}}>+</h1>
+          </div>
+        </Link>
       </div>
       
 
