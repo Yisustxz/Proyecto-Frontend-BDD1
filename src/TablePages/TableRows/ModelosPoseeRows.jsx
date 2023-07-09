@@ -13,7 +13,6 @@ export default function ModelosPoseeRows() {
                 <div style={{ width: '11vw', minHeight: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1,  overflow: 'auto'}}>11111</div>
             </div>
             <div style={{ minHeight: '4vh', width: '7vw', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
-            <FaEdit color={"#192C45"} size={25} style={{cursor: 'pointer'}}/>
             <FaTrash color={"#192C45"} size={25} style={{cursor: 'pointer'}}/>
             </div>
           </div> 

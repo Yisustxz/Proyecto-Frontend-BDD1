@@ -30,6 +30,26 @@ import EditCon from './TablePages/Concesionario/EditCon';
 import AddCon from './TablePages/Concesionario/AddCon';
 import AddEst from './TablePages/Estados/AddEst';
 import EditEst from './TablePages/Estados/EditEst';
+import AddCiudad from './TablePages/Ciudades/AddCiudad';
+import EditCiudad from './TablePages/Ciudades/EditCiudad';
+import AddModelosPosee from './TablePages/Modelos que posee/AddModelosPosee';
+import AddTrabajador from './TablePages/Trabajadores/AddTrabajador';
+import EditTrabajador from './TablePages/Trabajadores/EditTrabajador';
+import AddEspec from './TablePages/Especializaciones/AddEspec';
+import AddEncargado from './TablePages/Encargados/AddEncarg';
+import EditEncargado from './TablePages/Encargados/EditEncarg';
+import AddServicio from './TablePages/Servicios/AddServicio';
+import EditServicio from './TablePages/Servicios/EditServicio';
+import AddActividad from './TablePages/Actividades/AddActividad';
+import EditActividad from './TablePages/Actividades/EditActividad';
+import AddDescuento from './TablePages/Descuentos/AddDescuento';
+import EditDescuento from './TablePages/Descuentos/EditDescuento';
+import AddOrdenSer from './TablePages/Orden de Servicio/AddOrdenSer';
+import EditOrdenSer from './TablePages/Orden de Servicio/EditOrdenSer';
+import AddDetalleSer from './TablePages/Detalles Servicio/AddDetalleSer';
+import EditDetalleSer from './TablePages/Detalles Servicio/EditDetalleSer';
+import AddProductoUt from './TablePages/ProductosUtilizados/AddProductoUt';
+import EditProductoUt from './TablePages/ProductosUtilizados/EditProductoUt';
 
 
 function App() {
@@ -43,6 +63,7 @@ function App() {
       </div>
       <div className="flex-grow flex items-center justify-center">  
         <Routes>
+          <Route exact path='/' element={<Concesionarios/>}/>
           <Route path='/Concesionarios' element={<Concesionarios/>}/>
           <Route path='/Estados' element={<Estados/>}/>
           <Route path='/Ciudades' element={<Ciudades/>}/>
@@ -71,6 +92,26 @@ function App() {
           <Route path='/AddCon' element={<AddCon/>}/>
           <Route path='/AddEst' element={<AddEst/>}/>
           <Route path='/EditEst' element={<EditEst/>}/>
+          <Route path='/AddCiudad' element={<AddCiudad/>}/>
+          <Route path='/EditCiudad' element={<EditCiudad/>}/>
+          <Route path='/AddModelosPosee' element={<AddModelosPosee/>}/>
+          <Route path='/AddTrabajador' element={<AddTrabajador/>}/>
+          <Route path='/EditTrabajador' element={<EditTrabajador/>}/>
+          <Route path='/AddEspec' element={<AddEspec/>}/>
+          <Route path='/AddEncarg' element={<AddEncargado/>}/>
+          <Route path='/EditEncarg' element={<EditEncargado/>}/>
+          <Route path='/AddServicio' element={<AddServicio/>}/>
+          <Route path='/EditServicio' element={<EditServicio/>}/>
+          <Route path='/AddActividad' element={<AddActividad/>}/>
+          <Route path='/EditActividad' element={<EditActividad/>}/>
+          <Route path='/AddDescuento' element={<AddDescuento/>}/>
+          <Route path='/EditDescuento' element={<EditDescuento/>}/>
+          <Route path='/AddOrdenSer' element={<AddOrdenSer/>}/>
+          <Route path='/EditOrdenSer' element={<EditOrdenSer/>}/>
+          <Route path='/AddDetalleSer' element={<AddDetalleSer/>}/>
+          <Route path='/EditDetalleSer' element={<EditDetalleSer/>}/>
+          <Route path='/AddProductoUt' element={<AddProductoUt/>}/>
+          <Route path='/EditProductoUt' element={<EditProductoUt/>}/>
         </Routes>
       </div>
     </div>
