@@ -16,7 +16,7 @@ export default function EditDetalleSer() {
     return (
         <div>
             <img src={FondoArbol} alt="fondoarbol" style={{ height: '60vh', width: '40vw', borderRadius: '10px', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)", position: 'relative', zIndex: '1', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
-            <div style={{  position: 'absolute', top: '50vh', left: '59%', backgroundColor: 'white', width: '35vw', minHeight: '40vh', borderRadius: '10px', transform: 'translate(-50%, -50%', color: '#fff', zIndex: '2', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div style={{  position: 'absolute', top: '50vh', left: '59.4%', backgroundColor: 'white', width: '35vw', minHeight: '40vh', borderRadius: '10px', transform: 'translate(-50%, -50%', color: '#fff', zIndex: '2', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <h1 style={{ color: '#000', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '1vh', fontWeight: 'bold', fontSize: '28px' }}>Detalles de Servicio</h1>
                 <form style={{ color: '#000', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'auto', marginLeft: '9.5vw', marginTop: '3vh', fontSize: '24px', fontWeight: 'bold', minHeight: '40vh' }} onSubmit={handleSubmit}>
                     <label style={{ paddingBottom: '15px' }}> <h2 style={{ backgroundColor: '#1D324E', width: '6vw', display: 'flex', flexDirection: 'row', justifyContent: 'center', borderRadius: '10px', color: 'white', fontSize: '18px', marginBottom: '4px' }}>Cant</h2>

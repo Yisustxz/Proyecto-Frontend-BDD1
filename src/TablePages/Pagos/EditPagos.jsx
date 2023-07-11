@@ -20,9 +20,9 @@ export default function EditPagos() {
     return (
         <div>
             <img src={FondoArbol} alt="fondoarbol" style={{ height: '90vh', width: '40vw', borderRadius: '10px', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)", position: 'relative', zIndex: '1' }} />
-            <div style={{ position: 'absolute', top: '50vh', left: '58vw', backgroundColor: 'white', width: '35vw', maxHeight: '80vh', borderRadius: '10px', transform: 'translate(-50%, -50%', color: '#fff', zIndex: '2', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: "scroll", overflowX: "hidden" }}>
+            <div style={{ position: 'absolute', top: '50vh', left: '59.4%', backgroundColor: 'white', width: '35vw', maxHeight: '80vh', borderRadius: '10px', transform: 'translate(-50%, -50%', color: '#fff', zIndex: '2', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: "scroll", overflowX: "hidden" }}>
                 <h1 style={{ color: '#000', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '6vh',  fontWeight: 'bold', fontSize: '30px' }}>Pagos</h1>
-                <form style={{ color: '#000', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '9.5vw', marginTop: '3vh', fontWeight: 'bold' }} onSubmit={handleSubmit}>
+                <form style={{ color: '#000', display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: '9.5vw', marginTop: '3vh', fontWeight: 'bold', paddingTop: "1vh", paddingBottom: "5vh" }} onSubmit={handleSubmit}>
                     <label style={{ paddingBottom: '15px' }}> <h2 style={{ backgroundColor: '#1D324E', width: '8vw', display: 'flex', flexDirection: 'row', justifyContent: 'center', borderRadius: '10px', color: 'white', fontSize: '20px', marginBottom: '4px' }}>Modalidad</h2>
                         <input type="text" style={{ borderWidth: '2px', borderColor: '#C1BFBF', borderRadius: '10px', marginBottom: '15px', paddingLeft: '10px', fontSize: '20px', fontWeight: 'normal', width: '17vw' }} value={Modalidad} onChange={(event) => setModalidad(event.target.value)}/>
                     </label>
