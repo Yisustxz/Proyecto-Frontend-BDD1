@@ -1,5 +1,4 @@
 import { AiOutlineFile } from "react-icons/ai";
-import { SlGraph } from "react-icons/sl";
 import FacturasRows from "./TableRows/FacturasRows";
 import { Link } from "react-router-dom";
 
@@ -7,14 +6,10 @@ export default function Facturas() {
   return (
     <div>
       <div style={{ height: '60vh', width: '70vw', backgroundColor: '#fff', borderRadius: '10px', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)", display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-        <div style={{ position: "absolute", backgroundColor: '#1D324E', width: '80px', height: '80px', marginTop: '-12vh', borderRadius: '7px', marginLeft: '40vw', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)", display: 'flex', justifyContent: 'center', flexDirection: 'row', cursor: 'pointer' }}>
-          <SlGraph color={"#fff"} size={60} style={{ alignSelf: 'center' }} />
-        </div>
-        <h1 style={{position: "absolute", marginTop: '-9vh', marginLeft: '51vw', fontSize: '18px'}}>Statistics</h1>
         <div style={{ position: "absolute", backgroundColor: '#478F4D', width: '90px', height: '90px', marginTop: '-6vh', borderRadius: '7px', marginLeft: '-55vw', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)", display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
           <AiOutlineFile color={"#fff"} size={60} style={{ alignSelf: 'center' }} />
         </div>
-        <h1 style={{ marginLeft: '-42vw', marginTop: '1vh', fontSize: '24px', fontWeight: 'bold' }}>Facturas</h1>
+        <h1 style={{ marginLeft: '-40vw', marginTop: '1vh', fontSize: '24px', fontWeight: 'bold' }}>Facturas</h1>
         <div style={{ width: '64vw', height: '4vh', marginTop: '2vh', borderBottomColor: '#737070', borderWidth: '2px', borderTop: 'none', borderLeft: 'none', borderRight: 'none', display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
           <div style={{ width: '57vw', height: '4vh', display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'space-around', fontSize: '18px', fontWeight: 'bold', borderRightColor: '#C1BFBF', borderLeft: 'none', borderTop: 'none', borderBottom: 'none', borderWidth: '2px', }}>
             <div style={{ width: '11vw', height: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>NumFactura</div> 

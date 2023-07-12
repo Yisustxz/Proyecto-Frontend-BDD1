@@ -11,7 +11,7 @@ import { BiEdit } from "react-icons/bi";
 import { BsArchiveFill } from "react-icons/bs";
 import { AiOutlineFile } from "react-icons/ai";
 import { Link } from "react-router-dom";
-
+import { TbReportAnalytics } from "react-icons/tb";
 
 export default function SideBar2() {
   const [showPersonal, setShowPersonal] = useState(false);
@@ -22,6 +22,7 @@ export default function SideBar2() {
   const [showPagos, setShowPagos] = useState(false);
   const [showMantenimiento, setShowMantenimiento] = useState(false);
   const [showMantenimientoR, setShowMantenimientoR] = useState(false);
+  const [showReporte, setReporte] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
 
   const togglePersonal = () => {
@@ -48,6 +49,9 @@ export default function SideBar2() {
   const toggleMantenimientoR = () => {
     setShowMantenimientoR(!showMantenimientoR);
   };
+  const toggleReporte = () => {
+    setReporte(!showReporte);
+  };
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
@@ -57,6 +61,17 @@ export default function SideBar2() {
         <img class="w-full" src={Logo} />
       </div>
       <div className="flex flex-col items-start justify-start flex-grow p-4 overflow-y-auto">
+      <div class="  h-12 w-full flex flex-row items-center mt-1 px-3 border-b pb-2 border-slate-400">
+          <TbReportAnalytics color={"#fff"} size={30} style={{ marginRight: '7px' }} />
+          <div className={selectedOption === "Reportes" ? "bg-[#478F4D] rounded cursor-pointer h-10 w-4/5 flex flex-row items-center pl-2 " : "cursor-pointer"}
+            onClick={() => handleOptionClick("Reportes")}>
+            <Link to="/Reportes">
+              <div onClick={toggleReporte} class="cursor-pointer">
+                <h1 style={{ color: '#fff' }}>Reportes</h1>
+              </div>
+            </Link>
+          </div>
+        </div>
         <div class="  h-11 w-full flex flex-row items-center mt-2 px-3">
           <GiCarWheel color={"#fff"} size={30} style={{ marginRight: '7px' }} />
           <div className={selectedOption === "Concesionarios" ? "bg-[#478F4D] rounded cursor-pointer h-10 w-4/5 flex flex-row items-center pl-2 " : "cursor-pointer"}

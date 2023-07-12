@@ -69,11 +69,7 @@ import AddFactu  from './TablePages/Facturas/AddFactu';
 import AddPagos  from './TablePages/Pagos/AddPagos';
 import EditPagos from './TablePages/Pagos/EditPagos';
 import AddEspeActi from './TablePages/EspecificacionesActividades/AddEspeActi';
-
-
-
-
-
+import Reportes from './TablePages/Reportes';
 
 
 function App() {
@@ -85,7 +81,7 @@ function App() {
       <div style={{boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.5)"}}>
       <SideBar2/>
       </div>
-      <div className="flex-grow flex items-center justify-center">  
+      <div className="flex-grow flex items-center justify-center overflow-auto">  
         <Routes>
           <Route exact path='/' element={<Concesionarios/>}/>
           <Route path='/Concesionarios' element={<Concesionarios/>}/>
@@ -156,6 +152,7 @@ function App() {
           <Route path='/EditPagos' element={<EditPagos/>}/>
           <Route path='/AddPagos' element={<AddPagos/>}/>
           <Route path='/AddEspeActi' element={<AddEspeActi/>}/>
+          <Route path='/Reportes' element={<Reportes/>}/>
         </Routes>
       </div>
     </div>

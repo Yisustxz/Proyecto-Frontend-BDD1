@@ -1,4 +1,3 @@
-import { SlGraph } from "react-icons/sl";
 import OrdenesServicioRows from "./TableRows/OrdenesServicioRows";
 import { AiOutlineFileDone } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -7,10 +6,6 @@ export default function OrdenesServicio() {
   return (
     <div>
       <div style={{ height: '60vh', width: '80vw', backgroundColor: '#fff', borderRadius: '10px', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)", display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-        <div style={{ position: "absolute", backgroundColor: '#1D324E', width: '80px', height: '80px', marginTop: '-12vh', borderRadius: '7px', marginLeft: '40vw', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)", display: 'flex', justifyContent: 'center', flexDirection: 'row', cursor: 'pointer' }}>
-          <SlGraph color={"#fff"} size={60} style={{ alignSelf: 'center' }} />
-        </div>
-        <h1 style={{position: "absolute", marginTop: '-9vh', marginLeft: '51vw', fontSize: '18px'}}>Statistics</h1>
         <div style={{ position: "absolute", backgroundColor: '#478F4D', width: '90px', height: '90px', marginTop: '-6vh', borderRadius: '7px', marginLeft: '-65vw', boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)", display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
           <AiOutlineFileDone color={"#fff"} size={60} style={{ alignSelf: 'center' }} />
         </div>
