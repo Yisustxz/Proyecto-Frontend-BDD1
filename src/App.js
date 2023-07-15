@@ -70,6 +70,16 @@ import AddPagos  from './TablePages/Pagos/AddPagos';
 import EditPagos from './TablePages/Pagos/EditPagos';
 import AddEspeActi from './TablePages/EspecificacionesActividades/AddEspeActi';
 import Reportes from './TablePages/Reportes';
+import ModelosMasAten from './TablePages/Reportes/ModelosMasAten';
+import ServiciosPersonal from './TablePages/Reportes/ServiciosPersonal';
+import ClientesFrecuentes from './TablePages/Reportes/ClientesFrecuentes';
+import VentasXProducto from './TablePages/Reportes/VentasXProducto';
+import SolicitudServ from './TablePages/Reportes/SolicitudServ';
+import ServXVeh from './TablePages/Reportes/ServXVeh';
+import CompAgencia from './TablePages/Reportes/CompAgencia';
+import ResNoUsadas from './TablePages/Reportes/ResNoUsadas';
+import FacturasCliente from './TablePages/Reportes/FacturasCliente';
+import MantModelo from './TablePages/Reportes/MantModelo';
 
 
 function App() {
@@ -83,7 +93,7 @@ function App() {
       </div>
       <div className="flex-grow flex items-center justify-center overflow-auto">  
         <Routes>
-          <Route exact path='/' element={<Concesionarios/>}/>
+          <Route exact path='/' element={<Reportes/>}/>
           <Route path='/Concesionarios' element={<Concesionarios/>}/>
           <Route path='/Estados' element={<Estados/>}/>
           <Route path='/Ciudades' element={<Ciudades/>}/>
@@ -153,6 +163,16 @@ function App() {
           <Route path='/AddPagos' element={<AddPagos/>}/>
           <Route path='/AddEspeActi' element={<AddEspeActi/>}/>
           <Route path='/Reportes' element={<Reportes/>}/>
+          <Route path='/ModelosMasAten' element={<ModelosMasAten/>}/>
+          <Route path='/ServiciosPersonal' element={<ServiciosPersonal/>}/>
+          <Route path='/ClientesFrecuentes' element={<ClientesFrecuentes/>}/>
+          <Route path='/VentasXProducto' element={<VentasXProducto/>}/>
+          <Route path='/SolicitudServ' element={<SolicitudServ/>}/>
+          <Route path='/ServXVeh' element={<ServXVeh/>}/>
+          <Route path='/CompAgencia' element={<CompAgencia/>}/>
+          <Route path='/ResNoUsadas' element={<ResNoUsadas/>}/>
+          <Route path='/FacturasCliente' element={<FacturasCliente/>}/>
+          <Route path='/MantModelo' element={<MantModelo/>}/>
         </Routes>
       </div>
     </div>
