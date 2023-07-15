@@ -31,7 +31,6 @@ export default function EditEst() {
   const fetchEstado = async () => {
     try {
       const data = await getEstadoById(id);
-      console.log(data);
       setEstado({ ...estado, nombre_est: data.item.nombre_est });
     } catch (error) {
       console.log(error.message);

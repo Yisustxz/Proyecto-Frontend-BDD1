@@ -120,12 +120,12 @@ function App() {
               <Route path="/FamiliaProductos" element={<FamiliaProductos />} />
               <Route path="/Facturas" element={<Facturas />} />
               <Route path="/Pagos" element={<Pagos />} />
-              <Route path="/EditCon" element={<EditCon />} />
+              <Route path="/EditCon/:id" element={<EditCon />} />
               <Route path="/AddCon" element={<AddCon />} />
               <Route path="/AddEst" element={<AddEst />} />
               <Route path="/EditEst/:id" element={<EditEst />} />
               <Route path="/AddCiudad" element={<AddCiudad />} />
-              <Route path="/EditCiudad" element={<EditCiudad />} />
+              <Route path="/EditCiudad/:cod/:num" element={<EditCiudad />} />
               <Route path="/AddModelosPosee" element={<AddModelosPosee />} />
               <Route path="/AddTrabajador" element={<AddTrabajador />} />
               <Route path="/EditTrabajador" element={<EditTrabajador />} />

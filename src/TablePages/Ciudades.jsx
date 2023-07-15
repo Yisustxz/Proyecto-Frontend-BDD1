@@ -1,17 +1,24 @@
 import { GiCarWheel } from "react-icons/gi";
 import CiudadesRows from "./TableRows/CiudadesRows";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getCiudades } from "../services/ciudad.services";
 
 export default function Cuidades() {
   const [ciudades, setCiudades] = useState([]);
 
   const fetchData = async () => {
     try {
+      const data = await getCiudades(0, 100);
+      setCiudades(data.items);
     } catch (error) {
       console.log(error.message);
     }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -129,23 +136,12 @@ export default function Cuidades() {
           </div>
         </div>
         <div style={{ overflow: "auto" }}>
-          {/* Ejemplo de como José Andrés hizo en nuestra practica de bd:
-          const [escuelas, setEscuelas] = useState(null);
-
-            useEffect(() => {
-            const fetchEscuelas = async () => {
-            const response = await axios.get(BASE_URL + "/escuelas");
-            const escuelasFromBackend = response.data
-            setEscuelas(escuelasFromBackend)
-            };
-           fetchEscuelas();
-            }, []);
-
-            Luego le pasan como parametros los valores que guardó en escuelas:
-          {escuelas ? escuelas.map(escuelas => <EscRow {...escuelas} />) : 'Loading...'}
-          */}
-
-          <CiudadesRows />
+          {ciudades.map((ciudad) => (
+            <CiudadesRows
+              key={`${ciudad.cod_est + ciudad.num_consecutivo}`}
+              {...ciudad}
+            />
+          ))}
         </div>
       </div>
       <div
