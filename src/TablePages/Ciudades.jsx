@@ -1,24 +1,17 @@
 import { GiCarWheel } from "react-icons/gi";
-import EstadosRows from "./TableRows/EstadosRows";
+import CiudadesRows from "./TableRows/CiudadesRows";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getEstado } from "../services/estado.services";
+import { useState } from "react";
 
-export default function Estados() {
-  const [estados, setEstados] = useState([]);
+export default function Cuidades() {
+  const [ciudades, setCiudades] = useState([]);
 
   const fetchData = async () => {
     try {
-      const data = await getEstado(0, 100);
-      setEstados(data.items);
     } catch (error) {
       console.log(error.message);
     }
   };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <div>
@@ -63,7 +56,7 @@ export default function Estados() {
             fontWeight: "bold",
           }}
         >
-          Estados
+          Ciudades
         </h1>
         <div
           style={{
@@ -119,14 +112,40 @@ export default function Estados() {
                 alignItems: "center",
               }}
             >
-              NombreEst
+              NumConsecutivo
+            </div>
+            <div
+              style={{
+                width: "11vw",
+                height: "4vh",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              NombreCiudad
             </div>
           </div>
         </div>
         <div style={{ overflow: "auto" }}>
-          {estados.map((estado) => (
-            <EstadosRows key={estado.cod_est} {...estado} />
-          ))}
+          {/* Ejemplo de como José Andrés hizo en nuestra practica de bd:
+          const [escuelas, setEscuelas] = useState(null);
+
+            useEffect(() => {
+            const fetchEscuelas = async () => {
+            const response = await axios.get(BASE_URL + "/escuelas");
+            const escuelasFromBackend = response.data
+            setEscuelas(escuelasFromBackend)
+            };
+           fetchEscuelas();
+            }, []);
+
+            Luego le pasan como parametros los valores que guardó en escuelas:
+          {escuelas ? escuelas.map(escuelas => <EscRow {...escuelas} />) : 'Loading...'}
+          */}
+
+          <CiudadesRows />
         </div>
       </div>
       <div
@@ -138,7 +157,7 @@ export default function Estados() {
           height: "60px",
         }}
       >
-        <Link to="/AddEst">
+        <Link to="/AddCiudad">
           <div
             style={{
               backgroundColor: "#478F4D",
