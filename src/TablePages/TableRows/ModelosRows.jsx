@@ -1,7 +1,11 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import DeleteModal from "../../Components/DeleteModal";
+import { useState } from "react";
 
 export default function ModelosRows() {
+
+  const [open, setOpen] = useState(false);
 
     return (
       <div>
@@ -15,7 +19,7 @@ export default function ModelosRows() {
                 <div style={{ width: '11vw', minHeight: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1, borderRightColor: '#D7D5D5', borderLeft: 'none', borderTop: 'none', borderBottom: 'none', borderWidth: '2px' }}>5</div>
                 <div style={{ width: '11vw', minHeight: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1, borderRightColor: '#D7D5D5', borderLeft: 'none', borderTop: 'none', borderBottom: 'none', borderWidth: '2px' }}>Chevrolet</div>
                 <div style={{ width: '11vw', minHeight: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1, borderRightColor: '#D7D5D5', borderLeft: 'none', borderTop: 'none', borderBottom: 'none', borderWidth: '2px'}}>50 kg</div>
-                <div style={{ width: '11vw', minHeight: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1, borderRightColor: '#D7D5D5', borderLeft: 'none', borderTop: 'none', borderBottom: 'none', borderWidth: '2px'}}>Vegetal</div>
+                <div style={{ width: '11vw', minHeight: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1, borderRightColor: '#D7D5D5', borderLeft: 'none', borderTop: 'none', borderBottom: 'none', borderWidth: '2px'}}>Aceite</div>
                 <div style={{ width: '11vw', minHeight: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1, borderRightColor: '#D7D5D5', borderLeft: 'none', borderTop: 'none', borderBottom: 'none', borderWidth: '2px'}}>prueba</div>
                 <div style={{ width: '11vw', minHeight: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1, borderRightColor: '#D7D5D5', borderLeft: 'none', borderTop: 'none', borderBottom: 'none', borderWidth: '2px'}}>91</div>
                 <div style={{ width: '11vw', minHeight: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1}}>prueba</div>
@@ -24,9 +28,10 @@ export default function ModelosRows() {
               <Link to="/EditModelo">
                 <FaEdit color={"#192C45"} size={25} style={{ cursor: 'pointer' }} />
               </Link>  
-            <FaTrash color={"#192C45"} size={20} style={{cursor: 'pointer'}}/>
+            <FaTrash color={"#192C45"} size={20} style={{cursor: 'pointer'}} onClick={() => setOpen(true)}/>
             </div>
           </div> 
+          <DeleteModal showModal={open} setShowModal={setOpen}/>
       </div>
     );
   }

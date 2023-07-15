@@ -1,6 +1,10 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
+import DeleteModal from "../../Components/DeleteModal";
+import { useState } from "react";
 
 export default function EspecificacionesActividadesRows() {
+
+  const [open, setOpen] = useState(false);
 
     return (
       <div>
@@ -15,9 +19,10 @@ export default function EspecificacionesActividadesRows() {
                 <div style={{ width: '11vw', minHeight: '4vh', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flex: 1 }}>0414924112</div>
             </div>
             <div style={{ minHeight: '4vh', width: '7vw', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
-            <FaTrash color={"#192C45"} size={25} style={{cursor: 'pointer'}}/>
+            <FaTrash color={"#192C45"} size={25} style={{cursor: 'pointer'}} onClick={() => setOpen(true)} />
             </div>
           </div> 
+          <DeleteModal showModal={open} setShowModal={setOpen}/>
       </div>
     );
   }
