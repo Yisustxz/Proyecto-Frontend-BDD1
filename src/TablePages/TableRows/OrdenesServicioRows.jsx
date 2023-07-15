@@ -1,7 +1,11 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import DeleteModal from "../../Components/DeleteModal";
+import { useState } from "react";
 
 export default function OrdenesServicioRows() {
+
+  const [open, setOpen] = useState(false);
 
     return (
       <div>
@@ -26,9 +30,10 @@ export default function OrdenesServicioRows() {
             <Link to= "/EditOrdenSer">
             <FaEdit color={"#192C45"} size={25} style={{cursor: 'pointer'}}/>
             </Link>
-            <FaTrash color={"#192C45"} size={25} style={{cursor: 'pointer'}}/>
+            <FaTrash color={"#192C45"} size={25} style={{cursor: 'pointer'}} onClick={() => setOpen(true)}/>
             </div>
           </div> 
+          <DeleteModal showModal={open} setShowModal={setOpen}/>
       </div>
     );
   }

@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import DeleteModal from "../../Components/DeleteModal";
 
 export default function ActividadesRows() {
+
+  const [open, setOpen] = useState(false);
 
     return (
       <div>
@@ -17,11 +21,12 @@ export default function ActividadesRows() {
             </div>
             <div style={{ minHeight: '4vh', width: '7vw', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
             <Link to= "/EditActividad">
-            <FaEdit color={"#192C45"} size={25} style={{cursor: 'pointer'}}/>
+            <FaEdit color={"#192C45"} size={25} style={{cursor: 'pointer'}} />
             </Link>
-            <FaTrash color={"#192C45"} size={25} style={{cursor: 'pointer'}}/>
+            <FaTrash color={"#192C45"} size={25} style={{cursor: 'pointer'}} onClick={() => setOpen(true)}/>
             </div>
           </div> 
+          <DeleteModal showModal={open} setShowModal={setOpen}/>
       </div>
     );
   }
