@@ -1,9 +1,9 @@
 import axios from "axios";
 import { apiUrl } from "../config";
 
-const BASE_URL = apiUrl + "/Estados";
+const BASE_URL = apiUrl + "/Descuentos";
 
-export const getEstado = async (page = 0, size = 4) => {
+export const getDescuentos = async (page = 0, size = 4) => {
   try {
     const res = await axios.get(BASE_URL + "?size=" + size + "&page=" + page);
     if (!res.data.items || !res.data.success) {
@@ -14,16 +14,16 @@ export const getEstado = async (page = 0, size = 4) => {
     if (error.response) {
       throw new Error(
         error?.response?.data?.message ||
-          "Error al obtener los estados del backend"
+          "Error al obtener los descuentos del backend"
       );
     }
     throw error;
   }
 };
 
-export const getEstadoById = async (id) => {
+export const getDescuentoById = async (porcentaje) => {
   try {
-    const res = await axios.get(BASE_URL + `/${id}`);
+    const res = await axios.get(BASE_URL + `/${porcentaje}`);
     if (!res.data.item || !res.data.success) {
       throw new Error("No se han recibido bien los datos del servidor :(");
     }
@@ -31,16 +31,16 @@ export const getEstadoById = async (id) => {
   } catch (error) {
     if (error.response) {
       throw new Error(
-        error?.response?.data?.message || "Error al obtener el estado"
+        error?.response?.data?.message || "Error al obtener el descuento"
       );
     }
     throw error;
   }
 };
 
-export const deleteEstado = async (id) => {
+export const deleteDescuento = async (porcentaje) => {
   try {
-    const res = await axios.delete(BASE_URL + "/" + id);
+    const res = await axios.delete(BASE_URL + "/" + porcentaje);
     if (!res.data.success) {
       throw new Error("Ha ocurrido un fallo con el backend");
     }
@@ -48,16 +48,16 @@ export const deleteEstado = async (id) => {
   } catch (error) {
     if (error.response) {
       throw new Error(
-        error?.response?.data?.message || "Error al eliminar el estado"
+        error?.response?.data?.message || "Error al eliminar el descuento"
       );
     }
     throw error;
   }
 };
 
-export const createEstado = async (estado) => {
+export const createDescuento = async (descuento) => {
   try {
-    const res = await axios.post(BASE_URL, estado);
+    const res = await axios.post(BASE_URL, descuento);
     if (!res.data.success) {
       throw new Error("Ha ocurrido un fallo con el backend");
     }
@@ -66,16 +66,16 @@ export const createEstado = async (estado) => {
   } catch (error) {
     if (error.response) {
       throw new Error(
-        error?.response?.data?.message || "Error al crear el estado"
+        error?.response?.data?.message || "Error al crear el descuento"
       );
     }
     throw error;
   }
 };
 
-export const updateEstado = async (estado, id) => {
+export const updateDescuento = async (descuento, porcentaje) => {
   try {
-    const res = await axios.put(BASE_URL + "/" + id, estado);
+    const res = await axios.put(BASE_URL + "/" + porcentaje, descuento);
     if (!res.data.item || !res.data.success) {
       throw new Error("Ha ocurrido un fallo con el backend");
     }
@@ -83,7 +83,7 @@ export const updateEstado = async (estado, id) => {
   } catch (error) {
     if (error.response) {
       throw new Error(
-        error?.response?.data?.message || "Error al editar el estado"
+        error?.response?.data?.message || "Error al editar el descuento"
       );
     }
     throw error;

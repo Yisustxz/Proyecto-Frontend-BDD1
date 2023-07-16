@@ -1,9 +1,9 @@
 import axios from "axios";
 import { apiUrl } from "../config";
 
-const BASE_URL = apiUrl + "/Estados";
+const BASE_URL = apiUrl + "/MantenimientosRecomendados";
 
-export const getEstado = async (page = 0, size = 4) => {
+export const getMantenimientosRecomendados = async (page = 0, size = 4) => {
   try {
     const res = await axios.get(BASE_URL + "?size=" + size + "&page=" + page);
     if (!res.data.items || !res.data.success) {
@@ -14,16 +14,16 @@ export const getEstado = async (page = 0, size = 4) => {
     if (error.response) {
       throw new Error(
         error?.response?.data?.message ||
-          "Error al obtener los estados del backend"
+          "Error al obtener los mantenimientos recomendados del backend"
       );
     }
     throw error;
   }
 };
 
-export const getEstadoById = async (id) => {
+export const getMantenimientoRcomendadoById = async (id, cod) => {
   try {
-    const res = await axios.get(BASE_URL + `/${id}`);
+    const res = await axios.get(BASE_URL + `/${id}` + `/${cod}`);
     if (!res.data.item || !res.data.success) {
       throw new Error("No se han recibido bien los datos del servidor :(");
     }
@@ -31,16 +31,19 @@ export const getEstadoById = async (id) => {
   } catch (error) {
     if (error.response) {
       throw new Error(
-        error?.response?.data?.message || "Error al obtener el estado"
+        error?.response?.data?.message ||
+          "Error al obtener el mantenimiento recomendado"
       );
     }
     throw error;
   }
 };
 
-export const deleteEstado = async (id) => {
+export const deleteMantenimientoRecomendado = async (mod, cod, kil, time) => {
   try {
-    const res = await axios.delete(BASE_URL + "/" + id);
+    const res = await axios.delete(
+      BASE_URL + "/" + mod + "/" + cod + "/" + kil + "/" + time
+    );
     if (!res.data.success) {
       throw new Error("Ha ocurrido un fallo con el backend");
     }
@@ -48,16 +51,17 @@ export const deleteEstado = async (id) => {
   } catch (error) {
     if (error.response) {
       throw new Error(
-        error?.response?.data?.message || "Error al eliminar el estado"
+        error?.response?.data?.message ||
+          "Error al eliminar el mantenimiento recomendado"
       );
     }
     throw error;
   }
 };
 
-export const createEstado = async (estado) => {
+export const createMantenimientoRecomendado = async (mantenimiento) => {
   try {
-    const res = await axios.post(BASE_URL, estado);
+    const res = await axios.post(BASE_URL, mantenimiento);
     if (!res.data.success) {
       throw new Error("Ha ocurrido un fallo con el backend");
     }
@@ -66,24 +70,8 @@ export const createEstado = async (estado) => {
   } catch (error) {
     if (error.response) {
       throw new Error(
-        error?.response?.data?.message || "Error al crear el estado"
-      );
-    }
-    throw error;
-  }
-};
-
-export const updateEstado = async (estado, id) => {
-  try {
-    const res = await axios.put(BASE_URL + "/" + id, estado);
-    if (!res.data.item || !res.data.success) {
-      throw new Error("Ha ocurrido un fallo con el backend");
-    }
-    return res;
-  } catch (error) {
-    if (error.response) {
-      throw new Error(
-        error?.response?.data?.message || "Error al editar el estado"
+        error?.response?.data?.message ||
+          "Error al crear el mantenimiento recomendado"
       );
     }
     throw error;

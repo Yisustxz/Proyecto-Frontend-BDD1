@@ -1,9 +1,9 @@
 import axios from "axios";
 import { apiUrl } from "../config";
 
-const BASE_URL = apiUrl + "/Estados";
+const BASE_URL = apiUrl + "/Facturas";
 
-export const getEstado = async (page = 0, size = 4) => {
+export const getFacturas = async (page = 0, size = 4) => {
   try {
     const res = await axios.get(BASE_URL + "?size=" + size + "&page=" + page);
     if (!res.data.items || !res.data.success) {
@@ -14,14 +14,14 @@ export const getEstado = async (page = 0, size = 4) => {
     if (error.response) {
       throw new Error(
         error?.response?.data?.message ||
-          "Error al obtener los estados del backend"
+          "Error al obtener las facturas del backend"
       );
     }
     throw error;
   }
 };
 
-export const getEstadoById = async (id) => {
+export const getFacturaById = async (id) => {
   try {
     const res = await axios.get(BASE_URL + `/${id}`);
     if (!res.data.item || !res.data.success) {
@@ -31,14 +31,14 @@ export const getEstadoById = async (id) => {
   } catch (error) {
     if (error.response) {
       throw new Error(
-        error?.response?.data?.message || "Error al obtener el estado"
+        error?.response?.data?.message || "Error al obtener la factura"
       );
     }
     throw error;
   }
 };
 
-export const deleteEstado = async (id) => {
+export const deleteFactura = async (id) => {
   try {
     const res = await axios.delete(BASE_URL + "/" + id);
     if (!res.data.success) {
@@ -48,16 +48,16 @@ export const deleteEstado = async (id) => {
   } catch (error) {
     if (error.response) {
       throw new Error(
-        error?.response?.data?.message || "Error al eliminar el estado"
+        error?.response?.data?.message || "Error al eliminar la factura"
       );
     }
     throw error;
   }
 };
 
-export const createEstado = async (estado) => {
+export const createFactura = async (factura) => {
   try {
-    const res = await axios.post(BASE_URL, estado);
+    const res = await axios.post(BASE_URL, factura);
     if (!res.data.success) {
       throw new Error("Ha ocurrido un fallo con el backend");
     }
@@ -66,16 +66,16 @@ export const createEstado = async (estado) => {
   } catch (error) {
     if (error.response) {
       throw new Error(
-        error?.response?.data?.message || "Error al crear el estado"
+        error?.response?.data?.message || "Error al crear la factura"
       );
     }
     throw error;
   }
 };
 
-export const updateEstado = async (estado, id) => {
+export const updateFactura = async (factura, id) => {
   try {
-    const res = await axios.put(BASE_URL + "/" + id, estado);
+    const res = await axios.put(BASE_URL + "/" + id, factura);
     if (!res.data.item || !res.data.success) {
       throw new Error("Ha ocurrido un fallo con el backend");
     }
@@ -83,7 +83,7 @@ export const updateEstado = async (estado, id) => {
   } catch (error) {
     if (error.response) {
       throw new Error(
-        error?.response?.data?.message || "Error al editar el estado"
+        error?.response?.data?.message || "Error al editar la factura"
       );
     }
     throw error;
