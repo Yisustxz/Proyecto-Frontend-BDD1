@@ -1,5 +1,6 @@
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import DeleteModal from '../../Components/DeleteModal'
 import { useState } from 'react'
 
 export default function ReservasRows({
