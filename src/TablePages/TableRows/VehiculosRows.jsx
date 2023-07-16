@@ -253,7 +253,7 @@ export default function VehiculoRows({
             justifyContent: 'space-around'
           }}
         >
-          <Link to='/EditVeh'>
+          <Link to={`/EditVeh/${placa}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
           <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />

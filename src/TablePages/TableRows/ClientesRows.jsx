@@ -141,7 +141,7 @@ export default function ClientesRows({
             justifyContent: 'space-around'
           }}
         >
-          <Link to='/EditCli'>
+          <Link to={`/EditCli/${ci_cliente}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
           <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />

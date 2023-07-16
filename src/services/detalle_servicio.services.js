@@ -21,9 +21,9 @@ export const getDetalleServicio = async (page = 0, size = 4) => {
   }
 }
 
-export const getDetalleServicioById = async (id) => {
+export const getDetalleServicioById = async (id, cod) => {
   try {
-    const res = await axios.get(BASE_URL + `/${id}`)
+    const res = await axios.get(BASE_URL + `/${id}/${cod}`)
     if (!res.data.item || !res.data.success) {
       throw new Error('No se han recibido bien los datos del servidor :(')
     }
@@ -78,10 +78,13 @@ export const createDetalleServicio = async (detalleservicio) => {
   }
 }
 
-export const updateDetalleServicio = async (detalleservicio, id) => {
+export const updateDetalleServicio = async (detalleservicio, id, cod) => {
   try {
-    const res = await axios.put(BASE_URL + '/' + id, detalleservicio)
-    if (!res.data.message || !res.data.success) {
+    const res = await axios.put(
+      BASE_URL + '/' + id + '/' + cod,
+      detalleservicio
+    )
+    if (!res.data.item || !res.data.success) {
       throw new Error('Ha ocurrido un fallo con el backend')
     }
 

@@ -161,7 +161,7 @@ export default function EncargadoRows({
             justifyContent: 'space-around'
           }}
         >
-          <Link to='/EditEncarg'>
+          <Link to={`/EditEncarg/${ci_encargado}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
           <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />

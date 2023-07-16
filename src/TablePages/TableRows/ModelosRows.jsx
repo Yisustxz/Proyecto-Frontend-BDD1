@@ -229,7 +229,7 @@ export default function ModelosRows({
             justifyContent: 'space-around'
           }}
         >
-          <Link to='/EditModelo'>
+          <Link to={`/EditModelo/${cod_modelo}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
           <FaTrash color={'#192C45'} size={20} style={{ cursor: 'pointer' }} />

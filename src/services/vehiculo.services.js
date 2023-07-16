@@ -75,10 +75,10 @@ export const createVehiculo = async (vehiculo) => {
   }
 }
 
-export const updateModelo = async (vehiculo, id) => {
+export const updateVehiculo = async (vehiculo, id) => {
   try {
     const res = await axios.put(BASE_URL + '/' + id, vehiculo)
-    if (!res.data.message || !res.data.success) {
+    if (!res.data.item || !res.data.success) {
       throw new Error('Ha ocurrido un fallo con el backend')
     }
 

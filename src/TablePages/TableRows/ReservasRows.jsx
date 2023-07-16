@@ -185,7 +185,7 @@ export default function ReservasRows({
             justifyContent: 'space-around'
           }}
         >
-          <Link to='/EditRes'>
+          <Link to={`/EditRes/${cod_reserva}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
           <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />

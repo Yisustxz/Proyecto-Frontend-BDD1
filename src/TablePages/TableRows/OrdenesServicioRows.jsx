@@ -287,7 +287,7 @@ export default function OrdenesServicioRows({
             justifyContent: 'space-around'
           }}
         >
-          <Link to='/EditOrdenSer'>
+          <Link to={`/EditOrdenSer/${num_unico}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
           <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />

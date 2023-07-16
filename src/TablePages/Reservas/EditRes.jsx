@@ -1,22 +1,95 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { getReservaById, updateReserva } from '../../services/reserva.services'
 
 export default function EditRes() {
-  const [Placa, setPlaca] = useState('')
-  const [CodServicio, setCodservicio] = useState('')
-  const [FechaReservada, setFechaReservada] = useState('')
-  const [Asistio, setAsistio] = useState('')
-  const [TipoServicio, setTipoServicio] = useState('')
-  const [Kilometraje, setKilometraje] = useState('')
   const navigate = useNavigate()
+  const { cod } = useParams()
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    // Aquí se envían los datos
-    navigate('/Reservas')
+  const [reserva, setReserva] = useState({
+    placa: '',
+    cod_servicio: '',
+    fecha_reservada: '',
+    asistio: false,
+    kilometraje: ''
+  })
+
+  const handleChange = (e) => {
+    setReserva({
+      ...reserva,
+      [e.target.name]: e.target.value
+    })
   }
 
+  const handleChangeNumber = (e) => {
+    setReserva({
+      ...reserva,
+      [e.target.name]: +e.target.value
+    })
+  }
+
+  const handleChangeBoolean = (e) => {
+    setReserva({
+      ...reserva,
+      [e.target.name]: getBoolean(e.target.value)
+    })
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    try {
+      const response = await updateReserva(reserva, cod)
+      navigate('/Reservas')
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  const getDate = (String) => {
+    const fechaString = String
+    const fecha = new Date(fechaString)
+
+    const year = fecha.getFullYear()
+    let month = fecha.getMonth() + 1
+    if (month < 10) {
+      month = '0' + month
+    }
+    let day = fecha.getDate()
+    if (day < 10) {
+      day = '0' + day
+    }
+    return year + '-' + month + '-' + day
+  }
+
+  const getBoolean = (string) => {
+    if (string === 'false') {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  const fetchEstado = async () => {
+    try {
+      const data = await getReservaById(cod)
+      console.log(data)
+      setReserva({
+        ...reserva,
+        placa: data.item.placa,
+        cod_servicio: data.item.cod_servicio,
+        fecha_reservada: getDate(data.item.fecha_reservada),
+        asistio: data.item.asistio,
+        kilometraje: parseFloat(data.item.kilometraje)
+      })
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  useEffect(() => {
+    fetchEstado()
+  }, [])
   return (
     <div>
       <img
@@ -96,6 +169,7 @@ export default function EditRes() {
               Placa
             </h2>
             <input
+              name='placa'
               type='text'
               style={{
                 borderWidth: '2px',
@@ -107,8 +181,8 @@ export default function EditRes() {
                 fontWeight: 'normal',
                 width: '17vw'
               }}
-              value={Placa}
-              onChange={(event) => setPlaca(event.target.value)}
+              onChange={handleChange}
+              value={reserva.placa}
             />
           </label>
           <label style={{ paddingBottom: '15px' }}>
@@ -129,6 +203,7 @@ export default function EditRes() {
               Codigo Servicio{' '}
             </h2>
             <input
+              name='cod_servicio'
               type='text'
               style={{
                 borderWidth: '2px',
@@ -140,8 +215,8 @@ export default function EditRes() {
                 fontWeight: 'normal',
                 width: '17vw'
               }}
-              value={CodServicio}
-              onChange={(event) => setCodservicio(event.target.value)}
+              onChange={handleChange}
+              value={reserva.cod_servicio}
             />
           </label>
           <label style={{ paddingBottom: '15px' }}>
@@ -162,7 +237,8 @@ export default function EditRes() {
               FechaReservada
             </h2>
             <input
-              type='text'
+              name='fecha_reservada'
+              type='date'
               style={{
                 borderWidth: '2px',
                 borderColor: '#C1BFBF',
@@ -173,8 +249,8 @@ export default function EditRes() {
                 fontWeight: 'normal',
                 width: '17vw'
               }}
-              value={FechaReservada}
-              onChange={(event) => setFechaReservada(event.target.value)}
+              onChange={handleChange}
+              value={reserva.fecha_reservada}
             />
           </label>
           <label style={{ paddingBottom: '15px' }}>
@@ -194,8 +270,9 @@ export default function EditRes() {
             >
               Asistencia
             </h2>
-            <input
-              type='text'
+            <select
+              name='asistio'
+              data-te-select-init
               style={{
                 borderWidth: '2px',
                 borderColor: '#C1BFBF',
@@ -206,9 +283,12 @@ export default function EditRes() {
                 fontWeight: 'normal',
                 width: '17vw'
               }}
-              value={Asistio}
-              onChange={(event) => setAsistio(event.target.value)}
-            />
+              onChange={handleChangeBoolean}
+              value={reserva.asistio}
+            >
+              <option value='true'>Si</option>
+              <option value='false'>No</option>
+            </select>
           </label>
           <label style={{ paddingBottom: '15px' }}>
             {' '}
@@ -228,7 +308,8 @@ export default function EditRes() {
               Kilometraje
             </h2>
             <input
-              type='text'
+              name='kilometraje'
+              type='number'
               style={{
                 borderWidth: '2px',
                 borderColor: '#C1BFBF',
@@ -239,8 +320,8 @@ export default function EditRes() {
                 fontWeight: 'normal',
                 width: '17vw'
               }}
-              value={Kilometraje}
-              onChange={(event) => setKilometraje(event.target.value)}
+              onChange={handleChangeNumber}
+              value={reserva.kilometraje}
             />
           </label>
           <div

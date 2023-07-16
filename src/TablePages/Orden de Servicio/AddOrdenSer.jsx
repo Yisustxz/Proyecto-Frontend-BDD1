@@ -6,8 +6,8 @@ import { createOrdenServicio } from '../../services/ordenesServicio.services'
 export default function AddOrdenSer() {
   const navigate = useNavigate()
   const [ordenServicio, setOrdenServicio] = useState({
-    ci_autorizado: '',
-    nombre_autorizado: '',
+    ci_autorizado: null,
+    nombre_autorizado: null,
     hora_entrada: '',
     hora_salida_estimada: '',
     hora_salida_real: '',

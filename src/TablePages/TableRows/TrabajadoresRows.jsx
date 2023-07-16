@@ -161,7 +161,7 @@ export default function TrabajadoresRows({
             justifyContent: 'space-around'
           }}
         >
-          <Link to='/EditTrabajador'>
+          <Link to={`/EditTrabajador/${ci_trabajador}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
           <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />

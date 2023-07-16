@@ -80,7 +80,7 @@ export default function FamiliaProductosRows({ cod_tipo, nombre }) {
             justifyContent: 'space-around'
           }}
         >
-          <Link to='/EditFamPro'>
+          <Link to={`/EditFamPro/${cod_tipo}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
           <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />

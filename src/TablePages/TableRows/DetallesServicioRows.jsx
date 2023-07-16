@@ -122,7 +122,7 @@ export default function DetallesServicioRows({
             justifyContent: 'space-around'
           }}
         >
-          <Link to='/EditDetalleSer'>
+          <Link to={`/EditDetalleSer/${num_unico}/${num_detalle}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
           <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />

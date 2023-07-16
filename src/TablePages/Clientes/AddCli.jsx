@@ -10,7 +10,7 @@ export default function AddCli() {
     nombre_cliente: '',
     correo: '',
     telefono_principal: '',
-    telefono_secundario: 0
+    telefono_secundario: ''
   })
 
   const handleChange = (e) => {
@@ -208,7 +208,7 @@ export default function AddCli() {
             </h2>
             <input
               name='telefono_principal'
-              type='text'
+              type='number'
               style={{
                 borderWidth: '2px',
                 borderColor: '#C1BFBF',
@@ -242,7 +242,7 @@ export default function AddCli() {
             </h2>
             <input
               name='telefono_secundario'
-              type='text'
+              type='number'
               style={{
                 borderWidth: '2px',
                 borderColor: '#C1BFBF',

@@ -80,7 +80,7 @@ export const createOrdenServicio = async (ordenServicio) => {
 export const updateOrdenServicio = async (ordenServicio, id) => {
   try {
     const res = await axios.put(BASE_URL + '/' + id, ordenServicio)
-    if (!res.data.message || !res.data.success) {
+    if (!res.data.item || !res.data.success) {
       throw new Error('Ha ocurrido un fallo con el backend')
     }
 

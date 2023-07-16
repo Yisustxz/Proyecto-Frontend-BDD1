@@ -78,7 +78,7 @@ export const createCliente = async (cliente) => {
 export const updateCliente = async (cliente, id) => {
   try {
     const res = await axios.put(BASE_URL + '/' + id, cliente)
-    if (!res.data.message || !res.data.success) {
+    if (!res.data.item || !res.data.success) {
       throw new Error('Ha ocurrido un fallo con el backend')
     }
 
