@@ -9,7 +9,7 @@ export default function AddCon() {
     rif: "",
     nombre: "",
     cod_est: "",
-    num_consecutivo: 0,
+    num_consecutivo: "",
     ci_encargado: "",
   });
 
@@ -23,7 +23,7 @@ export default function AddCon() {
   const handleChangeNumber = (e) => {
     setConcesionario({
       ...concesionario,
-      [e.target.name]: +e.target.value,
+      [e.target.name]: + e.target.value,
     });
   };
 

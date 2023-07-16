@@ -133,11 +133,17 @@ function App() {
               <Route path="/AddEncarg" element={<AddEncargado />} />
               <Route path="/EditEncarg" element={<EditEncargado />} />
               <Route path="/AddServicio" element={<AddServicio />} />
-              <Route path="/EditServicio" element={<EditServicio />} />
+              <Route path="/EditServicio/:cod" element={<EditServicio />} />
               <Route path="/AddActividad" element={<AddActividad />} />
-              <Route path="/EditActividad" element={<EditActividad />} />
+              <Route
+                path="/EditActividad/:cod/:num"
+                element={<EditActividad />}
+              />
               <Route path="/AddDescuento" element={<AddDescuento />} />
-              <Route path="/EditDescuento" element={<EditDescuento />} />
+              <Route
+                path="/EditDescuento/:porcentaje"
+                element={<EditDescuento />}
+              />
               <Route path="/AddOrdenSer" element={<AddOrdenSer />} />
               <Route path="/EditOrdenSer" element={<EditOrdenSer />} />
               <Route path="/AddDetalleSer" element={<AddDetalleSer />} />
@@ -155,11 +161,11 @@ function App() {
               <Route path="/AddModelo" element={<AddModelo />} />
               <Route path="/EditManRec" element={<EditManRec />} />
               <Route path="/AddManRec" element={<AddManRec />} />
-              <Route path="/EditPro" element={<EditPro />} />
+              <Route path="/EditPro/:cod" element={<EditPro />} />
               <Route path="/AddPro" element={<AddPro />} />
               <Route path="/EditFamPro" element={<EditFamPro />} />
               <Route path="/AddFamPro" element={<AddFamPro />} />
-              <Route path="/EditFactu" element={<EditFactu />} />
+              <Route path="/EditFactu/:id" element={<EditFactu />} />
               <Route path="/AddFactu" element={<AddFactu />} />
               <Route path="/EditPagos" element={<EditPagos />} />
               <Route path="/AddPagos" element={<AddPagos />} />
