@@ -58,7 +58,6 @@ import EditVeh from "./TablePages/Vehiculos/EditVeh";
 import AddMan from "./TablePages/Mantenimientos/AddMan";
 import AddModelo from "./TablePages/Modelo/AddModelo";
 import EditModelo from "./TablePages/Modelo/EditModelo";
-import EditManRec from "./TablePages/MantenimientoRecomendado/EditManReco";
 import AddManRec from "./TablePages/MantenimientoRecomendado/AddManReco";
 import EditPro from "./TablePages/Producto/EditPro";
 import AddPro from "./TablePages/Producto/AddPro";
@@ -159,7 +158,6 @@ function App() {
               <Route path="/AddMan" element={<AddMan />} />
               <Route path="/EditModelo" element={<EditModelo />} />
               <Route path="/AddModelo" element={<AddModelo />} />
-              <Route path="/EditManRec" element={<EditManRec />} />
               <Route path="/AddManRec" element={<AddManRec />} />
               <Route path="/EditPro/:cod" element={<EditPro />} />
               <Route path="/AddPro" element={<AddPro />} />
@@ -167,7 +165,7 @@ function App() {
               <Route path="/AddFamPro" element={<AddFamPro />} />
               <Route path="/EditFactu/:id" element={<EditFactu />} />
               <Route path="/AddFactu" element={<AddFactu />} />
-              <Route path="/EditPagos" element={<EditPagos />} />
+              <Route path="/EditPagos/:cod/:num" element={<EditPagos />} />
               <Route path="/AddPagos" element={<AddPagos />} />
               <Route path="/AddEspeActi" element={<AddEspeActi />} />
               <Route path="/Reportes" element={<Reportes />} />

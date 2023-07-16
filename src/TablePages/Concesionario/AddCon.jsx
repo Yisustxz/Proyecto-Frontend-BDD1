@@ -23,7 +23,7 @@ export default function AddCon() {
   const handleChangeNumber = (e) => {
     setConcesionario({
       ...concesionario,
-      [e.target.name]: + e.target.value,
+      [e.target.name]: +e.target.value,
     });
   };
 
