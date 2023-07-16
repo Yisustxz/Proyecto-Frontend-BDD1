@@ -111,7 +111,7 @@ export default function MantenimientosRecomendadoRows({
               overflow: 'auto'
             }}
           >
-            {tiempo_uso}
+            {tiempo_uso} dias
           </div>
         </div>
         <div
