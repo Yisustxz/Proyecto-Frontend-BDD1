@@ -147,24 +147,9 @@ export default function DetalleServicio() {
           </div>
         </div>
         <div style={{ overflow: 'auto' }}>
-          {/* Ejemplo de como José Andrés hizo en nuestra practica de bd:
-          const [escuelas, setEscuelas] = useState(null);
-
-            useEffect(() => {
-            const fetchEscuelas = async () => {
-            const response = await axios.get(BASE_URL + "/escuelas");
-            const escuelasFromBackend = response.data
-            setEscuelas(escuelasFromBackend)
-            };
-           fetchEscuelas();
-            }, []);
-
-            Luego le pasan como parametros los valores que guardó en escuelas:
-          {escuelas ? escuelas.map(escuelas => <EscRow {...escuelas} />) : 'Loading...'}
-          */}
           {detalleServicio.map((detalleservicio) => (
             <DetallesServicioRows
-              key={detalleservicio.num_unico}
+              key={detalleservicio.num_detalle}
               {...detalleservicio}
             />
           ))}
