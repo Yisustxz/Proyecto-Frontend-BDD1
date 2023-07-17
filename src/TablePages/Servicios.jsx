@@ -19,7 +19,7 @@ export default function Servicios() {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [servicios])
 
   return (
     <div>

@@ -36,7 +36,7 @@
   border-width: '2px'
 }
 
-..ModalDelete{
+.ModalDelete{
   height: 30vh;
   width: 65vh;
   display: flex;
