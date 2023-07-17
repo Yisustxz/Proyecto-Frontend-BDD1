@@ -1,7 +1,7 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import DeleteModal from "../../Components/DeleteModal";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { deleteServicio } from "../../services/servicio.services";
 import { toast } from "react-toastify";
 
@@ -13,17 +13,19 @@ export default function ServiciosRows({
   capacidad,
   ci_trabajador,
   porcentaje,
+  getServicios,
 }) {
   const [open, setOpen] = useState(false);
 
-  const handleDelete = async (cod_servicio) => {
+  const handleDelete = useCallback(async (cod_servicio) => {
     try {
       const response = await deleteServicio(cod_servicio);
+      getServicios();
       toast.success(response.item);
     } catch (error) {
       toast.error(error.message);
     }
-  };
+  }, []);
 
   return (
     <div>

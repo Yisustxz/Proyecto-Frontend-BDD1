@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import DescuentosRows from "./TableRows/DescuentosRows";
 import { MdCarRepair } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -8,18 +8,18 @@ import { toast } from "react-toastify";
 export default function Descuentos() {
   const [descuentos, setDescuentos] = useState([]);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getDescuentos(0, 100);
       setDescuentos(data.items);
     } catch (error) {
       toast.error(error.message);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchData();
-  }, [descuentos]);
+  }, [fetchData]);
 
   return (
     <div>
@@ -138,7 +138,11 @@ export default function Descuentos() {
         </div>
         <div style={{ overflow: "auto" }}>
           {descuentos.map((descuento) => (
-            <DescuentosRows key={descuento.porcentaje} {...descuento} />
+            <DescuentosRows
+              key={descuento.porcentaje}
+              {...descuento}
+              getDescuentos={fetchData}
+            />
           ))}
         </div>
       </div>

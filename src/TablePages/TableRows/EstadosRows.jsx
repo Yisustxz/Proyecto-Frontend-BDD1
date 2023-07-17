@@ -1,21 +1,22 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import DeleteModal from "../../Components/DeleteModal";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { deleteEstado } from "../../services/estado.services";
 import { toast } from "react-toastify";
 
-export default function EstadosRows({ cod_est, nombre_est }) {
+export default function EstadosRows({ cod_est, nombre_est, getEstado }) {
   const [open, setOpen] = useState(false);
 
-  const handleDelete = async (cod_est) => {
+  const handleDelete = useCallback(async (cod_est) => {
     try {
       const response = await deleteEstado(cod_est);
+      getEstado();
       toast.success(response.item);
     } catch (error) {
       toast.error(error.message);
     }
-  };
+  }, []);
 
   return (
     <div>

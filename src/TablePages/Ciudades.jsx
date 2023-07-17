@@ -1,25 +1,25 @@
 import { GiCarWheel } from "react-icons/gi";
 import CiudadesRows from "./TableRows/CiudadesRows";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getCiudades } from "../services/ciudad.services";
 import { toast } from "react-toastify";
 
 export default function Cuidades() {
   const [ciudades, setCiudades] = useState([]);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getCiudades(0, 100);
       setCiudades(data.items);
     } catch (error) {
       toast.error(error.message);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   return (
     <div>
@@ -141,7 +141,7 @@ export default function Cuidades() {
             <CiudadesRows
               key={`${ciudad.cod_est + ciudad.num_consecutivo}`}
               {...ciudad}
-              fetchData={fetchData}
+              getCiudades={fetchData}
             />
           ))}
         </div>

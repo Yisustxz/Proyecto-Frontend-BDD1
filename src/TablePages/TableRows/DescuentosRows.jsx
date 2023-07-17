@@ -1,21 +1,27 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import DeleteModal from "../../Components/DeleteModal";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { deleteDescuento } from "../../services/descuento.services";
 import { toast } from "react-toastify";
 
-export default function DescuentosRows({ porcentaje, rango_min, rango_max }) {
+export default function DescuentosRows({
+  porcentaje,
+  rango_min,
+  rango_max,
+  getDescuentos,
+}) {
   const [open, setOpen] = useState(false);
 
-  const handleDelete = async (porcentaje) => {
+  const handleDelete = useCallback(async (porcentaje) => {
     try {
       const response = await deleteDescuento(porcentaje);
+      getDescuentos();
       toast.success(response.item);
     } catch (error) {
       toast.error(error.message);
     }
-  };
+  }, []);
 
   return (
     <div>

@@ -1,25 +1,25 @@
 import { GiCarWheel } from "react-icons/gi";
 import EstadosRows from "./TableRows/EstadosRows";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getEstado } from "../services/estado.services";
 import { toast } from "react-toastify";
 
 export default function Estados() {
   const [estados, setEstados] = useState([]);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getEstado(0, 100);
       setEstados(data.items);
     } catch (error) {
       toast.error(error.message);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchData();
-  }, [estados]);
+  }, [fetchData]);
 
   return (
     <div>
@@ -126,7 +126,11 @@ export default function Estados() {
         </div>
         <div style={{ overflow: "auto" }}>
           {estados.map((estado) => (
-            <EstadosRows key={estado.cod_est} {...estado} />
+            <EstadosRows
+              key={estado.cod_est}
+              {...estado}
+              getEstado={fetchData}
+            />
           ))}
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import DeleteModal from "../../Components/DeleteModal";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { deleteCiudad } from "../../services/ciudad.services";
 import { toast } from "react-toastify";
 
@@ -9,17 +9,19 @@ export default function CiudadesRows({
   cod_est,
   num_consecutivo,
   nombre_ciudad,
+  getCiudades,
 }) {
   const [open, setOpen] = useState(false);
 
-  const handleDelete = async (cod_est, num_consecutivo) => {
+  const handleDelete = useCallback(async (cod_est, num_consecutivo) => {
     try {
       const response = await deleteCiudad(cod_est, num_consecutivo);
+      getCiudades();
       toast.success(response.item);
     } catch (error) {
       toast.error(error.message);
     }
-  };
+  }, []);
 
   return (
     <div>
