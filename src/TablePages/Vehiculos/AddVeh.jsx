@@ -409,7 +409,7 @@ export default function AddVeh() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '5vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -419,7 +419,7 @@ export default function AddVeh() {
                 marginBottom: '4px'
               }}
             >
-              CI
+              CI_Cliente
             </h2>
             <input
               name='ci_cliente'

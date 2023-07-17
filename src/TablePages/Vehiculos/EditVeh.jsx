@@ -426,7 +426,7 @@ export default function EditVeh() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '5vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -436,7 +436,7 @@ export default function EditVeh() {
                 marginBottom: '4px'
               }}
             >
-              CI
+              CI_Trabajador
             </h2>
             <input
               name='ci_cliente'

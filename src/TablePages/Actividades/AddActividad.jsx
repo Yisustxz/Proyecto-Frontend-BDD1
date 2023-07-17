@@ -103,7 +103,7 @@ export default function AddActividad() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '5vw',
+                width: '10vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -113,7 +113,7 @@ export default function AddActividad() {
                 marginBottom: '4px'
               }}
             >
-              Cod
+              Cod_Servicio
             </h2>
             <input
               name='cod_servicio'

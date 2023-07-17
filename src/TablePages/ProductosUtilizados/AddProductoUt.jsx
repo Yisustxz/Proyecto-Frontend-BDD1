@@ -104,7 +104,7 @@ export default function AddProductoUt() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '7vw',
+                width: '15vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -114,7 +114,7 @@ export default function AddProductoUt() {
                 marginBottom: '4px'
               }}
             >
-              NumUnico
+              NumUnico_DetalleServicio
             </h2>
             <input
               name='num_unico'
@@ -138,7 +138,7 @@ export default function AddProductoUt() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '8vw',
+                width: '15vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -148,7 +148,7 @@ export default function AddProductoUt() {
                 marginBottom: '4px'
               }}
             >
-              NumDetalle
+              NumDetalle_DetalleServicio
             </h2>
             <input
               name='num_detalle'
