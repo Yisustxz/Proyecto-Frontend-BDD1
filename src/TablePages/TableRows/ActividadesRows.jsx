@@ -1,14 +1,29 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import DeleteModal from '../../Components/DeleteModal'
+import { deleteActividad } from '../../services/actividad.services'
+import { toast } from 'react-toastify'
 
 export default function ActividadesRows({
   cod_servicio,
   num_consecutivo,
   descripcion_actividad,
-  costo_actividad
+  costo_actividad,
+  getActividades
 }) {
+  const [open, setOpen] = useState(false)
+
+  const handleDelete = useCallback(async (cod_servicio, num_consecutivo) => {
+    try {
+      const response = await deleteActividad(cod_servicio, num_consecutivo)
+      getActividades()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  })
+
   return (
     <div>
       <div
@@ -124,8 +139,18 @@ export default function ActividadesRows({
           <Link to={`/EditActividad/${cod_servicio}/${num_consecutivo}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => handleDelete(cod_servicio, num_consecutivo)}
+        />
       </div>
     </div>
   )

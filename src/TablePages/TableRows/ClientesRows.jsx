@@ -1,13 +1,30 @@
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import DeleteModal from '../../Components/DeleteModal'
+import { useState, useCallback } from 'react'
+import { deleteCliente } from '../../services/cliente.services'
+import { toast } from 'react-toastify'
 
 export default function ClientesRows({
   ci_cliente,
   nombre_cliente,
   correo,
   telefono_principal,
-  telefono_secundario
+  telefono_secundario,
+  getCliente
 }) {
+  const [open, setOpen] = useState(false)
+
+  const handleDelete = useCallback(async (ci_cliente) => {
+    try {
+      const response = await deleteCliente(ci_cliente)
+      getCliente()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  })
+
   return (
     <div>
       <div
@@ -144,8 +161,20 @@ export default function ClientesRows({
           <Link to={`/EditCli/${ci_cliente}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => {
+            handleDelete(ci_cliente)
+          }}
+        />
       </div>
     </div>
   )

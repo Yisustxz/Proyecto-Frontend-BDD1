@@ -1,25 +1,25 @@
 import { AiOutlineFile } from 'react-icons/ai'
 import FacturasRows from './TableRows/FacturasRows'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { getFacturas } from '../services/factura.services'
 import { toast } from 'react-toastify'
 
 export default function Facturas() {
   const [facturas, setFacturas] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getFacturas(0, 100)
       setFacturas(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <div>
@@ -162,7 +162,11 @@ export default function Facturas() {
         </div>
         <div style={{ overflow: 'auto' }}>
           {facturas.map((factura) => (
-            <FacturasRows key={factura.num_factura} {...factura} />
+            <FacturasRows
+              key={factura.num_factura}
+              {...factura}
+              getFacturas={fetchData}
+            />
           ))}
         </div>
       </div>

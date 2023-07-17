@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import EspecializacionesRows from './TableRows/EspecializacionesRows'
 import { FaUserFriends } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
@@ -8,18 +8,18 @@ import { toast } from 'react-toastify'
 export default function Especialzaciones() {
   const [especializaciones, setEspecializaciones] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getEspecializaciones(0, 100)
       setEspecializaciones(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <div>
@@ -129,6 +129,7 @@ export default function Especialzaciones() {
             <EspecializacionesRows
               key={especializacion.ci_trabajador + especializacion.cod_servicio}
               {...especializacion}
+              getEspecializaciones={fetchData}
             />
           ))}
         </div>

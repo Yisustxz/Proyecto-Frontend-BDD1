@@ -1,7 +1,9 @@
 import { FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deleteProductoUtilizado } from '../../services/producto_utilizado.services'
+import { toast } from 'react-toastify'
 
 export default function ProductosUtilizadosRows({
   num_unico,
@@ -9,9 +11,27 @@ export default function ProductosUtilizadosRows({
   ci_trabajador,
   cod_producto,
   precio_actual,
-  cantidad_usada
+  cantidad_usada,
+  getProductoUtilizado
 }) {
   const [open, setOpen] = useState(false)
+  const handleDelete = useCallback(
+    async (num_unico, num_detalle, ci_trabajador, cod_producto) => {
+      try {
+        const response = await deleteProductoUtilizado(
+          num_unico,
+          num_detalle,
+          ci_trabajador,
+          cod_producto
+        )
+        getProductoUtilizado()
+        toast.success(response.item)
+      } catch (error) {
+        toast.error(error.message)
+      }
+    },
+    []
+  )
   return (
     <div>
       <div
@@ -165,9 +185,20 @@ export default function ProductosUtilizadosRows({
             justifyContent: 'space-around'
           }}
         >
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
-        <DeleteModal showModal={open} setShowModal={setOpen} />
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() =>
+            handleDelete(num_unico, num_detalle, ci_trabajador, cod_producto)
+          }
+        />
       </div>
     </div>
   )

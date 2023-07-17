@@ -1,9 +1,20 @@
-import { FaEdit, FaTrash } from 'react-icons/fa'
+import { FaTrash } from 'react-icons/fa'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deleteModelosPosee } from '../../services/modelosPosee.services'
+import { toast } from 'react-toastify'
 
-export default function ModelosPoseeRows({ rif, cod_modelo }) {
+export default function ModelosPoseeRows({ rif, cod_modelo, getModelosPosee }) {
   const [open, setOpen] = useState(false)
+  const handleDelete = useCallback(async (rif, cod_modelo) => {
+    try {
+      const response = await deleteModelosPosee(rif, cod_modelo)
+      getModelosPosee()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }, [])
   return (
     <div>
       <div
@@ -82,9 +93,18 @@ export default function ModelosPoseeRows({ rif, cod_modelo }) {
             justifyContent: 'space-around'
           }}
         >
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
-        <DeleteModal showModal={open} setShowModal={setOpen} />
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => handleDelete(rif, cod_modelo)}
+        />
       </div>
     </div>
   )

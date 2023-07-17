@@ -1,10 +1,25 @@
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deleteFamiliaProducto } from '../../services/familia_producto.services'
+import { toast } from 'react-toastify'
 
-export default function FamiliaProductosRows({ cod_tipo, nombre }) {
+export default function FamiliaProductosRows({
+  cod_tipo,
+  nombre,
+  getFamiliaProducto
+}) {
   const [open, setOpen] = useState(false)
+  const handleDelete = useCallback(async (cod_tipo) => {
+    try {
+      const response = await deleteFamiliaProducto(cod_tipo)
+      getFamiliaProducto()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }, [])
   return (
     <div>
       <div
@@ -86,9 +101,18 @@ export default function FamiliaProductosRows({ cod_tipo, nombre }) {
           <Link to={`/EditFamPro/${cod_tipo}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
-        <DeleteModal showModal={open} setShowModal={setOpen} />
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => handleDelete(cod_tipo)}
+        />
       </div>
     </div>
   )

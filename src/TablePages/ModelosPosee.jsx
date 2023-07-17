@@ -1,6 +1,6 @@
 import { GiCarWheel } from 'react-icons/gi'
 import ModelosPoseeRows from './TableRows/ModelosPoseeRows'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getModelosPosee } from '../services/modelosPosee.services'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -8,17 +8,17 @@ import { toast } from 'react-toastify'
 export default function ModelosPosee() {
   const [modelosPosee, setModelosPosee] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getModelosPosee(0, 100)
       setModelosPosee(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
   return (
     <div>
       <div
@@ -127,6 +127,7 @@ export default function ModelosPosee() {
             <ModelosPoseeRows
               key={modelosposee.rif + modelosposee.cod_modelo}
               {...modelosposee}
+              getModelosPosee={fetchData}
             />
           ))}
         </div>

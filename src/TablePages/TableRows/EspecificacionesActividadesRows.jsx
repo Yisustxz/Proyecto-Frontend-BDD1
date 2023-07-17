@@ -1,14 +1,35 @@
 import { FaTrash } from 'react-icons/fa'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deleteEspecificacionActividad } from '../../services/especificaciones_actividades.services'
+import { toast } from 'react-toastify'
 
 export default function EspecificacionesActividadesRows({
   num_unico,
   num_detalle,
   cod_actividad,
-  num_consecutivo
+  num_consecutivo,
+  getEspecificacionesActividades
 }) {
   const [open, setOpen] = useState(false)
+
+  const handleDelete = useCallback(
+    async (num_unico, num_detalle, cod_actividad, num_consecutivo) => {
+      try {
+        const response = await deleteEspecificacionActividad(
+          num_unico,
+          num_detalle,
+          cod_actividad,
+          num_consecutivo
+        )
+        getEspecificacionesActividades()
+        toast.success(response.item)
+      } catch (error) {
+        toast.error(error.message)
+      }
+    },
+    []
+  )
   return (
     <div>
       <div
@@ -121,8 +142,22 @@ export default function EspecificacionesActividadesRows({
             justifyContent: 'space-around'
           }}
         >
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => {
+              setOpen(true)
+            }}
+          />
         </div>
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => {
+            handleDelete(num_unico, num_detalle, cod_actividad, num_consecutivo)
+          }}
+        />
       </div>
     </div>
   )

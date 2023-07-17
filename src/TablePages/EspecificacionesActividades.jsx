@@ -1,7 +1,7 @@
 import { AiOutlineFileDone } from 'react-icons/ai'
 import EspecificacionesActividadesRows from './TableRows/EspecificacionesActividadesRows'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { getEspecificacionesActividades } from '../services/especificaciones_actividades.services'
 import { toast } from 'react-toastify'
 
@@ -9,18 +9,18 @@ export default function EspecificacionesActividades() {
   const [especificacionesActividades, setEspecificacionesActividades] =
     useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getEspecificacionesActividades(0, 100)
       setEspecificacionesActividades(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <div>
@@ -159,6 +159,7 @@ export default function EspecificacionesActividades() {
                 especificacion.num_consecutivo
               }
               {...especificacion}
+              getEspecificacionesActividades={fetchData}
             />
           ))}
         </div>

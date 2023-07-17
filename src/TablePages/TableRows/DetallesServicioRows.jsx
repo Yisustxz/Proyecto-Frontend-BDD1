@@ -1,14 +1,27 @@
 import { FaEdit, FaTrash } from 'react-icons/fa'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import DeleteModal from '../../Components/DeleteModal'
+import { useState, useCallback } from 'react'
+import { deleteDetalleServicio } from '../../services/detalle_servicio.services'
+import { toast } from 'react-toastify'
 
 export default function DetallesServicioRows({
   num_unico,
   num_detalle,
   cantidad,
-  costo
+  costo,
+  getDetalleServicio
 }) {
   const [open, setOpen] = useState(false)
+  const handleDelete = useCallback(async (num_unico, num_detalle) => {
+    try {
+      const response = await deleteDetalleServicio(num_unico, num_detalle)
+      getDetalleServicio()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }, [])
   return (
     <div>
       <div
@@ -127,8 +140,22 @@ export default function DetallesServicioRows({
           <Link to={`/EditDetalleSer/${num_unico}/${num_detalle}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => {
+              setOpen(true)
+            }}
+          />
         </div>
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => {
+            handleDelete(num_unico, num_detalle)
+          }}
+        />
       </div>
     </div>
   )

@@ -1,9 +1,24 @@
 import { FaTrash } from 'react-icons/fa'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deleteEspecializacion } from '../../services/se_especializa.services'
+import { toast } from 'react-toastify'
 
-export default function EspecializacionesRows({ ci_trabajador, cod_servicio }) {
+export default function EspecializacionesRows({
+  ci_trabajador,
+  cod_servicio,
+  getEspecializaciones
+}) {
   const [open, setOpen] = useState(false)
+  const handleDelete = useCallback(async (ci_trabajador, cod_servicio) => {
+    try {
+      const response = await deleteEspecializacion(ci_trabajador, cod_servicio)
+      getEspecializaciones()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }, [])
   return (
     <div>
       <div
@@ -78,8 +93,22 @@ export default function EspecializacionesRows({ ci_trabajador, cod_servicio }) {
             justifyContent: 'space-around'
           }}
         >
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => {
+              setOpen(true)
+            }}
+          />
         </div>
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => {
+            handleDelete(ci_trabajador, cod_servicio)
+          }}
+        />
       </div>
     </div>
   )

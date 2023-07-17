@@ -1,25 +1,25 @@
 import { AiOutlineFile } from 'react-icons/ai'
 import PagosRows from './TableRows/PagosRows'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { getPagos } from '../services/pago.services'
 import { toast } from 'react-toastify'
 
 export default function Pagos() {
   const [pagos, setPagos] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getPagos(0, 100)
       setPagos(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <div>
@@ -189,6 +189,7 @@ export default function Pagos() {
             <PagosRows
               key={pago.num_factura + pago.num_consecutivo}
               {...pago}
+              getPagos={fetchData}
             />
           ))}
         </div>

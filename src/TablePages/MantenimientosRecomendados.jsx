@@ -1,7 +1,7 @@
 import { AiOutlineCar } from 'react-icons/ai'
 import MantenimientosRecomendadoRows from './TableRows/MantenimientosRecomendadoRows'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { getMantenimientosRecomendados } from '../services/mantenimiento_recomendado.services'
 import { toast } from 'react-toastify'
 
@@ -10,18 +10,18 @@ export default function MantenimientosRecomendado() {
     []
   )
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getMantenimientosRecomendados(0, 100)
       setMantenimientosRecomendados(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <div>
@@ -161,6 +161,7 @@ export default function MantenimientosRecomendado() {
                 mantenimiento.tiempo_uso
               }
               {...mantenimiento}
+              getMantenimientosRecomendados={fetchData}
             />
           ))}
         </div>

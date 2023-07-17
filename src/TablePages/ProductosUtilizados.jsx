@@ -1,6 +1,6 @@
 import ProductosUtilizadosRows from './TableRows/ProductosUtilizadosRows'
 import { AiOutlineFileDone } from 'react-icons/ai'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getProductoUtilizado } from '../services/producto_utilizado.services'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -8,14 +8,14 @@ import { toast } from 'react-toastify'
 export default function ProductosUtilizados() {
   const [productoUtilizado, setProductoUtilizado] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getProductoUtilizado(0, 100)
       setProductoUtilizado(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
   useEffect(() => {
     fetchData()
   }, [])
@@ -181,6 +181,7 @@ export default function ProductosUtilizados() {
                 productoutilizado.cod_producto
               }
               {...productoutilizado}
+              getProductoUtilizado={fetchData}
             />
           ))}
         </div>

@@ -1,6 +1,6 @@
 import { FaUserAlt } from 'react-icons/fa'
 import ClientesRows from './TableRows/ClientesRows'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getCliente } from '../services/cliente.services'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -8,18 +8,18 @@ import { toast } from 'react-toastify'
 export default function Clientes() {
   const [cliente, setCliente] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getCliente(0, 100)
       setCliente(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
   return (
     <div>
       <div
@@ -157,7 +157,11 @@ export default function Clientes() {
         </div>
         <div style={{ overflow: 'auto' }}>
           {cliente.map((cliente) => (
-            <ClientesRows key={cliente.ci_cliente} {...cliente} />
+            <ClientesRows
+              key={cliente.ci_cliente}
+              {...cliente}
+              getCliente={fetchData}
+            />
           ))}
         </div>
       </div>

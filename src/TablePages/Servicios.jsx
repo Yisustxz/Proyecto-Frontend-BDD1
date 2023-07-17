@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import ServiciosRows from './TableRows/ServiciosRows'
 import { MdCarRepair } from 'react-icons/md'
 import { Link } from 'react-router-dom'
@@ -8,18 +8,18 @@ import { toast } from 'react-toastify'
 export default function Servicios() {
   const [servicios, setServicios] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getServicios(0, 100)
       setServicios(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [servicios])
+  }, [fetchData])
 
   return (
     <div>
@@ -186,7 +186,11 @@ export default function Servicios() {
         </div>
         <div style={{ overflow: 'auto' }}>
           {servicios.map((servicio) => (
-            <ServiciosRows key={servicio.cod_servicio} {...servicio} />
+            <ServiciosRows
+              key={servicio.cod_servicio}
+              {...servicio}
+              getServicios={fetchData}
+            />
           ))}
         </div>
       </div>

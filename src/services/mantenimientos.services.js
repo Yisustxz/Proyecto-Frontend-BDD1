@@ -38,9 +38,9 @@ export const getMantenimientoById = async (id) => {
   }
 }
 
-export const deleteDetalleServicio = async (id) => {
+export const deleteMantenimiento = async (id, cod, num) => {
   try {
-    const res = await axios.delete(BASE_URL + '/' + id)
+    const res = await axios.delete(BASE_URL + `/${id}/${cod}/${num}`)
     if (!res.data.success) {
       throw new Error(res.data)
     }

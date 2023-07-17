@@ -1,6 +1,6 @@
 import { BiEdit } from 'react-icons/bi'
 import ReservasRows from './TableRows/ReservasRows'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getReserva } from '../services/reserva.services'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -8,18 +8,18 @@ import { toast } from 'react-toastify'
 export default function Reservas() {
   const [reserva, setReserva] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getReserva(0, 100)
       setReserva(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
   return (
     <div>
       <div
@@ -169,7 +169,11 @@ export default function Reservas() {
         </div>
         <div style={{ overflow: 'auto' }}>
           {reserva.map((reserva) => (
-            <ReservasRows key={reserva.cod_reserva} {...reserva} />
+            <ReservasRows
+              key={reserva.cod_reserva}
+              {...reserva}
+              getReserva={fetchData}
+            />
           ))}
         </div>
       </div>

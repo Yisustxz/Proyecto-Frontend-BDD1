@@ -1,5 +1,5 @@
 import EncargadoRows from './TableRows/EncargadoRows'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getEncargado } from '../services/encargados.services'
 import { FaUserEdit } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
@@ -8,18 +8,18 @@ import { toast } from 'react-toastify'
 export default function Encargado() {
   const [encargado, setEncargado] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getEncargado(0, 100)
       setEncargado(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
   return (
     <div>
       <div
@@ -173,7 +173,11 @@ export default function Encargado() {
         </div>
         <div style={{ overflow: 'auto' }}>
           {encargado.map((encargado) => (
-            <EncargadoRows key={encargado.ci_encargado} {...encargado} />
+            <EncargadoRows
+              key={encargado.ci_encargado}
+              {...encargado}
+              getEncargado={fetchData}
+            />
           ))}
         </div>
       </div>

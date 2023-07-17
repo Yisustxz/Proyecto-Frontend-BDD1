@@ -1,7 +1,9 @@
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deleteOrdenesServicio } from '../../services/ordenesServicio.services'
+import { toast } from 'react-toastify'
 
 export default function OrdenesServicioRows({
   num_unico,
@@ -14,7 +16,8 @@ export default function OrdenesServicioRows({
   fecha_salida_estimada,
   fecha_salida_real,
   placa,
-  ci_trabajador
+  ci_trabajador,
+  getOrdenesServicio
 }) {
   const [open, setOpen] = useState(false)
   const getDate = (String) => {
@@ -40,6 +43,16 @@ export default function OrdenesServicioRows({
       return string
     }
   }
+
+  const handleDelete = useCallback(async (num_unico) => {
+    try {
+      const response = await deleteOrdenesServicio(num_unico)
+      getOrdenesServicio()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }, [])
 
   return (
     <div>
@@ -293,9 +306,18 @@ export default function OrdenesServicioRows({
           <Link to={`/EditOrdenSer/${num_unico}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
-        <DeleteModal showModal={open} setShowModal={setOpen} />
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => handleDelete(num_unico)}
+        />
       </div>
     </div>
   )

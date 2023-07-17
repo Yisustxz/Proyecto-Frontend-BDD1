@@ -1,6 +1,6 @@
 import OrdenesServicioRows from './TableRows/OrdenesServicioRows'
 import { AiOutlineFileDone } from 'react-icons/ai'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getOrdenesServicio } from '../services/ordenesServicio.services'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -8,17 +8,17 @@ import { toast } from 'react-toastify'
 export default function OrdenesServicio() {
   const [ordenServicio, setOrdenServicio] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getOrdenesServicio(0, 100)
       setOrdenServicio(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
   return (
     <div>
       <div
@@ -235,6 +235,7 @@ export default function OrdenesServicio() {
             <OrdenesServicioRows
               key={ordenServicio.num_unico}
               {...ordenServicio}
+              getOrdenesServicio={fetchData}
             />
           ))}
         </div>

@@ -1,6 +1,9 @@
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import DeleteModal from '../../Components/DeleteModal'
+import { useState, useCallback } from 'react'
+import { deleteEncargado } from '../../services/encargados.services'
+import { toast } from 'react-toastify'
 
 export default function EncargadoRows({
   ci_encargado,
@@ -8,9 +11,20 @@ export default function EncargadoRows({
   direccion_encargado,
   telefono_encargado,
   correo_encargado,
-  telefono_secundario_encargado
+  telefono_secundario_encargado,
+  getEncargado
 }) {
   const [open, setOpen] = useState(false)
+
+  const handleDelete = useCallback(async (ci_encargado) => {
+    try {
+      const response = await deleteEncargado(ci_encargado)
+      getEncargado()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }, [])
   return (
     <div>
       <div
@@ -166,8 +180,22 @@ export default function EncargadoRows({
           <Link to={`/EditEncarg/${ci_encargado}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => {
+              setOpen(true)
+            }}
+          />
         </div>
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => {
+            handleDelete(ci_encargado)
+          }}
+        />
       </div>
     </div>
   )

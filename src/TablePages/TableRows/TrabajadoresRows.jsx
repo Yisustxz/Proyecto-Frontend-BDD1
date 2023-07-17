@@ -1,7 +1,9 @@
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deleteTrabajador } from '../../services/trabajador.services'
+import { toast } from 'react-toastify'
 
 export default function TrabajadoresRows({
   ci_trabajador,
@@ -9,9 +11,19 @@ export default function TrabajadoresRows({
   direccion_trabajador,
   telefono_trabajador,
   sueldo_trabajador,
-  cargo
+  cargo,
+  getTrabajador
 }) {
   const [open, setOpen] = useState(false)
+  const handleDelete = useCallback(async (ci_trabajador) => {
+    try {
+      const response = await deleteTrabajador(ci_trabajador)
+      getTrabajador()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }, [])
   return (
     <div>
       <div
@@ -167,9 +179,18 @@ export default function TrabajadoresRows({
           <Link to={`/EditTrabajador/${ci_trabajador}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
-        <DeleteModal showModal={open} setShowModal={setOpen} />
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => handleDelete(ci_trabajador)}
+        />
       </div>
     </div>
   )

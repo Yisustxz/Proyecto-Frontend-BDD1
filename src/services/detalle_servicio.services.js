@@ -39,9 +39,9 @@ export const getDetalleServicioById = async (id, cod) => {
   }
 }
 
-export const deleteDetalleServicio = async (id) => {
+export const deleteDetalleServicio = async (num, detalle) => {
   try {
-    const res = await axios.delete(BASE_URL + '/' + id)
+    const res = await axios.delete(BASE_URL + `/${num}/${detalle}`)
     if (!res.data.success) {
       throw new Error(res.data)
     }

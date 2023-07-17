@@ -39,9 +39,9 @@ export const getModelosPoseeById = async (id) => {
   }
 }
 
-export const deleteModelosPosee = async (id) => {
+export const deleteModelosPosee = async (rif, cod) => {
   try {
-    const res = await axios.delete(BASE_URL + '/' + id)
+    const res = await axios.delete(BASE_URL + `/${rif}/${cod}`)
     if (!res.data.success) {
       throw new Error(res.data)
     }

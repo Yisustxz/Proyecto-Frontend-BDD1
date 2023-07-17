@@ -1,25 +1,25 @@
 import { BsArchiveFill } from 'react-icons/bs'
 import ProductosRows from './TableRows/ProductoRows'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { getProductos } from '../services/producto.services'
 import { toast } from 'react-toastify'
 
 export default function Productos() {
   const [productos, setProductos] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getProductos(0, 100)
       setProductos(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <div>
@@ -222,7 +222,11 @@ export default function Productos() {
         </div>
         <div style={{ overflow: 'auto' }}>
           {productos.map((producto) => (
-            <ProductosRows key={producto.cod_producto} {...producto} />
+            <ProductosRows
+              key={producto.cod_producto}
+              {...producto}
+              getProductos={fetchData}
+            />
           ))}
         </div>
       </div>

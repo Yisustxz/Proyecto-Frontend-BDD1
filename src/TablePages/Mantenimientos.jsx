@@ -1,6 +1,6 @@
 import { AiFillCar } from 'react-icons/ai'
 import MantenimientosRows from './TableRows/MantenimientosRows'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getMatenimiento } from '../services/mantenimientos.services'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -8,17 +8,17 @@ import { toast } from 'react-toastify'
 export default function Mantenimientos() {
   const [mantenimiento, setMantenimiento] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getMatenimiento(0, 100)
       setMantenimiento(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <div>
@@ -141,6 +141,7 @@ export default function Mantenimientos() {
                 mantenimiento.num_consecutivo
               }
               {...mantenimiento}
+              getMatenimiento={fetchData}
             />
           ))}
         </div>

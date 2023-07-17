@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import ActividadesRows from './TableRows/ActividadesRows'
 import { MdCarRepair } from 'react-icons/md'
 import { Link } from 'react-router-dom'
@@ -8,18 +8,18 @@ import { toast } from 'react-toastify'
 export default function Actividades() {
   const [actividades, setActividades] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getActividades(0, 100)
       setActividades(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <div>
@@ -153,6 +153,7 @@ export default function Actividades() {
             <ActividadesRows
               key={actividad.cod_servicio + actividad.num_consecutivo}
               {...actividad}
+              getActividades={fetchData}
             />
           ))}
         </div>

@@ -1,14 +1,33 @@
-import { FaEdit, FaTrash } from 'react-icons/fa'
+import { FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deleteMantenimiento } from '../../services/mantenimientos.services'
+import { toast } from 'react-toastify'
 
 export default function MantenimientosRows({
   placa,
   cod_servicio,
-  num_consecutivo
+  num_consecutivo,
+  getMatenimiento
 }) {
   const [open, setOpen] = useState(false)
+  const handleDelete = useCallback(
+    async (placa, cod_servicio, num_consecutivo) => {
+      try {
+        const response = await deleteMantenimiento(
+          placa,
+          cod_servicio,
+          num_consecutivo
+        )
+        getMatenimiento()
+        toast.success(response.item)
+      } catch (error) {
+        toast.error(error.message)
+      }
+    },
+    []
+  )
   return (
     <div>
       <div
@@ -106,9 +125,20 @@ export default function MantenimientosRows({
             justifyContent: 'space-around'
           }}
         >
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
-        <DeleteModal showModal={open} setShowModal={setOpen} />
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() =>
+            handleDelete(placa, cod_servicio, num_consecutivo)
+          }
+        />
       </div>
     </div>
   )

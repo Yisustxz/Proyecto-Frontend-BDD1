@@ -1,7 +1,9 @@
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deleteProducto } from '../../services/producto.services'
+import { toast } from 'react-toastify'
 
 export default function ProductosRows({
   cod_producto,
@@ -13,7 +15,8 @@ export default function ProductosRows({
   cantidad_minima,
   cantidad_maxima,
   cod_tipo,
-  proveedor
+  proveedor,
+  getProductos
 }) {
   const getBoolean = (boolean) => {
     if (boolean === false || boolean === null) {
@@ -24,6 +27,16 @@ export default function ProductosRows({
   }
 
   const [open, setOpen] = useState(false)
+
+  const handleDelete = useCallback(async (cod_producto) => {
+    try {
+      const response = await deleteProducto(cod_producto)
+      getProductos()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }, [])
   return (
     <div>
       <div
@@ -247,9 +260,18 @@ export default function ProductosRows({
           <Link to={`/EditPro/${cod_producto}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
-        <DeleteModal showModal={open} setShowModal={setOpen} />
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => handleDelete(cod_producto)}
+        />
       </div>
     </div>
   )

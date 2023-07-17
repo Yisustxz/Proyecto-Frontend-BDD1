@@ -1,5 +1,5 @@
 import { BsArchiveFill } from 'react-icons/bs'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getFamiliaProducto } from '../services/familia_producto.services'
 import FamiliaProductosRows from './TableRows/FamiliaProductosRows'
 import { Link } from 'react-router-dom'
@@ -8,18 +8,18 @@ import { toast } from 'react-toastify'
 export default function FamiliaProductos() {
   const [FamiliaProductos, setFamiliaProductos] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getFamiliaProducto(0, 100)
       setFamiliaProductos(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
   return (
     <div>
       <div
@@ -128,6 +128,7 @@ export default function FamiliaProductos() {
             <FamiliaProductosRows
               key={FamiliaProductos.cod_tipo}
               {...FamiliaProductos}
+              getFamiliaProducto={fetchData}
             />
           ))}
         </div>

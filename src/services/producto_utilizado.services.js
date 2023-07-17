@@ -39,9 +39,9 @@ export const getProductoUtilizadoById = async (id) => {
   }
 }
 
-export const deleteProductoUtilizado = async (id) => {
+export const deleteProductoUtilizado = async (num, detalle, ci, cod) => {
   try {
-    const res = await axios.delete(BASE_URL + '/' + id)
+    const res = await axios.delete(BASE_URL + `/${num}/${detalle}/${ci}/${cod}`)
     if (!res.data.success) {
       throw new Error(res.data)
     }

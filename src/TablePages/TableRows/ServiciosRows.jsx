@@ -1,9 +1,9 @@
-import { FaEdit, FaTrash } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import DeleteModal from "../../Components/DeleteModal";
-import { useState } from "react";
-import { deleteServicio } from "../../services/servicio.services";
-import { toast } from "react-toastify";
+import { FaEdit, FaTrash } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import DeleteModal from '../../Components/DeleteModal'
+import { useState, useCallback } from 'react'
+import { deleteServicio } from '../../services/servicio.services'
+import { toast } from 'react-toastify'
 
 export default function ServiciosRows({
   cod_servicio,
@@ -13,171 +13,173 @@ export default function ServiciosRows({
   capacidad,
   ci_trabajador,
   porcentaje,
+  getServicios
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
-  const handleDelete = async (cod_servicio) => {
+  const handleDelete = useCallback(async (cod_servicio) => {
     try {
-      const response = await deleteServicio(cod_servicio);
-      toast.success(response.item);
+      const response = await deleteServicio(cod_servicio)
+      getServicios()
+      toast.success(response.item)
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.message)
     }
-  };
+  }, [])
 
   return (
     <div>
       <div
         style={{
-          width: "64vw",
-          height: "auto",
-          marginTop: "1vh",
-          borderBottomColor: "#C1BFBF",
-          borderWidth: "2px",
-          borderTop: "none",
-          borderLeft: "none",
-          borderRight: "none",
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "row",
+          width: '64vw',
+          height: 'auto',
+          marginTop: '1vh',
+          borderBottomColor: '#C1BFBF',
+          borderWidth: '2px',
+          borderTop: 'none',
+          borderLeft: 'none',
+          borderRight: 'none',
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'row'
         }}
       >
         <div
           style={{
-            width: "57vw",
-            minHeight: "auto",
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "row",
-            fontSize: "16px",
-            borderRightColor: "#C1BFBF",
-            borderLeft: "none",
-            borderTop: "none",
-            borderBottom: "none",
-            borderWidth: "2px",
+            width: '57vw',
+            minHeight: 'auto',
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'row',
+            fontSize: '16px',
+            borderRightColor: '#C1BFBF',
+            borderLeft: 'none',
+            borderTop: 'none',
+            borderBottom: 'none',
+            borderWidth: '2px'
           }}
         >
           <div
             style={{
-              width: "9vw",
-              minHeight: "4vh",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
+              width: '9vw',
+              minHeight: '4vh',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
               flex: 1,
-              alignItems: "center",
-              borderRightColor: "#D7D5D5",
-              borderLeft: "none",
-              borderTop: "none",
-              borderBottom: "none",
-              borderWidth: "2px",
+              alignItems: 'center',
+              borderRightColor: '#D7D5D5',
+              borderLeft: 'none',
+              borderTop: 'none',
+              borderBottom: 'none',
+              borderWidth: '2px'
             }}
           >
             {cod_servicio}
           </div>
           <div
             style={{
-              width: "11vw",
-              minHeight: "4vh",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
+              width: '11vw',
+              minHeight: '4vh',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
               flex: 1,
-              overflow: "auto",
-              borderRightColor: "#D7D5D5",
-              borderLeft: "none",
-              borderTop: "none",
-              borderBottom: "none",
-              borderWidth: "2px",
+              overflow: 'auto',
+              borderRightColor: '#D7D5D5',
+              borderLeft: 'none',
+              borderTop: 'none',
+              borderBottom: 'none',
+              borderWidth: '2px'
             }}
           >
             {nombre_servicio}
           </div>
           <div
             style={{
-              width: "11vw",
-              minHeight: "4vh",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
+              width: '11vw',
+              minHeight: '4vh',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
               flex: 1,
-              overflow: "auto",
-              borderRightColor: "#D7D5D5",
-              borderLeft: "none",
-              borderTop: "none",
-              borderBottom: "none",
-              borderWidth: "2px",
+              overflow: 'auto',
+              borderRightColor: '#D7D5D5',
+              borderLeft: 'none',
+              borderTop: 'none',
+              borderBottom: 'none',
+              borderWidth: '2px'
             }}
           >
             {descripcion_servicio}
           </div>
           <div
             style={{
-              width: "11vw",
-              minHeight: "4vh",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
+              width: '11vw',
+              minHeight: '4vh',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
               flex: 1,
-              alignItems: "center",
-              borderRightColor: "#D7D5D5",
-              borderLeft: "none",
-              borderTop: "none",
-              borderBottom: "none",
-              borderWidth: "2px",
+              alignItems: 'center',
+              borderRightColor: '#D7D5D5',
+              borderLeft: 'none',
+              borderTop: 'none',
+              borderBottom: 'none',
+              borderWidth: '2px'
             }}
           >
             {tiempo_reserva}
           </div>
           <div
             style={{
-              width: "11vw",
-              minHeight: "4vh",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
+              width: '11vw',
+              minHeight: '4vh',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
               flex: 1,
-              overflow: "auto",
-              borderRightColor: "#D7D5D5",
-              borderLeft: "none",
-              borderTop: "none",
-              borderBottom: "none",
-              borderWidth: "2px",
+              overflow: 'auto',
+              borderRightColor: '#D7D5D5',
+              borderLeft: 'none',
+              borderTop: 'none',
+              borderBottom: 'none',
+              borderWidth: '2px'
             }}
           >
             {capacidad}
           </div>
           <div
             style={{
-              width: "9vw",
-              minHeight: "4vh",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
+              width: '9vw',
+              minHeight: '4vh',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
               flex: 1,
-              overflow: "auto",
-              borderRightColor: "#D7D5D5",
-              borderLeft: "none",
-              borderTop: "none",
-              borderBottom: "none",
-              borderWidth: "2px",
+              overflow: 'auto',
+              borderRightColor: '#D7D5D5',
+              borderLeft: 'none',
+              borderTop: 'none',
+              borderBottom: 'none',
+              borderWidth: '2px'
             }}
           >
             {ci_trabajador}
           </div>
           <div
             style={{
-              width: "11vw",
-              minHeight: "4vh",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-              flex: 1,
+              width: '11vw',
+              minHeight: '4vh',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flex: 1
             }}
           >
             {porcentaje}
@@ -185,23 +187,23 @@ export default function ServiciosRows({
         </div>
         <div
           style={{
-            minHeight: "4vh",
-            width: "7vw",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-around",
+            minHeight: '4vh',
+            width: '7vw',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-around'
           }}
         >
           <Link to={`/EditServicio/${cod_servicio}`}>
-            <FaEdit color={"#192C45"} size={25} style={{ cursor: "pointer" }} />
+            <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
           <FaTrash
-            color={"#192C45"}
+            color={'#192C45'}
             size={25}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: 'pointer' }}
             onClick={() => {
-              setOpen(true);
+              setOpen(true)
             }}
           />
         </div>
@@ -209,10 +211,10 @@ export default function ServiciosRows({
           showModal={open}
           setShowModal={setOpen}
           deleteFunction={() => {
-            handleDelete(cod_servicio);
+            handleDelete(cod_servicio)
           }}
         />
       </div>
     </div>
-  );
+  )
 }

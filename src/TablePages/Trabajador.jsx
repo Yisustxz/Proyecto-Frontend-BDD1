@@ -1,5 +1,5 @@
 import TrabajadoresRows from './TableRows/TrabajadoresRows'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getTrabajador } from '../services/trabajador.services'
 import { FaUserFriends } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
@@ -8,18 +8,18 @@ import { toast } from 'react-toastify'
 export default function Trabajador() {
   const [trabajador, setTrabajador] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getTrabajador(0, 100)
       setTrabajador(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
   return (
     <div>
       <div
@@ -173,7 +173,11 @@ export default function Trabajador() {
         </div>
         <div style={{ overflow: 'auto' }}>
           {trabajador.map((trabajador) => (
-            <TrabajadoresRows key={trabajador.ci_trabajador} {...trabajador} />
+            <TrabajadoresRows
+              key={trabajador.ci_trabajador}
+              {...trabajador}
+              getTrabajador={fetchData}
+            />
           ))}
         </div>
       </div>

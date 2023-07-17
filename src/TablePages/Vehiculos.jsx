@@ -1,6 +1,6 @@
 import { AiFillCar } from 'react-icons/ai'
 import VehiculoRows from './TableRows/VehiculosRows'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getVehiculos } from '../services/vehiculo.services'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -8,17 +8,17 @@ import { toast } from 'react-toastify'
 export default function Vehiculos() {
   const [vehiculo, setVehiculo] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getVehiculos(0, 100)
       setVehiculo(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
   return (
     <div>
       <div
@@ -217,7 +217,11 @@ export default function Vehiculos() {
         </div>
         <div style={{ overflow: 'auto' }}>
           {vehiculo.map((vehiculo) => (
-            <VehiculoRows key={vehiculo.placa} {...vehiculo} />
+            <VehiculoRows
+              key={vehiculo.placa}
+              {...vehiculo}
+              getVehiculos={fetchData}
+            />
           ))}
         </div>
       </div>

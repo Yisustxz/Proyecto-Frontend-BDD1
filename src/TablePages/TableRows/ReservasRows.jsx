@@ -1,7 +1,9 @@
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deleteReserva } from '../../services/reserva.services'
+import { toast } from 'react-toastify'
 
 export default function ReservasRows({
   cod_reserva,
@@ -9,7 +11,8 @@ export default function ReservasRows({
   cod_servicio,
   fecha_reservada,
   asistio,
-  kilometraje
+  kilometraje,
+  getReserva
 }) {
   const [open, setOpen] = useState(false)
   const getDate = (String) => {
@@ -35,6 +38,16 @@ export default function ReservasRows({
       return 'Si'
     }
   }
+
+  const handleDelete = useCallback(async (cod_reserva) => {
+    try {
+      const response = await deleteReserva(cod_reserva)
+      getReserva()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }, [])
 
   return (
     <div>
@@ -191,9 +204,18 @@ export default function ReservasRows({
           <Link to={`/EditRes/${cod_reserva}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
-        <DeleteModal showModal={open} setShowModal={setOpen} />
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => handleDelete(cod_reserva)}
+        />
       </div>
     </div>
   )

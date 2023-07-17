@@ -1,6 +1,6 @@
 import DetallesServicioRows from './TableRows/DetallesServicioRows'
 import { AiOutlineFileDone } from 'react-icons/ai'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getDetalleServicio } from '../services/detalle_servicio.services'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -8,17 +8,17 @@ import { toast } from 'react-toastify'
 export default function DetalleServicio() {
   const [detalleServicio, setDetalleServicio] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getDetalleServicio(0, 100)
       setDetalleServicio(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <div>
@@ -152,6 +152,7 @@ export default function DetalleServicio() {
             <DetallesServicioRows
               key={detalleservicio.num_detalle}
               {...detalleservicio}
+              getDetalleServicio={fetchData}
             />
           ))}
         </div>

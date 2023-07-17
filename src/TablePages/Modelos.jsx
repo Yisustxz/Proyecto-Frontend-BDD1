@@ -1,6 +1,6 @@
 import { AiOutlineCar } from 'react-icons/ai'
 import ModelosRows from './TableRows/ModelosRows'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getModelos } from '../services/modelo.services'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -8,18 +8,18 @@ import { toast } from 'react-toastify'
 export default function Modelos() {
   const [modelo, setModelo] = useState([])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const data = await getModelos(0, 100)
       setModelo(data.items)
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
   return (
     <div>
       <div
@@ -209,7 +209,11 @@ export default function Modelos() {
         </div>
         <div style={{ overflow: 'auto' }}>
           {modelo.map((modelo) => (
-            <ModelosRows key={modelo.cod_modelo} {...modelo} />
+            <ModelosRows
+              key={modelo.cod_modelo}
+              {...modelo}
+              getModelos={fetchData}
+            />
           ))}
         </div>
       </div>

@@ -1,7 +1,9 @@
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deleteModelo } from '../../services/modelo.services'
+import { toast } from 'react-toastify'
 
 export default function ModelosRows({
   cod_modelo,
@@ -12,7 +14,8 @@ export default function ModelosRows({
   t_aceite,
   aceite_caja,
   octanaje,
-  t_refrigerante
+  t_refrigerante,
+  getModelos
 }) {
   const [open, setOpen] = useState(false)
   const getAceite = (string) => {
@@ -28,6 +31,15 @@ export default function ModelosRows({
       return 'Aceite Multigrado'
     }
   }
+  const handleDelete = useCallback(async (cod_modelo) => {
+    try {
+      const response = await deleteModelo(cod_modelo)
+      getModelos()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }, [])
   return (
     <div>
       <div
@@ -235,9 +247,18 @@ export default function ModelosRows({
           <Link to={`/EditModelo/${cod_modelo}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
-          <FaTrash color={'#192C45'} size={20} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={20}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
-        <DeleteModal showModal={open} setShowModal={setOpen} />
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => handleDelete(cod_modelo)}
+        />
       </div>
     </div>
   )

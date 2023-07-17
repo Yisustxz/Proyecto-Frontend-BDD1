@@ -1,7 +1,9 @@
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import DeleteModal from '../../Components/DeleteModal'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { deletePago } from '../../services/pago.services'
+import { toast } from 'react-toastify'
 
 export default function PagosRows({
   num_factura,
@@ -10,7 +12,8 @@ export default function PagosRows({
   fecha_pago,
   monto,
   num_tarjeta,
-  num_banco
+  num_banco,
+  getPagos
 }) {
   const [open, setOpen] = useState(false)
   const getDate = (String) => {
@@ -30,7 +33,7 @@ export default function PagosRows({
   }
 
   const getNull = (string) => {
-    if (string == null || string == '') {
+    if (string === null || string === '') {
       return '------'
     } else {
       return string
@@ -50,6 +53,16 @@ export default function PagosRows({
       return 'Tarjeta de Crédito'
     }
   }
+
+  const handleDelete = useCallback(async (num_factura, num_consecutivo) => {
+    try {
+      const response = await deletePago(num_factura, num_consecutivo)
+      getPagos()
+      toast.success(response.item)
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }, [])
 
   return (
     <div>
@@ -221,9 +234,18 @@ export default function PagosRows({
           <Link to={`/EditPagos/${num_factura}/${num_consecutivo}`}>
             <FaEdit color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
           </Link>
-          <FaTrash color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          <FaTrash
+            color={'#192C45'}
+            size={25}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setOpen(true)}
+          />
         </div>
-        <DeleteModal showModal={open} setShowModal={setOpen} />
+        <DeleteModal
+          showModal={open}
+          setShowModal={setOpen}
+          deleteFunction={() => handleDelete(num_factura, num_consecutivo)}
+        />
       </div>
     </div>
   )

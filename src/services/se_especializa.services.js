@@ -23,7 +23,7 @@ export const getEspecializaciones = async (page = 0, size = 4) => {
 
 export const getEspecializacionById = async (id, cod) => {
   try {
-    const res = await axios.get(BASE_URL + `/${id}` + `/${cod}`)
+    const res = await axios.get(BASE_URL + `/${id}/${cod}`)
     if (!res.data.item || !res.data.success) {
       throw new Error(res.data)
     }
@@ -40,7 +40,7 @@ export const getEspecializacionById = async (id, cod) => {
 
 export const deleteEspecializacion = async (id, cod) => {
   try {
-    const res = await axios.delete(BASE_URL + '/' + id + '/' + cod)
+    const res = await axios.delete(BASE_URL + `/${id}/${cod}`)
     if (!res.data.success) {
       throw new Error(res.data)
     }
