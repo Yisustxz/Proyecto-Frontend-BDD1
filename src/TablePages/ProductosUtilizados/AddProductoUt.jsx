@@ -182,7 +182,7 @@ export default function AddProductoUt() {
                 marginBottom: '4px'
               }}
             >
-              CI
+              CI_Trabajador
             </h2>
             <input
               name='ci_trabajador'
