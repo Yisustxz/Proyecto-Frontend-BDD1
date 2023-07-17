@@ -3,6 +3,7 @@ import ModelosRows from './TableRows/ModelosRows'
 import { useState, useEffect } from 'react'
 import { getModelos } from '../services/modelo.services'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Modelos() {
   const [modelo, setModelo] = useState([])
@@ -12,7 +13,7 @@ export default function Modelos() {
       const data = await getModelos(0, 100)
       setModelo(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

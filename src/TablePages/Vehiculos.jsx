@@ -3,6 +3,7 @@ import VehiculoRows from './TableRows/VehiculosRows'
 import { useState, useEffect } from 'react'
 import { getVehiculos } from '../services/vehiculo.services'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Vehiculos() {
   const [vehiculo, setVehiculo] = useState([])
@@ -12,7 +13,7 @@ export default function Vehiculos() {
       const data = await getVehiculos(0, 100)
       setVehiculo(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
   useEffect(() => {

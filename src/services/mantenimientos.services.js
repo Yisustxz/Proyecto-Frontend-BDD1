@@ -7,7 +7,7 @@ export const getMatenimiento = async (page = 0, size = 4) => {
   try {
     const res = await axios.get(BASE_URL + '?size=' + size + '&page=' + page)
     if (!res.data.items || !res.data.success) {
-      throw new Error('No se han recibido bien los datos del servidor :(')
+      throw new Error(res.data)
     }
     return res.data
   } catch (error) {
@@ -25,7 +25,7 @@ export const getMantenimientoById = async (id) => {
   try {
     const res = await axios.get(BASE_URL + `/${id}`)
     if (!res.data.item || !res.data.success) {
-      throw new Error('No se han recibido bien los datos del servidor :(')
+      throw new Error(res.data)
     }
     return res.data
   } catch (error) {
@@ -42,7 +42,7 @@ export const deleteDetalleServicio = async (id) => {
   try {
     const res = await axios.delete(BASE_URL + '/' + id)
     if (!res.data.success) {
-      throw new Error('Ha ocurrido un fallo con el backend')
+      throw new Error(res.data)
     }
     return res.data
   } catch (error) {
@@ -61,7 +61,7 @@ export const createMantenimiento = async (mantenimiento) => {
     const res = await axios.post(BASE_URL, mantenimiento)
     if (!res.data.success) {
       console.log(res.data)
-      throw new Error('Ha ocurrido un fallo con el backend')
+      throw new Error(res.data)
     }
 
     return res

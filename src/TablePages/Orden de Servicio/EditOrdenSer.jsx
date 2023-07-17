@@ -5,6 +5,7 @@ import {
   getOrdenesServicioById,
   updateOrdenServicio
 } from '../../services/ordenesServicio.services'
+import { toast } from 'react-toastify'
 
 export default function EditOrdenSer() {
   const navigate = useNavigate()
@@ -35,8 +36,9 @@ export default function EditOrdenSer() {
     try {
       const response = await updateOrdenServicio(ordenServicio, cod)
       navigate('/OrdenesServicio')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 
@@ -73,7 +75,7 @@ export default function EditOrdenSer() {
         ci_trabajador: data.item.ci_trabajador
       })
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

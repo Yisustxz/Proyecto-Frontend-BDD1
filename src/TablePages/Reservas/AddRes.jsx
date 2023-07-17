@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { useNavigate } from 'react-router-dom'
 import { createReserva } from '../../services/reserva.services'
+import { toast } from 'react-toastify'
 
 export default function AddRes() {
   const navigate = useNavigate()
@@ -39,10 +40,10 @@ export default function AddRes() {
     event.preventDefault()
     try {
       const response = await createReserva(reserva)
-      console.log(response)
       navigate('/Reservas')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

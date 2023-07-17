@@ -5,6 +5,7 @@ import {
   getFamiliaProductoById,
   updateFamiliaProducto
 } from '../../services/familia_producto.services'
+import { toast } from 'react-toastify'
 
 export default function EditFamPro() {
   const navigate = useNavigate()
@@ -26,8 +27,9 @@ export default function EditFamPro() {
     try {
       const response = await updateFamiliaProducto(familiaProducto, cod)
       navigate('/FamiliaProductos')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

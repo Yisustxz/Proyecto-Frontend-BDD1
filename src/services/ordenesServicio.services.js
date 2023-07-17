@@ -7,7 +7,7 @@ export const getOrdenesServicio = async (page = 0, size = 4) => {
   try {
     const res = await axios.get(BASE_URL + '?size=' + size + '&page=' + page)
     if (!res.data.items || !res.data.success) {
-      throw new Error('No se han recibido bien los datos del servidor :(')
+      throw new Error(res.data)
     }
     return res.data
   } catch (error) {
@@ -25,7 +25,7 @@ export const getOrdenesServicioById = async (id) => {
   try {
     const res = await axios.get(BASE_URL + `/${id}`)
     if (!res.data.item || !res.data.success) {
-      throw new Error('No se han recibido bien los datos del servidor :(')
+      throw new Error(res.data)
     }
     return res.data
   } catch (error) {
@@ -43,7 +43,7 @@ export const deleteOrdenesServicio = async (id) => {
   try {
     const res = await axios.delete(BASE_URL + '/' + id)
     if (!res.data.success) {
-      throw new Error('Ha ocurrido un fallo con el backend')
+      throw new Error(res.data)
     }
     return res.data
   } catch (error) {
@@ -62,7 +62,7 @@ export const createOrdenServicio = async (ordenServicio) => {
     const res = await axios.post(BASE_URL, ordenServicio)
     if (!res.data.success) {
       console.log(res.data)
-      throw new Error('Ha ocurrido un fallo con el backend')
+      throw new Error(res.data)
     }
 
     return res
@@ -81,7 +81,7 @@ export const updateOrdenServicio = async (ordenServicio, id) => {
   try {
     const res = await axios.put(BASE_URL + '/' + id, ordenServicio)
     if (!res.data.item || !res.data.success) {
-      throw new Error('Ha ocurrido un fallo con el backend')
+      throw new Error(res.data)
     }
 
     return res

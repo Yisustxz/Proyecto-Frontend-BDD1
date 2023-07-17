@@ -3,6 +3,7 @@ import { AiOutlineFileDone } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
 import { getOrdenesServicio } from '../services/ordenesServicio.services'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function OrdenesServicio() {
   const [ordenServicio, setOrdenServicio] = useState([])
@@ -12,7 +13,7 @@ export default function OrdenesServicio() {
       const data = await getOrdenesServicio(0, 100)
       setOrdenServicio(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
   useEffect(() => {

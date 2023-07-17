@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { useNavigate } from 'react-router-dom'
 import { createFamiliaProducto } from '../../services/familia_producto.services'
+import { toast } from 'react-toastify'
 
 export default function AddFamPro() {
   const navigate = useNavigate()
@@ -21,10 +22,10 @@ export default function AddFamPro() {
     event.preventDefault()
     try {
       const response = await createFamiliaProducto(FamiliaProducto)
-      console.log(response)
       navigate('/FamiliaProductos')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

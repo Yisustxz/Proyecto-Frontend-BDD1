@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { getTrabajador } from '../services/trabajador.services'
 import { FaUserFriends } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Trabajador() {
   const [trabajador, setTrabajador] = useState([])
@@ -12,7 +13,7 @@ export default function Trabajador() {
       const data = await getTrabajador(0, 100)
       setTrabajador(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

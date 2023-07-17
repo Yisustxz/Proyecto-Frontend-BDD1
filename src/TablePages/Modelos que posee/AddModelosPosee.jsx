@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { useNavigate } from 'react-router-dom'
 import { createModelosPosee } from '../../services/modelosPosee.services'
+import { toast } from 'react-toastify'
 
 export default function AddModelosPosee() {
   const navigate = useNavigate()
@@ -21,10 +22,10 @@ export default function AddModelosPosee() {
     event.preventDefault()
     try {
       const response = await createModelosPosee(modelosPosee)
-      console.log(response)
       navigate('/ModelosPosee')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

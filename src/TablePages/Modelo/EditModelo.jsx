@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getModeloById, updateModelo } from '../../services/modelo.services'
+import { toast } from 'react-toastify'
 
 export default function EditModelos() {
   const navigate = useNavigate()
@@ -37,8 +38,9 @@ export default function EditModelos() {
     try {
       const response = await updateModelo(modelo, cod)
       navigate('/Modelos')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 
@@ -58,7 +60,7 @@ export default function EditModelos() {
         t_refrigerante: data.item.t_refrigerante
       })
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

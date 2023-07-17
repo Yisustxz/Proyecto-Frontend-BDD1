@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { getFamiliaProducto } from '../services/familia_producto.services'
 import FamiliaProductosRows from './TableRows/FamiliaProductosRows'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function FamiliaProductos() {
   const [FamiliaProductos, setFamiliaProductos] = useState([])
@@ -12,7 +13,7 @@ export default function FamiliaProductos() {
       const data = await getFamiliaProducto(0, 100)
       setFamiliaProductos(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

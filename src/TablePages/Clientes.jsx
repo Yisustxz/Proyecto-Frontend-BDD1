@@ -3,6 +3,7 @@ import ClientesRows from './TableRows/ClientesRows'
 import { useState, useEffect } from 'react'
 import { getCliente } from '../services/cliente.services'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Clientes() {
   const [cliente, setCliente] = useState([])
@@ -12,7 +13,7 @@ export default function Clientes() {
       const data = await getCliente(0, 100)
       setCliente(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

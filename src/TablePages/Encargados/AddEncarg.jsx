@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { useNavigate } from 'react-router-dom'
 import { createEncargado } from '../../services/encargados.services'
+import { toast } from 'react-toastify'
 
 export default function AddEncargado() {
   const navigate = useNavigate()
@@ -25,10 +26,10 @@ export default function AddEncargado() {
     event.preventDefault()
     try {
       const response = await createEncargado(encargado)
-      console.log(response)
       navigate('/Encargado')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

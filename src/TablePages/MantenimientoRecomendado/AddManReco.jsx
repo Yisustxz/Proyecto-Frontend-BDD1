@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { useNavigate } from 'react-router-dom'
 import { createMantenimientoRecomendado } from '../../services/mantenimiento_recomendado.services'
+import { toast } from 'react-toastify'
 
 export default function AddManReco() {
   const navigate = useNavigate()
@@ -34,8 +35,9 @@ export default function AddManReco() {
         mantenimientoRecomendado
       )
       navigate('/MantenimientosRecomendados')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

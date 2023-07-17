@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { getEncargado } from '../services/encargados.services'
 import { FaUserEdit } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Encargado() {
   const [encargado, setEncargado] = useState([])
@@ -12,7 +13,7 @@ export default function Encargado() {
       const data = await getEncargado(0, 100)
       setEncargado(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

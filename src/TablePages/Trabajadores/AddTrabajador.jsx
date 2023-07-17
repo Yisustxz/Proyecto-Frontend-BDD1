@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { useNavigate } from 'react-router-dom'
 import { createTrabajador } from '../../services/trabajador.services'
+import { toast } from 'react-toastify'
 
 export default function AddTrabajador() {
   const navigate = useNavigate()
@@ -34,8 +35,9 @@ export default function AddTrabajador() {
       const response = await createTrabajador(trabajador)
       console.log(response)
       navigate('/Trabajador')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

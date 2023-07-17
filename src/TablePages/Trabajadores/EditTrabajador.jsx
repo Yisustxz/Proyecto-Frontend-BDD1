@@ -5,6 +5,7 @@ import {
   getTrabajadorById,
   updateTrabajador
 } from '../../services/trabajador.services'
+import { toast } from 'react-toastify'
 
 export default function EditTrabajador() {
   const navigate = useNavigate()
@@ -37,8 +38,9 @@ export default function EditTrabajador() {
     try {
       const response = await updateTrabajador(trabajador, id)
       navigate('/Trabajador')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

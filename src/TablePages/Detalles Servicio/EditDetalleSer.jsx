@@ -5,6 +5,7 @@ import {
   getDetalleServicioById,
   updateDetalleServicio
 } from '../../services/detalle_servicio.services'
+import { toast } from 'react-toastify'
 
 export default function EditDetalleSer() {
   const navigate = useNavigate()
@@ -27,8 +28,9 @@ export default function EditDetalleSer() {
     try {
       const response = await updateDetalleServicio(detalleServicio, num, cod)
       navigate('/DetallesServicio')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 
@@ -42,7 +44,7 @@ export default function EditDetalleSer() {
         costo: parseFloat(data.item.costo)
       })
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

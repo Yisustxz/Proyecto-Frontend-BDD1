@@ -3,6 +3,7 @@ import ProductosRows from './TableRows/ProductoRows'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getProductos } from '../services/producto.services'
+import { toast } from 'react-toastify'
 
 export default function Productos() {
   const [productos, setProductos] = useState([])
@@ -12,7 +13,7 @@ export default function Productos() {
       const data = await getProductos(0, 100)
       setProductos(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

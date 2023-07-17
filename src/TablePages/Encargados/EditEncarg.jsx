@@ -5,6 +5,7 @@ import {
   getEncargadoById,
   updateEncargado
 } from '../../services/encargados.services'
+import { toast } from 'react-toastify'
 
 export default function EditEncargado() {
   const navigate = useNavigate()
@@ -30,8 +31,9 @@ export default function EditEncargado() {
     try {
       const response = await updateEncargado(encargado, id)
       navigate('/Encargados')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 
@@ -48,7 +50,7 @@ export default function EditEncargado() {
         telefono_secundario_encargado: data.item.telefono_secundario_encargado
       })
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

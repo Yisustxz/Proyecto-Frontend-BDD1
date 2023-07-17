@@ -3,6 +3,7 @@ import { AiOutlineFileDone } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
 import { getProductoUtilizado } from '../services/producto_utilizado.services'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function ProductosUtilizados() {
   const [productoUtilizado, setProductoUtilizado] = useState([])
@@ -12,7 +13,7 @@ export default function ProductosUtilizados() {
       const data = await getProductoUtilizado(0, 100)
       setProductoUtilizado(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
   useEffect(() => {

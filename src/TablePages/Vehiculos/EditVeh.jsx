@@ -5,6 +5,7 @@ import {
   getVehiculoById,
   updateVehiculo
 } from '../../services/vehiculo.services'
+import { toast } from 'react-toastify'
 
 export default function EditVeh() {
   const navigate = useNavigate()
@@ -41,8 +42,9 @@ export default function EditVeh() {
     try {
       const response = await updateVehiculo(vehiculo, cod)
       navigate('/Vehiculos')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

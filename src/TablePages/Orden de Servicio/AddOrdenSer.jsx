@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { useNavigate } from 'react-router-dom'
 import { createOrdenServicio } from '../../services/ordenesServicio.services'
+import { toast } from 'react-toastify'
 
 export default function AddOrdenSer() {
   const navigate = useNavigate()
@@ -29,10 +30,10 @@ export default function AddOrdenSer() {
     event.preventDefault()
     try {
       const response = await createOrdenServicio(ordenServicio)
-      console.log(response)
       navigate('/OrdenesServicio')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
   return (

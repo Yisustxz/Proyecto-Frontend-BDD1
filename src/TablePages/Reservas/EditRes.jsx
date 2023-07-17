@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getReservaById, updateReserva } from '../../services/reserva.services'
+import { toast } from 'react-toastify'
 
 export default function EditRes() {
   const navigate = useNavigate()
@@ -41,8 +42,9 @@ export default function EditRes() {
     try {
       const response = await updateReserva(reserva, cod)
       navigate('/Reservas')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

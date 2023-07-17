@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { useNavigate } from 'react-router-dom'
 import { createMantenimiento } from '../../services/mantenimientos.services'
+import { toast } from 'react-toastify'
 
 export default function AddMan() {
   const navigate = useNavigate()
@@ -29,10 +30,10 @@ export default function AddMan() {
     event.preventDefault()
     try {
       const response = await createMantenimiento(mantenimiento)
-      console.log(response)
       navigate('/Mantenimientos')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
   return (

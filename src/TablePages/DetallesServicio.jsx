@@ -3,6 +3,7 @@ import { AiOutlineFileDone } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
 import { getDetalleServicio } from '../services/detalle_servicio.services'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function DetalleServicio() {
   const [detalleServicio, setDetalleServicio] = useState([])
@@ -12,7 +13,7 @@ export default function DetalleServicio() {
       const data = await getDetalleServicio(0, 100)
       setDetalleServicio(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
   useEffect(() => {

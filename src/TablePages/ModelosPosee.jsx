@@ -3,6 +3,7 @@ import ModelosPoseeRows from './TableRows/ModelosPoseeRows'
 import { useState, useEffect } from 'react'
 import { getModelosPosee } from '../services/modelosPosee.services'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function ModelosPosee() {
   const [modelosPosee, setModelosPosee] = useState([])
@@ -12,7 +13,7 @@ export default function ModelosPosee() {
       const data = await getModelosPosee(0, 100)
       setModelosPosee(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
   useEffect(() => {

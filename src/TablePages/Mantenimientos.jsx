@@ -3,6 +3,7 @@ import MantenimientosRows from './TableRows/MantenimientosRows'
 import { useState, useEffect } from 'react'
 import { getMatenimiento } from '../services/mantenimientos.services'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Mantenimientos() {
   const [mantenimiento, setMantenimiento] = useState([])
@@ -12,7 +13,7 @@ export default function Mantenimientos() {
       const data = await getMatenimiento(0, 100)
       setMantenimiento(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
   useEffect(() => {

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { useNavigate } from 'react-router-dom'
 import { createProductoUtilizado } from '../../services/producto_utilizado.services'
+import { toast } from 'react-toastify'
 
 export default function AddProductoUt() {
   const navigate = useNavigate()
@@ -32,10 +33,10 @@ export default function AddProductoUt() {
     event.preventDefault()
     try {
       const response = await createProductoUtilizado(productoUtilizado)
-      console.log(response)
       navigate('/ProductosUtilizados')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
   return (

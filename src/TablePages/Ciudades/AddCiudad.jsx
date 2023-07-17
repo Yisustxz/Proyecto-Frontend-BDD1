@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { useNavigate } from 'react-router-dom'
 import { createCiudad } from '../../services/ciudad.services'
+import { toast } from 'react-toastify'
 
 export default function AddCiudad() {
   const navigate = useNavigate()
@@ -22,8 +23,9 @@ export default function AddCiudad() {
     try {
       const response = await createCiudad(ciudad)
       navigate('/Ciudades')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

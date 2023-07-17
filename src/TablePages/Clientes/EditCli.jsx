@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import FondoArbol from '../../Image/fondoarbol.jpg'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getClienteById, updateCliente } from '../../services/cliente.services'
+import { toast } from 'react-toastify'
 
 export default function EditCli() {
   const navigate = useNavigate()
@@ -26,8 +27,9 @@ export default function EditCli() {
     try {
       const response = await updateCliente(cliente, id)
       navigate('/Clientes')
+      toast.success(response.data)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 
@@ -43,7 +45,7 @@ export default function EditCli() {
         telefono_secundario: data.item.telefono_secundario
       })
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 

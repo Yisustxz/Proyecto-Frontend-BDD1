@@ -3,6 +3,7 @@ import ReservasRows from './TableRows/ReservasRows'
 import { useState, useEffect } from 'react'
 import { getReserva } from '../services/reserva.services'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Reservas() {
   const [reserva, setReserva] = useState([])
@@ -12,7 +13,7 @@ export default function Reservas() {
       const data = await getReserva(0, 100)
       setReserva(data.items)
     } catch (error) {
-      console.log(error.message)
+      toast.error(error.message)
     }
   }
 
