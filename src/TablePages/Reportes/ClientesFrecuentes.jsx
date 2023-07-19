@@ -2,7 +2,7 @@
 export default function ClientesFrecuentes() {
     return (
       <div>
-        Clientes frecuentes
+        <h1>Clientes frecuentes</h1>
         
   
       </div>
