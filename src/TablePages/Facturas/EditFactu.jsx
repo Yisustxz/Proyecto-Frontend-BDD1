@@ -239,7 +239,7 @@ export default function EditFactu() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '10vw',
+                width: '15vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -249,7 +249,7 @@ export default function EditFactu() {
                 marginBottom: '4px'
               }}
             >
-              NumUnico
+              NumUnico_OrdenServicio
             </h2>
             <input
               name='num_unico'

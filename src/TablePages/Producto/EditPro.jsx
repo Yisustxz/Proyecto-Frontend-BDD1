@@ -429,7 +429,7 @@ export default function EditPro() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '10vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -439,7 +439,7 @@ export default function EditPro() {
                 marginBottom: '4px'
               }}
             >
-              CodigoTipo
+              CodigoTipo_Producto
             </h2>
             <input
               name='cod_tipo'

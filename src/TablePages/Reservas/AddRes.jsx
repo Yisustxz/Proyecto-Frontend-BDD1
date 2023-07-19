@@ -155,7 +155,7 @@ export default function AddRes() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '7vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -165,7 +165,7 @@ export default function AddRes() {
                 marginBottom: '4px'
               }}
             >
-              Placa
+              Placa_Vehiculo
             </h2>
             <input
               name='placa'

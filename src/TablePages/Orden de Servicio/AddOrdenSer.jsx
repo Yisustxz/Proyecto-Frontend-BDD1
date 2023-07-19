@@ -374,7 +374,7 @@ export default function AddOrdenSer() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '5vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -384,7 +384,7 @@ export default function AddOrdenSer() {
                 marginBottom: '4px'
               }}
             >
-              Placa
+              Placa_Vehiculo
             </h2>
             <input
               name='placa'
@@ -408,7 +408,7 @@ export default function AddOrdenSer() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '5vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -418,7 +418,7 @@ export default function AddOrdenSer() {
                 marginBottom: '4px'
               }}
             >
-              CI
+              CI_Trabajador
             </h2>
             <input
               name='ci_trabajador'

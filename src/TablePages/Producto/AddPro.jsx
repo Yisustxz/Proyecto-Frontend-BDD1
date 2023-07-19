@@ -434,7 +434,7 @@ export default function AddCli() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '10vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -444,7 +444,7 @@ export default function AddCli() {
                 marginBottom: '4px'
               }}
             >
-              Codigo Tipo
+              CodigoTipo_Producto
             </h2>
             <input
               name='cod_tipo'

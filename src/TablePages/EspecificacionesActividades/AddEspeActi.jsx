@@ -101,7 +101,7 @@ export default function AddEspeActi() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '8vw',
+                width: '15vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -111,7 +111,7 @@ export default function AddEspeActi() {
                 marginBottom: '4px'
               }}
             >
-              NumUnico
+              NumUnico_DetalleServicio
             </h2>
             <input
               name='num_unico'
@@ -135,7 +135,7 @@ export default function AddEspeActi() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '8vw',
+                width: '15vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -145,7 +145,7 @@ export default function AddEspeActi() {
                 marginBottom: '4px'
               }}
             >
-              NumDetalle
+              NumDetalle_DetalleServicio
             </h2>
             <input
               name='num_detalle'
@@ -169,7 +169,7 @@ export default function AddEspeActi() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '8vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -179,7 +179,7 @@ export default function AddEspeActi() {
                 marginBottom: '4px'
               }}
             >
-              Codigo
+              Codigo_Actividad
             </h2>
             <input
               name='cod_actividad'
@@ -203,7 +203,7 @@ export default function AddEspeActi() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '12vw',
+                width: '15vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -213,7 +213,7 @@ export default function AddEspeActi() {
                 marginBottom: '4px'
               }}
             >
-              NumConsecutivo
+              NumConsecutivo_Actividad
             </h2>
             <input
               name='num_consecutivo'

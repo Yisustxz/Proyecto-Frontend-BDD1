@@ -136,7 +136,7 @@ export default function AddManReco() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '8vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -146,7 +146,7 @@ export default function AddManReco() {
                 marginBottom: '4px'
               }}
             >
-              Codigo
+              Codigo_Servicio
             </h2>
             <input
               name='cod_servicio'

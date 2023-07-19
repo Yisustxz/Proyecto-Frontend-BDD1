@@ -277,7 +277,7 @@ export default function AddServicio() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '5vw',
+                width: '15vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -287,7 +287,7 @@ export default function AddServicio() {
                 marginBottom: '4px'
               }}
             >
-              CI
+              CI_Trabajador
             </h2>
             <input
               name='ci_trabajador'

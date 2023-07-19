@@ -97,7 +97,7 @@ export default function AddMan() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '5vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -107,7 +107,7 @@ export default function AddMan() {
                 marginBottom: '4px'
               }}
             >
-              Placa
+              Placa_Vehiculo
             </h2>
             <input
               name='placa'
@@ -131,7 +131,7 @@ export default function AddMan() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '8vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -141,7 +141,7 @@ export default function AddMan() {
                 marginBottom: '4px'
               }}
             >
-              Codigo
+              Codigo_Actividad
             </h2>
             <input
               name='cod_servicio'
@@ -165,7 +165,7 @@ export default function AddMan() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '14vw',
+                width: '15vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -175,7 +175,7 @@ export default function AddMan() {
                 marginBottom: '4px'
               }}
             >
-              NumConsecutivo
+              NumConsecutivo_Actividad
             </h2>
             <input
               name='num_consecutivo'

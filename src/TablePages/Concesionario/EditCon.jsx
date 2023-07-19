@@ -185,7 +185,7 @@ export default function EditCon() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '14vw',
+                width: '15vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -195,7 +195,7 @@ export default function EditCon() {
                 marginBottom: '4px'
               }}
             >
-              NumConsecutivo
+              NumConsecutivo_Est
             </h2>
             <input
               name='num_consecutivo'
