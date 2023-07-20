@@ -5,7 +5,7 @@ import SelloRechazado from '../../Image/selloRechazado.png'
 export default function VentasXProducto() {
   return (
     <div>
-      <h1 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '28px' }}>Salida por ventas de productos</h1>
+      <h1 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '28px', backgroundColor: '#478F4D', borderRadius: '10px' }}>Salida por ventas de productos</h1>
       <div
         style={{
           height: '60vh',
