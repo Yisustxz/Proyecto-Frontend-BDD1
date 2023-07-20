@@ -51,7 +51,7 @@ export default function FilterModAten() {
             fontSize: '28px'
           }}
         >
-          Search
+          Buscar
         </h1>
         <form
           style={{
@@ -60,7 +60,6 @@ export default function FilterModAten() {
             flexDirection: 'column',
             justifyContent: 'center',
             overflow: 'auto',
-            marginLeft: '9.5vw',
             marginTop: '3vh',
             fontSize: '24px',
             fontWeight: 'bold',
@@ -68,77 +67,121 @@ export default function FilterModAten() {
           }}
 
         >
-          <label style={{ paddingBottom: '15px' }}>
-            {' '}
-            <h2
-              style={{
-                backgroundColor: '#1D324E',
-                width: '6vw',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                borderRadius: '10px',
-                color: 'white',
-                fontSize: '18px',
-                marginBottom: '4px'
-              }}
-            >
-              Cant
-            </h2>
-            <input
-              name='cantidad'
-              type='number'
-              style={{
-                borderWidth: '2px',
-                borderColor: '#C1BFBF',
-                borderRadius: '10px',
-                marginBottom: '15px',
-                paddingLeft: '10px',
-                fontSize: '20px',
-                fontWeight: 'normal',
-                width: '17vw'
-              }}
+          <div style={{display: 'inline-flex', justifyContent: 'center', alignItems: 'center'}}>
+            <label style={{ paddingBottom: '2px', marginRight: '10px' }}>
+              {' '}
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  color: 'white',
+                  fontSize: '18px',
+                  marginBottom: '4px'
+                }}
+              >
+                <h2
+                  style={{backgroundColor: '#1D324E', borderRadius: '10px', padding: '3px'}}
+                >
+                  Fecha inicio
+                </h2>
+              </div>
+              <input
+                name='cantidad'
+                type='number'
+                style={{
+                  borderWidth: '2px',
+                  borderColor: '#C1BFBF',
+                  borderRadius: '10px',
+                  marginBottom: '15px',
+                  paddingLeft: '10px',
+                  fontSize: '20px',
+                  fontWeight: 'normal',
+                  width: '17vw'
+                }}
 
-            />
-          </label>
-          <label style={{ paddingBottom: '15px' }}>
-            {' '}
-            <h2
-              style={{
-                backgroundColor: '#1D324E',
-                width: '6vw',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                borderRadius: '10px',
-                color: 'white',
-                fontSize: '18px',
-                marginBottom: '4px'
-              }}
-            >
-              Costo
-            </h2>
-            <input
-              name='costo'
-              type='number'
-              style={{
-                borderWidth: '2px',
-                borderColor: '#C1BFBF',
-                borderRadius: '10px',
-                marginBottom: '15px',
-                paddingLeft: '10px',
-                fontSize: '20px',
-                fontWeight: 'normal',
-                width: '17vw'
-              }}
+              />
+            </label>
+            <label style={{ paddingBottom: '2px' }}>
+              {' '}
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  color: 'white',
+                  fontSize: '18px',
+                  marginBottom: '4px'
+                }}
+              >
+                <h2
+                  style={{backgroundColor: '#1D324E', borderRadius: '10px', padding: '3px'}}
+                >
+                  Fecha Fin
+                </h2>
+              </div>
+              <input
+                name='cantidad'
+                type='number'
+                style={{
+                  borderWidth: '2px',
+                  borderColor: '#C1BFBF',
+                  borderRadius: '10px',
+                  marginBottom: '15px',
+                  paddingLeft: '10px',
+                  fontSize: '20px',
+                  fontWeight: 'normal',
+                  width: '17vw'
+                }}
 
-            />
-          </label>
+              />
+            </label>
+          </div>
+          <div style={{borderWidth: '2px', margin: '2px', marginTop: '0'}}/>
+          <div style={{display: "flex", justifyContent: 'center', alignItems: 'center', marginTop: "10px"}}>
+            <label style={{ paddingBottom: '2px' }}>
+              {' '}
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  color: 'white',
+                  fontSize: '18px',
+                  marginBottom: '4px'
+                }}
+              >
+                <h2
+                  style={{backgroundColor: '#1D324E', borderRadius: '10px', padding: '3px'}}
+                >
+                  Tipo de servicio
+                </h2>
+              </div>
+              <input
+                name='costo'
+                type='number'
+                style={{
+                  borderWidth: '2px',
+                  borderColor: '#C1BFBF',
+                  borderRadius: '10px',
+                  marginBottom: '15px',
+                  paddingLeft: '10px',
+                  fontSize: '20px',
+                  fontWeight: 'normal',
+                  width: '17vw'
+                }}
+
+              />
+            </label>
+          </div>
           <div
             style={{
               display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'flex-start'
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
           >
             <Link to='/ModelosMasAten'>
