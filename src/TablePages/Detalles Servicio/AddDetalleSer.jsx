@@ -10,7 +10,7 @@ export default function AddDetalleSer() {
     num_unico: '',
     num_detalle: '',
     cantidad: '',
-    costo: ''
+    costo: 0
   })
 
   const handleChange = (e) => {
@@ -164,40 +164,6 @@ export default function AddDetalleSer() {
               }}
               onChange={handleChangeNumber}
               value={detalleServicio.cantidad}
-            />
-          </label>
-          <label style={{ paddingBottom: '15px' }}>
-            {' '}
-            <h2
-              style={{
-                backgroundColor: '#1D324E',
-                width: '6vw',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                borderRadius: '10px',
-                color: 'white',
-                fontSize: '18px',
-                marginBottom: '4px'
-              }}
-            >
-              Costo
-            </h2>
-            <input
-              name='costo'
-              type='number'
-              style={{
-                borderWidth: '2px',
-                borderColor: '#C1BFBF',
-                borderRadius: '10px',
-                marginBottom: '15px',
-                paddingLeft: '10px',
-                fontSize: '20px',
-                fontWeight: 'normal',
-                width: '17vw'
-              }}
-              onChange={handleChangeNumber}
-              value={detalleServicio.costo}
             />
           </label>
           <button

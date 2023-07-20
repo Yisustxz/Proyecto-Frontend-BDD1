@@ -8,8 +8,8 @@ export default function AddFactu() {
   const navigate = useNavigate()
   const [factura, setFactura] = useState({
     num_factura: '',
-    costo_mano_obra: '',
-    monto_total: '',
+    costo_mano_obra: 0,
+    monto_total: 0,
     fecha_factura: '',
     num_unico: ''
   })
@@ -128,74 +128,6 @@ export default function AddFactu() {
               }}
               value={factura.num_factura}
               onChange={handleChange}
-            />
-          </label>
-          <label style={{ paddingBottom: '15px' }}>
-            {' '}
-            <h2
-              style={{
-                backgroundColor: '#1D324E',
-                width: '14vw',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                borderRadius: '10px',
-                color: 'white',
-                fontSize: '20px',
-                marginBottom: '4px'
-              }}
-            >
-              Costo Mano de Obra
-            </h2>
-            <input
-              name='costo_mano_obra'
-              type='number'
-              style={{
-                borderWidth: '2px',
-                borderColor: '#C1BFBF',
-                borderRadius: '10px',
-                marginBottom: '15px',
-                paddingLeft: '10px',
-                fontSize: '20px',
-                fontWeight: 'normal',
-                width: '17vw'
-              }}
-              value={factura.costo_mano_obra}
-              onChange={handleChangeNumber}
-            />
-          </label>
-          <label style={{ paddingBottom: '15px' }}>
-            {' '}
-            <h2
-              style={{
-                backgroundColor: '#1D324E',
-                width: '8vw',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                borderRadius: '10px',
-                color: 'white',
-                fontSize: '20px',
-                marginBottom: '4px'
-              }}
-            >
-              MontoTotal
-            </h2>
-            <input
-              name='monto_total'
-              type='number'
-              style={{
-                borderWidth: '2px',
-                borderColor: '#C1BFBF',
-                borderRadius: '10px',
-                marginBottom: '15px',
-                paddingLeft: '10px',
-                fontSize: '20px',
-                fontWeight: 'normal',
-                width: '17vw'
-              }}
-              value={factura.monto_total}
-              onChange={handleChangeNumber}
             />
           </label>
           <label style={{ paddingBottom: '15px' }}>

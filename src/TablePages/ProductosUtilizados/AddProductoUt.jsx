@@ -11,7 +11,7 @@ export default function AddProductoUt() {
     num_detalle: '',
     ci_trabajador: '',
     cod_producto: '',
-    precio_actual: '',
+    precio_actual: 0,
     cantidad_usada: ''
   })
 
@@ -233,40 +233,6 @@ export default function AddProductoUt() {
               }}
               onChange={handleChange}
               value={productoUtilizado.cod_producto}
-            />
-          </label>
-          <label style={{ paddingBottom: '15px' }}>
-            {' '}
-            <h2
-              style={{
-                backgroundColor: '#1D324E',
-                width: '9vw',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                borderRadius: '10px',
-                color: 'white',
-                fontSize: '18px',
-                marginBottom: '4px'
-              }}
-            >
-              PrecioActual
-            </h2>
-            <input
-              name='precio_actual'
-              type='number'
-              style={{
-                borderWidth: '2px',
-                borderColor: '#C1BFBF',
-                borderRadius: '10px',
-                marginBottom: '15px',
-                paddingLeft: '10px',
-                fontSize: '20px',
-                fontWeight: 'normal',
-                width: '17vw'
-              }}
-              onChange={handleChangeNumber}
-              value={productoUtilizado.precio_actual}
             />
           </label>
           <label style={{ paddingBottom: '15px' }}>
