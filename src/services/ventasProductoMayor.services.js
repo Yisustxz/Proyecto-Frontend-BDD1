@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { apiUrl } from '../config'
 
-const BASE_URL = apiUrl + '/Estadisticas/TrabajadorServicioMes'
+const BASE_URL = apiUrl + '/Estadisticas/ProductoMayor'
 
-export const getServicioPersonal = async () => {
+export const getVentaProductoMayor = async () => {
   try {
     const res = await axios.get(BASE_URL)
     return res.data

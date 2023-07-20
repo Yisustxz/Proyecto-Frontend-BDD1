@@ -1,6 +1,6 @@
 import ServiciosPersonalRows from './ServicioPersonalRows'
 import { FaUserFriends } from 'react-icons/fa'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { getServicioPersonal } from '../../services/ServiciosPersonal.services'
 
 export default function SolicitudServ() {
