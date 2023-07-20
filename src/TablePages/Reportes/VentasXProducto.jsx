@@ -7,21 +7,39 @@ import { getVentaProductoMenor } from '../../services/ventasProductoMenor.servic
 import { getVentaProductoPorcentaje } from '../../services/ventasProductoPorcentaje.services'
 
 export default function VentasXProducto() {
-  const [ventasProductoMayor, setventasProductoMayor] = useState([])
-  const [ventasProductoMenor, setventasProductoMenor] = useState([])
-  const [ventasProductoPorcentaje, setventasProductoPorcentaje] = useState([])
+  const [ventasProductoMayor, setventasProductoMayor] = useState({})
+  const [ventasProductoMenor, setventasProductoMenor] = useState({})
+  const [ventasProductoPorcentaje, setventasProductoPorcentaje] = useState({})
+  console.log("first")
 
   const fetchData = async () => {
     try {
+
       const data = await getVentaProductoMayor()
       setventasProductoMayor(data.item)
-      console.log('hola1', data.item)
+
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  const fetchData2 = async () => {
+    try {
+
       const data2 = await getVentaProductoMenor()
       setventasProductoMenor(data2.item)
-      console.log('hola2', data2.item)
+
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  const fetchData3 = async () => {
+    try {
+
       const data3 = await getVentaProductoPorcentaje()
       setventasProductoPorcentaje(data3.item)
-      console.log('hola3', data3.item)
+
     } catch (error) {
       console.log(error.message)
     }
@@ -29,6 +47,8 @@ export default function VentasXProducto() {
 
   useEffect(() => {
     fetchData()
+    fetchData2()
+    fetchData3()
   }, [])
   return (
     <div>
