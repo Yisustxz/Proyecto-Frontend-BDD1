@@ -1,3 +1,5 @@
+import { FaUserAlt } from 'react-icons/fa'
+import ClientesFRows from './ClientesFRows';
 
 export default function ClientesFrecuentes() {
     return (
@@ -29,7 +31,7 @@ export default function ClientesFrecuentes() {
             flexDirection: 'row'
           }}
         >
-
+        <FaUserAlt color={'#fff'} size={60} style={{ alignSelf: 'center' }} />  
         </div>
         <h1
           style={{
@@ -39,11 +41,11 @@ export default function ClientesFrecuentes() {
             fontWeight: 'bold'
           }}
         >
-          Detalles de Servicio
+          Clientes Frecuentes
         </h1>
         <div
           style={{
-            width: '64vw',
+            width: '65vw',
             height: '4vh',
             marginTop: '2vh',
             borderBottomColor: '#737070',
@@ -58,7 +60,7 @@ export default function ClientesFrecuentes() {
         >
           <div
             style={{
-              width: '57vw',
+              width: '70vw',
               height: '4vh',
               display: 'flex',
               alignItems: 'center',
@@ -66,16 +68,11 @@ export default function ClientesFrecuentes() {
               justifyContent: 'space-around',
               fontSize: '18px',
               fontWeight: 'bold',
-              borderRightColor: '#C1BFBF',
-              borderLeft: 'none',
-              borderTop: 'none',
-              borderBottom: 'none',
-              borderWidth: '2px'
             }}
           >
             <div
               style={{
-                width: '11vw',
+                width: '10vw',
                 height: '4vh',
                 display: 'flex',
                 flexDirection: 'row',
@@ -83,11 +80,11 @@ export default function ClientesFrecuentes() {
                 alignItems: 'center'
               }}
             >
-              NumUnico
+              CI
             </div>
             <div
               style={{
-                width: '11vw',
+                width: '10vw',
                 height: '4vh',
                 display: 'flex',
                 flexDirection: 'row',
@@ -95,11 +92,11 @@ export default function ClientesFrecuentes() {
                 alignItems: 'center'
               }}
             >
-              NumDetalle
+              Nombre
             </div>
             <div
               style={{
-                width: '11vw',
+                width: '10vw',
                 height: '4vh',
                 display: 'flex',
                 flexDirection: 'row',
@@ -107,11 +104,11 @@ export default function ClientesFrecuentes() {
                 alignItems: 'center'
               }}
             >
-              Cant
+              Servicio
             </div>
             <div
               style={{
-                width: '11vw',
+                width: '10vw',
                 height: '4vh',
                 display: 'flex',
                 flexDirection: 'row',
@@ -119,21 +116,25 @@ export default function ClientesFrecuentes() {
                 alignItems: 'center'
               }}
             >
-              Costo
+              CantVecesSolicitado
+            </div>
+            <div
+              style={{
+                width: '10vw',
+                height: '4vh',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              MontoServicio
             </div>
           </div>
         </div>
-
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'end',
-          width: '95%',
-          height: '60px'
-        }}
-      >
+        <div style={{ overflow: 'auto' }}>
+            <ClientesFRows/>
+        </div>
       </div>
     </div>
     );
