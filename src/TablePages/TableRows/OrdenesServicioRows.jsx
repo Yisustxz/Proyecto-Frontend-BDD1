@@ -37,7 +37,7 @@ export default function OrdenesServicioRows({
   }
 
   const getNull = (string) => {
-    if (string === null) {
+    if (string === null || string === '') {
       return '------'
     } else {
       return string
