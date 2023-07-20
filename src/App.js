@@ -69,6 +69,22 @@ import AddPagos from './TablePages/Pagos/AddPagos'
 import EditPagos from './TablePages/Pagos/EditPagos'
 import AddEspeActi from './TablePages/EspecificacionesActividades/AddEspeActi'
 import Reportes from './TablePages/Reportes'
+import ModelosMasAten from './TablePages/Reportes/ModelosMasAten'
+import ServiciosPersonal from './TablePages/Reportes/ServiciosPersonal'
+import ClientesFrecuentes from './TablePages/Reportes/ClientesFrecuentes'
+import VentasXProducto from './TablePages/Reportes/VentasXProducto'
+import SolicitudServ from './TablePages/Reportes/SolicitudServ'
+import ServXVeh from './TablePages/Reportes/ServXVeh'
+import CompAgencia from './TablePages/Reportes/CompAgencia'
+import ResNoUsadas from './TablePages/Reportes/ResNoUsadas'
+import FacturasCliente from './TablePages/Reportes/FacturasCliente'
+import MantModelo from './TablePages/Reportes/MantModelo'
+import FilterClienFre from './TablePages/Reportes/Filtros/FilterClienFre'
+import FilterCompAg from './TablePages/Reportes/Filtros/FilterCompAg'
+import FilterFacturaC from './TablePages/Reportes/Filtros/FilterFacturaC'
+import FilterHistor from './TablePages/Reportes/Filtros/FilterHistor'
+import FilterMantMod from './TablePages/Reportes/Filtros/FilterMantMod'
+import FilterModAten from './TablePages/Reportes/Filtros/FilterModAten'
 
 function App() {
   return (
@@ -172,6 +188,22 @@ function App() {
               <Route path='/AddPagos' element={<AddPagos />} />
               <Route path='/AddEspeActi' element={<AddEspeActi />} />
               <Route path='/Reportes' element={<Reportes />} />
+              <Route path='/ModelosMasAten' element={<ModelosMasAten/>} />
+              <Route path='/ServiciosPersonal' element={<ServiciosPersonal/>} />
+              <Route path='/ClientesFrecuentes' element={<ClientesFrecuentes/>} />
+              <Route path='/VentasXProducto' element={<VentasXProducto/>} />
+              <Route path='/SolicitudServ' element={<SolicitudServ/>} />
+              <Route path='/ServXVeh' element={<ServXVeh/>} />
+              <Route path='/CompAgencia' element={<CompAgencia/>} />
+              <Route path='/ResNoUsadas' element={<ResNoUsadas/>} />
+              <Route path='/FacturasCliente' element={<FacturasCliente/>} />
+              <Route path='/MantModelo' element={<MantModelo/>} />
+              <Route path='/FilterClienFre' element={<FilterClienFre/>} />
+              <Route path='/FilterCompAg' element={<FilterCompAg/>} />
+              <Route path='/FilterFacturaC' element={<FilterFacturaC/>} />
+              <Route path='/FilterHistor' element={<FilterHistor/>} />
+              <Route path='/FilterMantMod' element={<FilterMantMod/>} />
+              <Route path='/FilterModAten' element={<FilterModAten/>} />
             </Routes>
           </div>
         </div>

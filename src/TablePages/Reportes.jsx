@@ -40,7 +40,7 @@ export default function Reportes() {
           justifyContent: 'space-around'
         }}
       >
-        <Link to='/ModelosMasAten'>
+        <Link to='/FilterModAten'>
           <div
             style={{
               height: '30vh',
@@ -127,7 +127,7 @@ export default function Reportes() {
             </h1>
           </div>
         </Link>
-        <Link to='/ClientesFrecuentes'>
+        <Link to='/FilterClienFre'>
           <div
             style={{
               height: '30vh',
@@ -270,7 +270,7 @@ export default function Reportes() {
             </h1>
           </div>
         </Link>
-        <Link to='/ServXVeh'>
+        <Link to='/FilterHistor'>
           <div
             style={{
               height: '30vh',
@@ -327,7 +327,7 @@ export default function Reportes() {
           justifyContent: 'space-around'
         }}
       >
-        <Link to='/CompAgencia'>
+        <Link to='/FilterCompAg'>
           <div
             style={{
               height: '30vh',
@@ -410,7 +410,7 @@ export default function Reportes() {
             </h1>
           </div>
         </Link>
-        <Link to='/FacturasCliente'>
+        <Link to='/FilterFacturaC'>
           <div
             style={{
               height: '30vh',
@@ -466,7 +466,7 @@ export default function Reportes() {
           justifyContent: 'center'
         }}
       >
-        <Link to='/MantModelo'>
+        <Link to='/FilterMantMod'>
           <div
             style={{
               height: '30vh',
