@@ -1,3 +1,4 @@
+import SolicitudServRows from "./solicitudServRows";
 
 export default function SolicitudServ() {
     return (
@@ -33,13 +34,13 @@ export default function SolicitudServ() {
         </div>
         <h1
           style={{
-            marginLeft: '-32vw',
+            marginLeft: '-31vw',
             marginTop: '1vh',
             fontSize: '24px',
             fontWeight: 'bold'
           }}
         >
-          Detalles de Servicio
+          Servicio Mas Solicitado
         </h1>
         <div
           style={{
@@ -83,7 +84,7 @@ export default function SolicitudServ() {
                 alignItems: 'center'
               }}
             >
-              NumUnico
+              CodSer
             </div>
             <div
               style={{
@@ -95,8 +96,9 @@ export default function SolicitudServ() {
                 alignItems: 'center'
               }}
             >
-              NumDetalle
+              NombreServ
             </div>
+            
             <div
               style={{
                 width: '11vw',
@@ -107,23 +109,11 @@ export default function SolicitudServ() {
                 alignItems: 'center'
               }}
             >
-              Cant
-            </div>
-            <div
-              style={{
-                width: '11vw',
-                height: '4vh',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
-              Costo
+              Cant Solicitado
             </div>
           </div>
         </div>
-
+        <SolicitudServRows/>
       </div>
       <div
         style={{

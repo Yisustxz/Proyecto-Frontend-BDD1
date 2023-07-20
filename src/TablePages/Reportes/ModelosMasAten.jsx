@@ -1,3 +1,4 @@
+import ModelosMasAtenRows from "./ModeloMasAtendidoRows";
 
 export default function ModelosMasAten() {
   return (
@@ -33,7 +34,7 @@ export default function ModelosMasAten() {
       </div>
       <h1
         style={{
-          marginLeft: '-32vw',
+          marginLeft: '-30vw',
           marginTop: '1vh',
           fontSize: '24px',
           fontWeight: 'bold'
@@ -83,7 +84,7 @@ export default function ModelosMasAten() {
               alignItems: 'center'
             }}
           >
-            NumUnico
+            Nombre 
           </div>
           <div
             style={{
@@ -95,7 +96,7 @@ export default function ModelosMasAten() {
               alignItems: 'center'
             }}
           >
-            NumDetalle
+            Marca
           </div>
           <div
             style={{
@@ -107,7 +108,7 @@ export default function ModelosMasAten() {
               alignItems: 'center'
             }}
           >
-            Cant
+            CodModelo
           </div>
           <div
             style={{
@@ -119,11 +120,11 @@ export default function ModelosMasAten() {
               alignItems: 'center'
             }}
           >
-            Costo
+            Cantidad Atendido
           </div>
         </div>
       </div>
-
+      <ModelosMasAtenRows/>
     </div>
     <div
       style={{

@@ -1,3 +1,4 @@
+import ResNoUsadasRows from "./ResNoUsadasRows";
 
 export default function ResNoUsadas() {
     return (
@@ -39,7 +40,7 @@ export default function ResNoUsadas() {
             fontWeight: 'bold'
           }}
         >
-          Detalles de Servicio
+          Reservas no usadas
         </h1>
         <div
           style={{
@@ -70,6 +71,7 @@ export default function ResNoUsadas() {
               borderLeft: 'none',
               borderTop: 'none',
               borderBottom: 'none',
+              borderRight: 'none',
               borderWidth: '2px'
             }}
           >
@@ -83,7 +85,7 @@ export default function ResNoUsadas() {
                 alignItems: 'center'
               }}
             >
-              NumUnico
+              C.I. Cliente
             </div>
             <div
               style={{
@@ -95,7 +97,7 @@ export default function ResNoUsadas() {
                 alignItems: 'center'
               }}
             >
-              NumDetalle
+              Nombre del cliente
             </div>
             <div
               style={{
@@ -107,7 +109,7 @@ export default function ResNoUsadas() {
                 alignItems: 'center'
               }}
             >
-              Cant
+              Codigo de reserva
             </div>
             <div
               style={{
@@ -119,11 +121,11 @@ export default function ResNoUsadas() {
                 alignItems: 'center'
               }}
             >
-              Costo
+              Fecha de reserva
             </div>
           </div>
         </div>
-
+        <ResNoUsadasRows/>
       </div>
       <div
         style={{
@@ -134,6 +136,7 @@ export default function ResNoUsadas() {
           height: '60px'
         }}
       >
+        
       </div>
     </div>
     );

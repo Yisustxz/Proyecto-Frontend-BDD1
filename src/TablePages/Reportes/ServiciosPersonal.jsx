@@ -1,5 +1,7 @@
+import ServiciosPersonalRows from "./ServicioPersonalRows";
+import SolicitudServRows from "./solicitudServRows";
 
-export default function ServiciosPersonal() {
+export default function SolicitudServ() {
     return (
       <div>
       <div
@@ -33,13 +35,13 @@ export default function ServiciosPersonal() {
         </div>
         <h1
           style={{
-            marginLeft: '-32vw',
+            marginLeft: '-31vw',
             marginTop: '1vh',
             fontSize: '24px',
             fontWeight: 'bold'
           }}
         >
-          Detalles de Servicio
+            Servicios por personal
         </h1>
         <div
           style={{
@@ -83,7 +85,7 @@ export default function ServiciosPersonal() {
                 alignItems: 'center'
               }}
             >
-              NumUnico
+              C.I Trabajador
             </div>
             <div
               style={{
@@ -95,7 +97,7 @@ export default function ServiciosPersonal() {
                 alignItems: 'center'
               }}
             >
-              NumDetalle
+              NombreTraba
             </div>
             <div
               style={{
@@ -107,8 +109,9 @@ export default function ServiciosPersonal() {
                 alignItems: 'center'
               }}
             >
-              Cant
+              Mes
             </div>
+            
             <div
               style={{
                 width: '11vw',
@@ -119,11 +122,11 @@ export default function ServiciosPersonal() {
                 alignItems: 'center'
               }}
             >
-              Costo
+              CantSer por Mes
             </div>
           </div>
         </div>
-
+        <ServiciosPersonalRows/>
       </div>
       <div
         style={{
