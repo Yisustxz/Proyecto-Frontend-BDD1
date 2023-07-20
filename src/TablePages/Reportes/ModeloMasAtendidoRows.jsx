@@ -21,7 +21,7 @@ export default function ModelosMasAtenRows() {
         >
           <div
             style={{
-              width: '57vw',
+              width: '64vw',
               minHeight: 'auto',
               display: 'flex',
               alignItems: 'center',
@@ -81,7 +81,12 @@ export default function ModelosMasAtenRows() {
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
-                flex: 1
+                flex: 1,
+                borderRightColor: '#D7D5D5',
+                borderLeft: 'none',
+                borderTop: 'none',
+                borderBottom: 'none',
+                borderWidth: '2px'
               }}
             >
               1256

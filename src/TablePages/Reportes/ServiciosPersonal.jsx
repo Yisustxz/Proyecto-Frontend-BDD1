@@ -1,5 +1,5 @@
 import ServiciosPersonalRows from "./ServicioPersonalRows";
-import SolicitudServRows from "./solicitudServRows";
+import { FaUserFriends } from 'react-icons/fa'
 
 export default function SolicitudServ() {
     return (
@@ -31,7 +31,11 @@ export default function SolicitudServ() {
             flexDirection: 'row'
           }}
         >
-
+<FaUserFriends
+            color={'#fff'}
+            size={60}
+            style={{ alignSelf: 'center' }}
+          />
         </div>
         <h1
           style={{
@@ -60,7 +64,7 @@ export default function SolicitudServ() {
         >
           <div
             style={{
-              width: '57vw',
+              width: '64vw',
               height: '4vh',
               display: 'flex',
               alignItems: 'center',
@@ -68,11 +72,6 @@ export default function SolicitudServ() {
               justifyContent: 'space-around',
               fontSize: '18px',
               fontWeight: 'bold',
-              borderRightColor: '#C1BFBF',
-              borderLeft: 'none',
-              borderTop: 'none',
-              borderBottom: 'none',
-              borderWidth: '2px'
             }}
           >
             <div
@@ -97,7 +96,7 @@ export default function SolicitudServ() {
                 alignItems: 'center'
               }}
             >
-              NombreTraba
+              NombreTrabajador
             </div>
             <div
               style={{
@@ -127,16 +126,6 @@ export default function SolicitudServ() {
           </div>
         </div>
         <ServiciosPersonalRows/>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'end',
-          width: '95%',
-          height: '60px'
-        }}
-      >
       </div>
     </div>
     );

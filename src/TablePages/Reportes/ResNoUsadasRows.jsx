@@ -21,7 +21,7 @@ export default function ResNoUsadasRows() {
       >
         <div
           style={{
-            width: '57vw',
+            width: '64vw',
             minHeight: 'auto',
             display: 'flex',
             alignItems: 'center',
@@ -70,7 +70,7 @@ export default function ResNoUsadasRows() {
               borderWidth: '2px'
             }}
           >
-        
+            Pedro Pérez
           </div>
           <div
             style={{

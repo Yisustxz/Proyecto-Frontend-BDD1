@@ -4,12 +4,12 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 export default function FilterHistor() {
     return (
-        <div>
+      <div>
       <img
         src={FondoArbol}
         alt='fondoarbol'
         style={{
-          height: '60vh',
+          height: '45vh',
           width: '40vw',
           borderRadius: '10px',
           boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.1)',
@@ -27,7 +27,7 @@ export default function FilterHistor() {
           left: '59.4%',
           backgroundColor: 'white',
           width: '35vw',
-          minHeight: '40vh',
+          height: '35vh',
           borderRadius: '10px',
           transform: 'translate(-50%, -50%',
           color: '#fff',
@@ -39,19 +39,19 @@ export default function FilterHistor() {
       >
         <AiOutlineSearch color={'black'}
               size={40}
-              style={{ marginLeft: '20vh', position: 'absolute', marginTop: '-40vh' }}/>
+              style={{ marginLeft: '18vh', position: 'absolute', marginTop: '-25vh' }}/>
         <h1
           style={{
             color: '#000',
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
-            marginTop: '3vh',
+            marginTop: '9vh',
             fontWeight: 'bold',
             fontSize: '28px'
           }}
         >
-          Filtrar
+          Filtrar por
         </h1>
         <form
           style={{
@@ -59,12 +59,11 @@ export default function FilterHistor() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            overflow: 'auto',
-            marginLeft: '9.5vw',
-            marginTop: '3vh',
+            marginLeft: '6vw',
             fontSize: '24px',
             fontWeight: 'bold',
-            minHeight: '40vh'
+            minHeight: '40vh',
+            marginTop: '-6vh'
           }}
 
         >
@@ -73,7 +72,7 @@ export default function FilterHistor() {
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '6vw',
+                width: '12vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -86,7 +85,6 @@ export default function FilterHistor() {
               Placa
             </h2>
             <input
-              name='cantidad'
               style={{
                 borderWidth: '2px',
                 borderColor: '#C1BFBF',
@@ -97,10 +95,8 @@ export default function FilterHistor() {
                 fontWeight: 'normal',
                 width: '17vw'
               }}
-
             />
           </label>
-        
           <div
             style={{
               display: 'flex',
@@ -134,4 +130,4 @@ export default function FilterHistor() {
       </div>
     </div>
     );
-}
+  }

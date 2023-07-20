@@ -1,4 +1,5 @@
 import ResNoUsadasRows from "./ResNoUsadasRows";
+import { BiEdit } from 'react-icons/bi'
 
 export default function ResNoUsadas() {
     return (
@@ -30,7 +31,7 @@ export default function ResNoUsadas() {
             flexDirection: 'row'
           }}
         >
-
+ <BiEdit color={'#fff'} size={60} style={{ alignSelf: 'center' }} />
         </div>
         <h1
           style={{
@@ -59,7 +60,7 @@ export default function ResNoUsadas() {
         >
           <div
             style={{
-              width: '57vw',
+              width: '64vw',
               height: '4vh',
               display: 'flex',
               alignItems: 'center',
@@ -126,17 +127,6 @@ export default function ResNoUsadas() {
           </div>
         </div>
         <ResNoUsadasRows/>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'end',
-          width: '95%',
-          height: '60px'
-        }}
-      >
-        
       </div>
     </div>
     );

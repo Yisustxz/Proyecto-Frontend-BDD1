@@ -1,4 +1,5 @@
 import ServXVehRows from "./ServXVehRows";
+import { AiFillCar } from 'react-icons/ai'
 
 export default function ServXVeh() {
     return (
@@ -30,17 +31,17 @@ export default function ServXVeh() {
             flexDirection: 'row'
           }}
         >
-
+ <AiFillCar color={'#fff'} size={60} style={{ alignSelf: 'center' }} />
         </div>
         <h1
           style={{
-            marginLeft: '-30vw',
+            marginLeft: '-26vw',
             marginTop: '1vh',
             fontSize: '24px',
             fontWeight: 'bold'
           }}
         >
-          Historico uso de servicio 
+          Histórico Uso de Servicios 
         </h1>
         <div
           style={{
@@ -59,7 +60,7 @@ export default function ServXVeh() {
         >
           <div
             style={{
-              width: '57vw',
+              width: '64vw',
               height: '4vh',
               display: 'flex',
               alignItems: 'center',
@@ -162,17 +163,6 @@ export default function ServXVeh() {
           </div>
         </div>
         <ServXVehRows/>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'end',
-          width: '95%',
-          height: '60px'
-        }}
-      >
-        
       </div>
     </div>
     );

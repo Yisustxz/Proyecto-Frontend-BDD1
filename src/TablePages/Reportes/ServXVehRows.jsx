@@ -19,7 +19,7 @@ export default function ServXVehRows() {
         >
           <div
             style={{
-              width: '57vw',
+              width: '64vw',
               minHeight: 'auto',
               display: 'flex',
               alignItems: 'center',
