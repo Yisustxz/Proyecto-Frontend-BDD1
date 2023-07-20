@@ -1,3 +1,5 @@
+import { AiOutlineFile } from 'react-icons/ai'
+import FacturasCRows from './FacturasCRows';
 
 export default function FacturasCliente() {
     return (
@@ -29,7 +31,7 @@ export default function FacturasCliente() {
             flexDirection: 'row'
           }}
         >
-
+ <AiOutlineFile color={'#fff'} size={60} style={{ alignSelf: 'center' }} />  
         </div>
         <h1
           style={{
@@ -39,7 +41,7 @@ export default function FacturasCliente() {
             fontWeight: 'bold'
           }}
         >
-          Detalles de Servicio
+          Facturas por Cliente
         </h1>
         <div
           style={{
@@ -83,7 +85,7 @@ export default function FacturasCliente() {
                 alignItems: 'center'
               }}
             >
-              NumUnico
+              NombreCliente
             </div>
             <div
               style={{
@@ -95,7 +97,7 @@ export default function FacturasCliente() {
                 alignItems: 'center'
               }}
             >
-              NumDetalle
+              NumFactura
             </div>
             <div
               style={{
@@ -107,33 +109,12 @@ export default function FacturasCliente() {
                 alignItems: 'center'
               }}
             >
-              Cant
+              FechaFactura
             </div>
-            <div
-              style={{
-                width: '11vw',
-                height: '4vh',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
-              Costo
-            </div>
+
           </div>
         </div>
-
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'end',
-          width: '95%',
-          height: '60px'
-        }}
-      >
+             <FacturasCRows/> 
       </div>
     </div>
     );
