@@ -51,7 +51,7 @@ export default function FacturaTemplate() {
                     <h2 style={{ textAlign: 'center', backgroundColor: '#1D324E', width: '12vw', color: 'white', borderRadius: '10px', fontWeight: 'bold' }}>Orden de Servicio</h2>
                     <h2 style={{ textAlign: 'left', marginLeft: '1vw', width: '6vw', borderWidth: '2px', borderColor: '#D7D5D5', borderTop: 'none', borderRight: 'none', borderLeft: 'none' }}>777777</h2>
                 </div>
-                <div style={{ height: '20vh', width: '50vw', display: 'flex', flexDirection: 'row', overflow: 'auto'}}>
+                <div style={{ height: '20vh', width: '50vw', display: 'flex', flexDirection: 'row', overflow: 'auto', overflowX: 'hidden'}}>
                     <div style={{ height: 'auto', width: '15vw', display: 'flex', flexDirection: 'column' }}>
                         <div style={{ height: '4vh', width: '50vw', display: 'flex', flexDirection: 'row', paddingLeft: '1vw', alignItems: 'center', marginTop: '6vh' }}>
                             <h2 style={{ textAlign: 'center', backgroundColor: '#1D324E', width: '12vw', color: 'white', borderRadius: '10px', fontWeight: 'bold' }}>Productos Utilizados</h2>
