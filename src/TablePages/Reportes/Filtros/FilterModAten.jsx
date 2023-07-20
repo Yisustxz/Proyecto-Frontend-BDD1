@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 import { AiOutlineSearch } from "react-icons/ai";
 
 export default function FilterModAten() {
+
     return (
         <div>
       <img
         src={FondoArbol}
         alt='fondoarbol'
         style={{
-          height: '60vh',
+          height: '55vh',
           width: '40vw',
           borderRadius: '10px',
           boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.1)',
@@ -27,7 +28,7 @@ export default function FilterModAten() {
           left: '59.4%',
           backgroundColor: 'white',
           width: '35vw',
-          minHeight: '40vh',
+          height: '45vh',
           borderRadius: '10px',
           transform: 'translate(-50%, -50%',
           color: '#fff',
@@ -39,19 +40,20 @@ export default function FilterModAten() {
       >
         <AiOutlineSearch color={'black'}
               size={40}
-              style={{ marginLeft: '20vh', position: 'absolute', marginTop: '-40vh' }}/>
+              style={{ marginLeft: '18vh', position: 'absolute', marginTop: '-36vh' }}/>
         <h1
           style={{
             color: '#000',
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
-            marginTop: '3vh',
+            marginTop: '2vh',
             fontWeight: 'bold',
-            fontSize: '28px'
+            fontSize: '28px',
+            marginBottom: '30px'
           }}
         >
-          Search
+          Filtrar por
         </h1>
         <form
           style={{
@@ -59,12 +61,11 @@ export default function FilterModAten() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            overflow: 'auto',
-            marginLeft: '9.5vw',
-            marginTop: '3vh',
+            marginLeft: '6vw',
             fontSize: '24px',
             fontWeight: 'bold',
-            minHeight: '40vh'
+            minHeight: '40vh',
+            marginTop: '-6vh'
           }}
 
         >
@@ -83,11 +84,13 @@ export default function FilterModAten() {
                 marginBottom: '4px'
               }}
             >
-              Cant
+              Rango
             </h2>
-            <input
-              name='cantidad'
-              type='number'
+            <div style={{width: '25vw', height: '10vh', display: 'flex', flexDirection: 'row', marginBottom: '2vh', borderWidth: '2px', borderRight: 'none', borderLeft: 'none', borderTop: 'none'}}>
+                <div style={{width: '12vw', height: '10vh', display: 'flex', flexDirection: 'column'}}>
+                <h1 style={{fontWeight: 'normal', fontSize: '20px'}}>Fecha inicio</h1>
+                <input
+              type='date'
               style={{
                 borderWidth: '2px',
                 borderColor: '#C1BFBF',
@@ -96,17 +99,33 @@ export default function FilterModAten() {
                 paddingLeft: '10px',
                 fontSize: '20px',
                 fontWeight: 'normal',
-                width: '17vw'
+                width: '10vw',
+                height: '7vh'
               }}
-
             />
-          </label>
-          <label style={{ paddingBottom: '15px' }}>
-            {' '}
+                </div>
+                <div style={{width: '12vw', height: '10vh', display: 'flex', flexDirection: 'column'}}>
+                <h1 style={{fontWeight: 'normal', fontSize: '20px'}}>Fecha final</h1>
+                <input
+              type='date'
+              style={{
+                borderWidth: '2px',
+                borderColor: '#C1BFBF',
+                borderRadius: '10px',
+                marginBottom: '15px',
+                paddingLeft: '10px',
+                fontSize: '20px',
+                fontWeight: 'normal',
+                width: '10vw',
+                height: '7vh'
+              }}
+            />
+                </div>
+            </div>
             <h2
               style={{
                 backgroundColor: '#1D324E',
-                width: '6vw',
+                width: '8vw',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -116,11 +135,9 @@ export default function FilterModAten() {
                 marginBottom: '4px'
               }}
             >
-              Costo
+              TipoServicio
             </h2>
             <input
-              name='costo'
-              type='number'
               style={{
                 borderWidth: '2px',
                 borderColor: '#C1BFBF',
@@ -131,7 +148,6 @@ export default function FilterModAten() {
                 fontWeight: 'normal',
                 width: '17vw'
               }}
-
             />
           </label>
           <div
@@ -167,4 +183,4 @@ export default function FilterModAten() {
       </div>
     </div>
     );
-}
+  }

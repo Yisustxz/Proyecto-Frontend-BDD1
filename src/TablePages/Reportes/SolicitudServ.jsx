@@ -1,3 +1,5 @@
+import SolicitudServRows from "./solicitudServRows";
+import { MdCarRepair } from 'react-icons/md'
 
 export default function SolicitudServ() {
     return (
@@ -29,17 +31,21 @@ export default function SolicitudServ() {
             flexDirection: 'row'
           }}
         >
-
+<MdCarRepair
+            color={'#fff'}
+            size={60}
+            style={{ alignSelf: 'center' }}
+          />
         </div>
         <h1
           style={{
-            marginLeft: '-32vw',
+            marginLeft: '-31vw',
             marginTop: '1vh',
             fontSize: '24px',
             fontWeight: 'bold'
           }}
         >
-          Detalles de Servicio
+          Servicio Más Solicitado
         </h1>
         <div
           style={{
@@ -58,7 +64,7 @@ export default function SolicitudServ() {
         >
           <div
             style={{
-              width: '57vw',
+              width: '64vw',
               height: '4vh',
               display: 'flex',
               alignItems: 'center',
@@ -66,11 +72,6 @@ export default function SolicitudServ() {
               justifyContent: 'space-around',
               fontSize: '18px',
               fontWeight: 'bold',
-              borderRightColor: '#C1BFBF',
-              borderLeft: 'none',
-              borderTop: 'none',
-              borderBottom: 'none',
-              borderWidth: '2px'
             }}
           >
             <div
@@ -83,7 +84,7 @@ export default function SolicitudServ() {
                 alignItems: 'center'
               }}
             >
-              NumUnico
+              Cod_Servicio
             </div>
             <div
               style={{
@@ -95,8 +96,9 @@ export default function SolicitudServ() {
                 alignItems: 'center'
               }}
             >
-              NumDetalle
+              Nombre_Servicio
             </div>
+            
             <div
               style={{
                 width: '11vw',
@@ -107,33 +109,11 @@ export default function SolicitudServ() {
                 alignItems: 'center'
               }}
             >
-              Cant
-            </div>
-            <div
-              style={{
-                width: '11vw',
-                height: '4vh',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
-              Costo
+              Cant_Veces_Solicitado
             </div>
           </div>
         </div>
-
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'end',
-          width: '95%',
-          height: '60px'
-        }}
-      >
+        <SolicitudServRows/>
       </div>
     </div>
     );

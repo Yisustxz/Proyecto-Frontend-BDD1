@@ -1,7 +1,25 @@
+import ServiciosPersonalRows from './ServicioPersonalRows'
+import { FaUserFriends } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
+import { getServicioPersonal } from '../../services/ServiciosPersonal.services'
 
-export default function ServiciosPersonal() {
-    return (
-      <div>
+export default function SolicitudServ() {
+  const [solicitudServ, setSolicitudServ] = useState([])
+
+  const fetchData = async () => {
+    try {
+      const data = await getServicioPersonal()
+      setSolicitudServ(data.item)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+  return (
+    <div>
       <div
         style={{
           height: '60vh',
@@ -29,17 +47,21 @@ export default function ServiciosPersonal() {
             flexDirection: 'row'
           }}
         >
-
+          <FaUserFriends
+            color={'#fff'}
+            size={60}
+            style={{ alignSelf: 'center' }}
+          />
         </div>
         <h1
           style={{
-            marginLeft: '-32vw',
+            marginLeft: '-31vw',
             marginTop: '1vh',
             fontSize: '24px',
             fontWeight: 'bold'
           }}
         >
-          Detalles de Servicio
+          Servicios por personal
         </h1>
         <div
           style={{
@@ -58,19 +80,14 @@ export default function ServiciosPersonal() {
         >
           <div
             style={{
-              width: '57vw',
+              width: '64vw',
               height: '4vh',
               display: 'flex',
               alignItems: 'center',
               flexDirection: 'row',
               justifyContent: 'space-around',
               fontSize: '18px',
-              fontWeight: 'bold',
-              borderRightColor: '#C1BFBF',
-              borderLeft: 'none',
-              borderTop: 'none',
-              borderBottom: 'none',
-              borderWidth: '2px'
+              fontWeight: 'bold'
             }}
           >
             <div
@@ -83,7 +100,7 @@ export default function ServiciosPersonal() {
                 alignItems: 'center'
               }}
             >
-              NumUnico
+              C.I Trabajador
             </div>
             <div
               style={{
@@ -95,7 +112,7 @@ export default function ServiciosPersonal() {
                 alignItems: 'center'
               }}
             >
-              NumDetalle
+              NombreTrabajador
             </div>
             <div
               style={{
@@ -107,8 +124,9 @@ export default function ServiciosPersonal() {
                 alignItems: 'center'
               }}
             >
-              Cant
+              Mes
             </div>
+
             <div
               style={{
                 width: '11vw',
@@ -119,22 +137,20 @@ export default function ServiciosPersonal() {
                 alignItems: 'center'
               }}
             >
-              Costo
+              CantSer por Mes
             </div>
           </div>
         </div>
-
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'end',
-          width: '95%',
-          height: '60px'
-        }}
-      >
+        {solicitudServ.map((solicitud) => (
+          <ServiciosPersonalRows
+            key={solicitud.ci_trabajador}
+            ci_trabajador={solicitud.ci_trabajador}
+            nombre_trabajador={solicitud.nombre_trabajador}
+            mes={solicitud.mes}
+            cantidad_servicios={solicitud.cantidad_servicios}
+          />
+        ))}
       </div>
     </div>
-    );
-  }
+  )
+}

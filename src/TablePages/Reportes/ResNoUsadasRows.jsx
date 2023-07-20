@@ -1,15 +1,12 @@
-export default function ClientesFRows({
-  ci_cliente,
-  nombre_cliente,
-  nombre_servicio,
-  veces_contratado,
-  monto_acumulado
-}) {
+
+
+export default function ResNoUsadasRows() {
+
   return (
     <div>
       <div
         style={{
-          width: '65vw',
+          width: '64vw',
           height: 'auto',
           marginTop: '1vh',
           borderBottomColor: '#C1BFBF',
@@ -24,7 +21,7 @@ export default function ClientesFRows({
       >
         <div
           style={{
-            width: '65vw',
+            width: '64vw',
             minHeight: 'auto',
             display: 'flex',
             alignItems: 'center',
@@ -34,15 +31,13 @@ export default function ClientesFRows({
             borderLeft: 'none',
             borderTop: 'none',
             borderBottom: 'none',
+            borderRight: 'none',
             borderWidth: '2px'
           }}
         >
-          {/* 
-                Colocar las variables donde está el texto :)
-                 */}
           <div
             style={{
-              width: '10vw',
+              width: '11vw',
               minHeight: '4vh',
               display: 'flex',
               flexDirection: 'row',
@@ -56,11 +51,11 @@ export default function ClientesFRows({
               borderWidth: '2px'
             }}
           >
-            {ci_cliente}
+            28384964
           </div>
           <div
             style={{
-              width: '10vw',
+              width: '11vw',
               minHeight: '4vh',
               display: 'flex',
               flexDirection: 'row',
@@ -75,11 +70,11 @@ export default function ClientesFRows({
               borderWidth: '2px'
             }}
           >
-            {nombre_cliente}
+            Pedro Pérez
           </div>
           <div
             style={{
-              width: '10vw',
+              width: '11vw',
               minHeight: '4vh',
               display: 'flex',
               flexDirection: 'row',
@@ -91,33 +86,14 @@ export default function ClientesFRows({
               borderLeft: 'none',
               borderTop: 'none',
               borderBottom: 'none',
-              borderWidth: '2px',
-              marginLeft: '1vw'
-            }}
-          >
-            {nombre_servicio}
-          </div>
-          <div
-            style={{
-              width: '10vw',
-              minHeight: '4vh',
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flex: 1,
-              borderRightColor: '#D7D5D5',
-              borderLeft: 'none',
-              borderTop: 'none',
-              borderBottom: 'none',
               borderWidth: '2px'
             }}
           >
-            {veces_contratado}
+            001
           </div>
           <div
             style={{
-              width: '10vw',
+              width: '11vw',
               minHeight: '4vh',
               display: 'flex',
               flexDirection: 'row',
@@ -126,7 +102,7 @@ export default function ClientesFRows({
               flex: 1
             }}
           >
-            {monto_acumulado}
+            21/11/2022
           </div>
         </div>
       </div>

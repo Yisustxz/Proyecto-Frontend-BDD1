@@ -1,54 +1,13 @@
-import ServXVehRows from "./ServXVehRows";
-import { AiFillCar } from 'react-icons/ai'
+export default function ServXVehRows() {
 
-export default function ServXVeh() {
     return (
       <div>
-      <div
-        style={{
-          height: '60vh',
-          width: '70vw',
-          backgroundColor: '#fff',
-          borderRadius: '10px',
-          boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.1)',
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column'
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            backgroundColor: '#478F4D',
-            width: '90px',
-            height: '90px',
-            marginTop: '-6vh',
-            borderRadius: '7px',
-            marginLeft: '-55vw',
-            boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.1)',
-            display: 'flex',
-            justifyContent: 'center',
-            flexDirection: 'row'
-          }}
-        >
- <AiFillCar color={'#fff'} size={60} style={{ alignSelf: 'center' }} />
-        </div>
-        <h1
-          style={{
-            marginLeft: '-26vw',
-            marginTop: '1vh',
-            fontSize: '24px',
-            fontWeight: 'bold'
-          }}
-        >
-          Histórico Uso de Servicios 
-        </h1>
         <div
           style={{
             width: '64vw',
-            height: '4vh',
-            marginTop: '2vh',
-            borderBottomColor: '#737070',
+            height: 'auto',
+            marginTop: '1vh',
+            borderBottomColor: '#C1BFBF',
             borderWidth: '2px',
             borderTop: 'none',
             borderLeft: 'none',
@@ -61,13 +20,11 @@ export default function ServXVeh() {
           <div
             style={{
               width: '64vw',
-              height: '4vh',
+              minHeight: 'auto',
               display: 'flex',
               alignItems: 'center',
               flexDirection: 'row',
-              justifyContent: 'space-around',
-              fontSize: '18px',
-              fontWeight: 'bold',
+              fontSize: '16px',
               borderRightColor: '#C1BFBF',
               borderLeft: 'none',
               borderTop: 'none',
@@ -79,91 +36,132 @@ export default function ServXVeh() {
             <div
               style={{
                 width: '11vw',
-                height: '4vh',
+                minHeight: '4vh',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
-                alignItems: 'center'
+                flex: 1,
+                alignItems: 'center',
+                borderRightColor: '#D7D5D5',
+                borderLeft: 'none',
+                borderTop: 'none',
+                borderBottom: 'none',
+                borderWidth: '2px'
               }}
             >
-              Placa
+              289349
             </div>
             <div
               style={{
                 width: '11vw',
-                height: '4vh',
+                minHeight: '4vh',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                flex: 1,
+                overflow: 'auto',
+                borderRightColor: '#D7D5D5',
+                borderLeft: 'none',
+                borderTop: 'none',
+                borderBottom: 'none',
+                borderWidth: '2px'
               }}
             >
-              CodServicio
+              002
             </div>
             <div
               style={{
                 width: '11vw',
-                height: '4vh',
+                minHeight: '4vh',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                flex: 1,
+                overflow: 'auto',
+                borderRightColor: '#D7D5D5',
+                borderLeft: 'none',
+                borderTop: 'none',
+                borderBottom: 'none',
+                borderWidth: '2px'
               }}
             >
-              NombreServ
+              Mantenimiento
             </div>
             <div
               style={{
                 width: '11vw',
-                height: '4vh',
+                minHeight: '4vh',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                flex: 1,
+                overflow: 'auto',
+                borderRightColor: '#D7D5D5',
+                borderLeft: 'none',
+                borderTop: 'none',
+                borderBottom: 'none',
+                borderWidth: '2px'
               }}
             >
-              FechaEntr
+              30/9/2023
             </div>
             <div
               style={{
                 width: '11vw',
-                height: '4vh',
+                minHeight: '4vh',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                flex: 1,
+                overflow: 'auto',
+                borderRightColor: '#D7D5D5',
+                borderLeft: 'none',
+                borderTop: 'none',
+                borderBottom: 'none',
+                borderWidth: '2px'
               }}
             >
-              HoraEntra
+              3
             </div>
             <div
               style={{
                 width: '11vw',
-                height: '4vh',
+                minHeight: '4vh',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                flex: 1,
+                overflow: 'auto',
+                borderRightColor: '#D7D5D5',
+                borderLeft: 'none',
+                borderTop: 'none',
+                borderBottom: 'none',
+                borderWidth: '2px'
               }}
             >
-              FechaSalida
+              6/11/2024
             </div>
             <div
               style={{
                 width: '11vw',
-                height: '4vh',
+                minHeight: '4vh',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                flex: 1
               }}
             >
-              HoraSali
+              4
             </div>
           </div>
         </div>
-        <ServXVehRows/>
       </div>
-    </div>
-    );
+    )
   }
+  

@@ -1,3 +1,6 @@
+import { AiOutlineCar } from 'react-icons/ai'
+
+import MantModeloRows from './MantModeloRows';
 
 export default function MantModelo() {
     return (
@@ -29,17 +32,17 @@ export default function MantModelo() {
             flexDirection: 'row'
           }}
         >
-
+    <AiOutlineCar color={'#fff'} size={60} style={{ alignSelf: 'center' }} />  
         </div>
         <h1
           style={{
-            marginLeft: '-32vw',
+            marginLeft: '-27vw',
             marginTop: '1vh',
             fontSize: '24px',
             fontWeight: 'bold'
           }}
         >
-          Detalles de Servicio
+          Mantenimiento por modelo
         </h1>
         <div
           style={{
@@ -58,7 +61,7 @@ export default function MantModelo() {
         >
           <div
             style={{
-              width: '57vw',
+              width: '65vw',
               height: '4vh',
               display: 'flex',
               alignItems: 'center',
@@ -66,11 +69,6 @@ export default function MantModelo() {
               justifyContent: 'space-around',
               fontSize: '18px',
               fontWeight: 'bold',
-              borderRightColor: '#C1BFBF',
-              borderLeft: 'none',
-              borderTop: 'none',
-              borderBottom: 'none',
-              borderWidth: '2px'
             }}
           >
             <div
@@ -83,7 +81,7 @@ export default function MantModelo() {
                 alignItems: 'center'
               }}
             >
-              NumUnico
+              Cod_mod
             </div>
             <div
               style={{
@@ -95,7 +93,7 @@ export default function MantModelo() {
                 alignItems: 'center'
               }}
             >
-              NumDetalle
+              Nombre_Mod
             </div>
             <div
               style={{
@@ -107,7 +105,7 @@ export default function MantModelo() {
                 alignItems: 'center'
               }}
             >
-              Cant
+              Servicio
             </div>
             <div
               style={{
@@ -119,21 +117,25 @@ export default function MantModelo() {
                 alignItems: 'center'
               }}
             >
-              Costo
+              Kilometraje
+            </div>
+            <div
+              style={{
+                width: '11vw',
+                height: '4vh',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              TiempoUso
             </div>
           </div>
         </div>
-
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'end',
-          width: '95%',
-          height: '60px'
-        }}
-      >
+        <div style={{ overflow: 'auto' }}>
+            <MantModeloRows/>
+        </div>
       </div>
     </div>
     );

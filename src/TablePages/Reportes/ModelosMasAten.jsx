@@ -1,3 +1,5 @@
+import ModelosMasAtenRows from "./ModeloMasAtendidoRows";
+import { AiOutlineCar } from 'react-icons/ai'
 
 export default function ModelosMasAten() {
   return (
@@ -29,11 +31,15 @@ export default function ModelosMasAten() {
           flexDirection: 'row'
         }}
       >
-
+ <AiOutlineCar
+            color={'#fff'}
+            size={60}
+            style={{ alignSelf: 'center' }}
+          />
       </div>
       <h1
         style={{
-          marginLeft: '-32vw',
+          marginLeft: '-30vw',
           marginTop: '1vh',
           fontSize: '24px',
           fontWeight: 'bold'
@@ -58,7 +64,7 @@ export default function ModelosMasAten() {
       >
         <div
           style={{
-            width: '57vw',
+            width: '64vw',
             height: '4vh',
             display: 'flex',
             alignItems: 'center',
@@ -66,11 +72,6 @@ export default function ModelosMasAten() {
             justifyContent: 'space-around',
             fontSize: '18px',
             fontWeight: 'bold',
-            borderRightColor: '#C1BFBF',
-            borderLeft: 'none',
-            borderTop: 'none',
-            borderBottom: 'none',
-            borderWidth: '2px'
           }}
         >
           <div
@@ -83,7 +84,7 @@ export default function ModelosMasAten() {
               alignItems: 'center'
             }}
           >
-            NumUnico
+            Nombre 
           </div>
           <div
             style={{
@@ -95,7 +96,7 @@ export default function ModelosMasAten() {
               alignItems: 'center'
             }}
           >
-            NumDetalle
+            Marca
           </div>
           <div
             style={{
@@ -107,7 +108,7 @@ export default function ModelosMasAten() {
               alignItems: 'center'
             }}
           >
-            Cant
+            CodModelo
           </div>
           <div
             style={{
@@ -119,11 +120,11 @@ export default function ModelosMasAten() {
               alignItems: 'center'
             }}
           >
-            Costo
+            Cantidad Atendido
           </div>
         </div>
       </div>
-
+      <ModelosMasAtenRows/>
     </div>
     <div
       style={{

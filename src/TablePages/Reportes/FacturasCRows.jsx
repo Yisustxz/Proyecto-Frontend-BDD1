@@ -1,15 +1,13 @@
-export default function ClientesFRows({
-  ci_cliente,
-  nombre_cliente,
-  nombre_servicio,
-  veces_contratado,
-  monto_acumulado
-}) {
+import { AiFillEye } from "react-icons/ai";
+import { Link } from 'react-router-dom'
+
+export default function FacturasCRows() {
+  
   return (
     <div>
       <div
         style={{
-          width: '65vw',
+          width: '64vw',
           height: 'auto',
           marginTop: '1vh',
           borderBottomColor: '#C1BFBF',
@@ -24,7 +22,7 @@ export default function ClientesFRows({
       >
         <div
           style={{
-            width: '65vw',
+            width: '57vw',
             minHeight: 'auto',
             display: 'flex',
             alignItems: 'center',
@@ -37,12 +35,9 @@ export default function ClientesFRows({
             borderWidth: '2px'
           }}
         >
-          {/* 
-                Colocar las variables donde está el texto :)
-                 */}
           <div
             style={{
-              width: '10vw',
+              width: '11vw',
               minHeight: '4vh',
               display: 'flex',
               flexDirection: 'row',
@@ -56,11 +51,11 @@ export default function ClientesFRows({
               borderWidth: '2px'
             }}
           >
-            {ci_cliente}
+            Pedro Pérez
           </div>
           <div
             style={{
-              width: '10vw',
+              width: '11vw',
               minHeight: '4vh',
               display: 'flex',
               flexDirection: 'row',
@@ -75,61 +70,37 @@ export default function ClientesFRows({
               borderWidth: '2px'
             }}
           >
-            {nombre_cliente}
+            22222
           </div>
           <div
             style={{
-              width: '10vw',
+              width: '11vw',
               minHeight: '4vh',
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'center',
-              alignItems: 'center',
               flex: 1,
-              overflow: 'auto',
-              borderRightColor: '#D7D5D5',
-              borderLeft: 'none',
-              borderTop: 'none',
-              borderBottom: 'none',
-              borderWidth: '2px',
-              marginLeft: '1vw'
-            }}
-          >
-            {nombre_servicio}
-          </div>
-          <div
-            style={{
-              width: '10vw',
-              minHeight: '4vh',
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
               alignItems: 'center',
-              flex: 1,
-              borderRightColor: '#D7D5D5',
-              borderLeft: 'none',
-              borderTop: 'none',
-              borderBottom: 'none',
-              borderWidth: '2px'
             }}
           >
-            {veces_contratado}
-          </div>
-          <div
-            style={{
-              width: '10vw',
-              minHeight: '4vh',
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flex: 1
-            }}
-          >
-            {monto_acumulado}
+            12/04/2022
           </div>
         </div>
+        <div
+          style={{
+            minHeight: '4vh',
+            width: '7vw',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-around'
+          }}
+        >
+          <Link to="/FacturaTemplate">
+            <AiFillEye color={'#192C45'} size={25} style={{ cursor: 'pointer' }} />
+          </Link>
       </div>
+    </div>
     </div>
   )
 }

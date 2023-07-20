@@ -85,6 +85,7 @@ import FilterFacturaC from './TablePages/Reportes/Filtros/FilterFacturaC'
 import FilterHistor from './TablePages/Reportes/Filtros/FilterHistor'
 import FilterMantMod from './TablePages/Reportes/Filtros/FilterMantMod'
 import FilterModAten from './TablePages/Reportes/Filtros/FilterModAten'
+import FacturaTemplate from './TablePages/Reportes/FacturaTemplate'
 
 function App() {
   return (
@@ -204,6 +205,7 @@ function App() {
               <Route path='/FilterHistor' element={<FilterHistor/>} />
               <Route path='/FilterMantMod' element={<FilterMantMod/>} />
               <Route path='/FilterModAten' element={<FilterModAten/>} />
+              <Route path='/FacturaTemplate' element={<FacturaTemplate/>} />
             </Routes>
           </div>
         </div>
