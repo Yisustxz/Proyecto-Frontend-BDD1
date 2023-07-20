@@ -1,9 +1,26 @@
-import ServiciosPersonalRows from "./ServicioPersonalRows";
+import ServiciosPersonalRows from './ServicioPersonalRows'
 import { FaUserFriends } from 'react-icons/fa'
+import { useState, useEffect, useCallback } from 'react'
+import { getServicioPersonal } from '../../services/ServiciosPersonal.services'
 
 export default function SolicitudServ() {
-    return (
-      <div>
+  const [solicitudServ, setSolicitudServ] = useState([])
+
+  const fetchData = async () => {
+    try {
+      const data = await getServicioPersonal()
+      console.log(JSON.stringify(data))
+      setSolicitudServ(data.items)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+  return (
+    <div>
       <div
         style={{
           height: '60vh',
@@ -31,7 +48,7 @@ export default function SolicitudServ() {
             flexDirection: 'row'
           }}
         >
-<FaUserFriends
+          <FaUserFriends
             color={'#fff'}
             size={60}
             style={{ alignSelf: 'center' }}
@@ -45,7 +62,7 @@ export default function SolicitudServ() {
             fontWeight: 'bold'
           }}
         >
-            Servicios por personal
+          Servicios por personal
         </h1>
         <div
           style={{
@@ -71,7 +88,7 @@ export default function SolicitudServ() {
               flexDirection: 'row',
               justifyContent: 'space-around',
               fontSize: '18px',
-              fontWeight: 'bold',
+              fontWeight: 'bold'
             }}
           >
             <div
@@ -110,7 +127,7 @@ export default function SolicitudServ() {
             >
               Mes
             </div>
-            
+
             <div
               style={{
                 width: '11vw',
@@ -125,8 +142,16 @@ export default function SolicitudServ() {
             </div>
           </div>
         </div>
-        <ServiciosPersonalRows/>
+        {solicitudServ.map((solicitud) => (
+          <ServiciosPersonalRows
+            key={solicitud.ci_trabajador}
+            ci_trabajador={solicitud.ci_trabajador}
+            nombre_trabajador={solicitud.nombre_trabajador}
+            mes={solicitud.mes}
+            cantidad_servicios={solicitud.cantidad_servicios}
+          />
+        ))}
       </div>
     </div>
-    );
-  }
+  )
+}

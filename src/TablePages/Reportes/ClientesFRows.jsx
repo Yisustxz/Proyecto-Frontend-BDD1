@@ -1,7 +1,10 @@
-
-
-export default function ClientesFRows() {
-  
+export default function ClientesFRows({
+  ci_cliente,
+  nombre_cliente,
+  nombre_servicio,
+  veces_contratado,
+  monto_acumulado
+}) {
   return (
     <div>
       <div
@@ -53,7 +56,7 @@ export default function ClientesFRows() {
               borderWidth: '2px'
             }}
           >
-            28534711
+            {ci_cliente}
           </div>
           <div
             style={{
@@ -72,7 +75,7 @@ export default function ClientesFRows() {
               borderWidth: '2px'
             }}
           >
-            Cristina Morales Padron
+            {nombre_cliente}
           </div>
           <div
             style={{
@@ -92,7 +95,7 @@ export default function ClientesFRows() {
               marginLeft: '1vw'
             }}
           >
-            Pintura
+            {nombre_servicio}
           </div>
           <div
             style={{
@@ -110,7 +113,7 @@ export default function ClientesFRows() {
               borderWidth: '2px'
             }}
           >
-            8
+            {veces_contratado}
           </div>
           <div
             style={{
@@ -123,7 +126,7 @@ export default function ClientesFRows() {
               flex: 1
             }}
           >
-            5
+            {monto_acumulado}
           </div>
         </div>
       </div>

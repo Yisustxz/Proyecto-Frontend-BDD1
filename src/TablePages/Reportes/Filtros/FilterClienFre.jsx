@@ -1,11 +1,35 @@
 import FondoArbol from '../../../Image/fondoarbol.jpg'
 import { Link } from 'react-router-dom'
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch } from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom'
+import { useCallback, useEffect, useState } from 'react'
 
 export default function FilterClienFre() {
+  const [filtroCliente, setFiltroCliente] = useState({
+    fecha_inicio: '',
+    fecha_final: ''
+  })
+  const navigate = useNavigate()
 
-    return (
-        <div>
+  const handleChange = (e) => {
+    setFiltroCliente({
+      ...filtroCliente,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    try {
+      console.log('hola', event)
+      navigate('/ClientesFrecuentes', { state: filtroCliente })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  return (
+    <div>
       <img
         src={FondoArbol}
         alt='fondoarbol'
@@ -38,9 +62,15 @@ export default function FilterClienFre() {
           justifyContent: 'center'
         }}
       >
-        <AiOutlineSearch color={'black'}
-              size={40}
-              style={{ marginLeft: '18vh', position: 'absolute', marginTop: '-25vh' }}/>
+        <AiOutlineSearch
+          color={'black'}
+          size={40}
+          style={{
+            marginLeft: '18vh',
+            position: 'absolute',
+            marginTop: '-25vh'
+          }}
+        />
         <h1
           style={{
             color: '#000',
@@ -66,7 +96,7 @@ export default function FilterClienFre() {
             minHeight: '40vh',
             marginTop: '-6vh'
           }}
-
+          onSubmit={handleSubmit}
         >
           <label style={{ paddingBottom: '15px' }}>
             {' '}
@@ -85,41 +115,73 @@ export default function FilterClienFre() {
             >
               Rango
             </h2>
-            <div style={{width: '25vw', height: '7vh', display: 'flex', flexDirection: 'row', marginBottom: '2vh'}}>
-                <div style={{width: '12vw', height: '10vh', display: 'flex', flexDirection: 'column'}}>
-                <h1 style={{fontWeight: 'normal', fontSize: '20px'}}>Fecha inicio</h1>
-                <input
-              type='date'
+            <div
               style={{
-                borderWidth: '2px',
-                borderColor: '#C1BFBF',
-                borderRadius: '10px',
-                marginBottom: '15px',
-                paddingLeft: '10px',
-                fontSize: '20px',
-                fontWeight: 'normal',
-                width: '10vw',
-                height: '7vh'
+                width: '25vw',
+                height: '7vh',
+                display: 'flex',
+                flexDirection: 'row',
+                marginBottom: '2vh'
               }}
-            />
-                </div>
-                <div style={{width: '12vw', height: '10vh', display: 'flex', flexDirection: 'column'}}>
-                <h1 style={{fontWeight: 'normal', fontSize: '20px'}}>Fecha final</h1>
+            >
+              <div
+                style={{
+                  width: '12vw',
+                  height: '10vh',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+              >
+                <h1 style={{ fontWeight: 'normal', fontSize: '20px' }}>
+                  Fecha inicio
+                </h1>
                 <input
-              type='date'
-              style={{
-                borderWidth: '2px',
-                borderColor: '#C1BFBF',
-                borderRadius: '10px',
-                marginBottom: '15px',
-                paddingLeft: '10px',
-                fontSize: '20px',
-                fontWeight: 'normal',
-                width: '10vw',
-                height: '7vh'
-              }}
-            />
-                </div>
+                  name='fecha_inicio'
+                  type='date'
+                  style={{
+                    borderWidth: '2px',
+                    borderColor: '#C1BFBF',
+                    borderRadius: '10px',
+                    marginBottom: '15px',
+                    paddingLeft: '10px',
+                    fontSize: '20px',
+                    fontWeight: 'normal',
+                    width: '10vw',
+                    height: '7vh'
+                  }}
+                  value={filtroCliente.fecha_inicio}
+                  onChange={handleChange}
+                />
+              </div>
+              <div
+                style={{
+                  width: '12vw',
+                  height: '10vh',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+              >
+                <h1 style={{ fontWeight: 'normal', fontSize: '20px' }}>
+                  Fecha final
+                </h1>
+                <input
+                  name='fecha_final'
+                  type='date'
+                  style={{
+                    borderWidth: '2px',
+                    borderColor: '#C1BFBF',
+                    borderRadius: '10px',
+                    marginBottom: '15px',
+                    paddingLeft: '10px',
+                    fontSize: '20px',
+                    fontWeight: 'normal',
+                    width: '10vw',
+                    height: '7vh'
+                  }}
+                  value={filtroCliente.fecha_final}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
           </label>
           <div
@@ -129,30 +191,29 @@ export default function FilterClienFre() {
               justifyContent: 'flex-start'
             }}
           >
-            <Link to='/ClientesFrecuentes'>
-              <button
-                type='button'
-                style={{
-                    width: '8vw',
-                    height: '5vh',
-                    borderRadius: '10px',
-                    backgroundColor: '#478F4D',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    cursor: 'pointer',
-                    boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.2)',
-                    fontWeight: 'bold',
-                    fontSize: '20px'
-                }}
-              >
-                Filtrar
-              </button>
-            </Link>
+            <button
+              type='button'
+              onClick={handleSubmit}
+              style={{
+                width: '8vw',
+                height: '5vh',
+                borderRadius: '10px',
+                backgroundColor: '#478F4D',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                cursor: 'pointer',
+                boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.2)',
+                fontWeight: 'bold',
+                fontSize: '20px'
+              }}
+            >
+              Filtrar
+            </button>
           </div>
         </form>
       </div>
     </div>
-    );
-  }
+  )
+}

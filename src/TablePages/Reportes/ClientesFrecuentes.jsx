@@ -1,9 +1,26 @@
 import { FaUserAlt } from 'react-icons/fa'
-import ClientesFRows from './ClientesFRows';
+import ClientesFRows from './ClientesFRows'
+import { getClienteFrecuente } from '../../services/clienteFrecuente.services'
+import { useCallback, useEffect, useState } from 'react'
 
-export default function ClientesFrecuentes() {
-    return (
-      <div>
+export default function ClientesFrecuentes({ filtro_cliente }) {
+  const [clienteFrecuente, setClienteFrecuente] = useState([])
+
+  const fetchData = useCallback(async () => {
+    try {
+      const data = await getClienteFrecuente(filtro_cliente)
+      setClienteFrecuente(data.items)
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
+
+  return (
+    <div>
       <div
         style={{
           height: '60vh',
@@ -31,7 +48,7 @@ export default function ClientesFrecuentes() {
             flexDirection: 'row'
           }}
         >
-        <FaUserAlt color={'#fff'} size={60} style={{ alignSelf: 'center' }} />  
+          <FaUserAlt color={'#fff'} size={60} style={{ alignSelf: 'center' }} />
         </div>
         <h1
           style={{
@@ -67,7 +84,7 @@ export default function ClientesFrecuentes() {
               flexDirection: 'row',
               justifyContent: 'space-around',
               fontSize: '18px',
-              fontWeight: 'bold',
+              fontWeight: 'bold'
             }}
           >
             <div
@@ -133,9 +150,15 @@ export default function ClientesFrecuentes() {
           </div>
         </div>
         <div style={{ overflow: 'auto' }}>
-            <ClientesFRows/>
+          {clienteFrecuente.map((cliente) => (
+            <ClientesFRows
+              {...clienteFrecuente}
+              getClienteFrecuente={fetchData}
+            />
+          ))}
+          <ClientesFRows />
         </div>
       </div>
     </div>
-    );
-  }
+  )
+}
