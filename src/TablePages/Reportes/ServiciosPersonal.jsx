@@ -9,8 +9,7 @@ export default function SolicitudServ() {
   const fetchData = async () => {
     try {
       const data = await getServicioPersonal()
-      console.log(JSON.stringify(data))
-      setSolicitudServ(data.items)
+      setSolicitudServ(data.item)
     } catch (error) {
       console.log(error.message)
     }

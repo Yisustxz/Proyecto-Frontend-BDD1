@@ -7,9 +7,7 @@ export const getServicioPersonal = async () => {
   try {
     const res = await axios.get(BASE_URL)
     console.log(res.data)
-    if (!res.data.items || !res.data.success) {
-      throw new Error(res.data)
-    }
+    console.log("hola")
     return res.data
   } catch (error) {
     if (error.response) {
